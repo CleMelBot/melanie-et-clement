@@ -2,159 +2,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariage Mélanie & Clément</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdfcef;
-      color: #1f3c2e;
-    }
-
-    header {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-
-    header img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    header .overlay {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    header .overlay h1 {
-      font-size: 2rem;
-      margin: 0;
-    }
-
-    header .overlay p {
-      font-size: 1.2rem;
-    }
-
-    .countdown-banner {
-      background-color: #f9f7f1;
-      padding: 15px;
-      margin-bottom: 1px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #a9471b;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 15px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      z-index: 1000;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #1f3c2e;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    section {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #1f3c2e;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .btn-group a {
-      display: inline-block;
-      background-color: #2f4d3a;
-      color: white;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-      padding: 1rem;
-      color: #555;
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage Mélanie & Clément</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfcef;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .hero-text {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hero-text h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        .hero-text p {
+            font-size: 1.2em;
+            margin: 0.5em 0 0;
+        }
+        .countdown-banner {
+            background-color: #f8f5eb;
+            color: #9b3d18;
+            text-align: center;
+            padding: 1em;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: white;
+            position: sticky;
+            top: 1px;
+            z-index: 999;
+            text-align: center;
+            padding: 0.5em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #294936;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        section {
+            padding: 2em;
+            text-align: center;
+        }
+        section h2 {
+            color: #294936;
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+        section img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1em;
+        }
+        .button-group {
+            margin-top: 1em;
+        }
+        .button-group a {
+            display: block;
+            margin: 0.5em auto;
+            padding: 0.8em 1.2em;
+            background-color: #294936;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            max-width: 300px;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <img src="banner.jpg" alt="Photo Mélanie & Clément">
-  <div class="overlay">
-    <h1>Mélanie & Clément</h1>
-    <p>Le 28 juin 2025</p>
-  </div>
-</header>
+<div class="hero">
+    <img src="banner.jpg" alt="Photo Mélanie & Clément">
+    <div class="hero-text">
+        <h1>Mélanie & Clément</h1>
+        <p>Le 28 juin 2025</p>
+    </div>
+</div>
 
-<div class="countdown-banner" id="countdown-banner">
-  Mariage Mélanie & Clément – Décollage dans...
+<div class="countdown-banner" id="countdown">
+    Mariage Mélanie & Clément – Décollage dans...
 </div>
 
 <nav>
-  <a href="#ceremonie">Cérémonie</a>
-  <a href="#reception">Réception</a>
-  <a href="#reponse">Réponse</a>
+    <a href="#ceremonie">Cérémonie</a>
+    <a href="#reception">Réception</a>
+    <a href="#liste">Liste de mariage</a>
+    <a href="#photos">Photos</a>
+    <a href="#reponse">Réponse</a>
 </nav>
 
-<!-- Contenu exemple -->
 <section id="ceremonie">
-  <h2>Cérémonie</h2>
-  <p>Abbaye de Saint-Martin de Boscherville</p>
+    <h2>Cérémonie</h2>
+    <img src="lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville">
+    <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <div class="button-group">
+        <a href="https://www.google.com/maps/place/Abbaye+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
+        <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+    </div>
+</section>
+
+<section id="reception">
+    <h2>Réception</h2>
+    <img src="lieu_reception.jpg" alt="Abbaye du Valasse">
+    <p>17h00 - Abbaye du Valasse - Salle des Convers</p>
+    <div class="button-group">
+        <a href="https://www.google.com/maps?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank">Itinéraire avec Google Maps</a>
+        <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+    </div>
+</section>
+
+<section id="liste">
+    <h2>Liste de mariage</h2>
+    <p>Contenu à venir.</p>
+</section>
+
+<section id="photos">
+    <h2>Photos</h2>
+    <p>Galerie à venir.</p>
+</section>
+
+<section id="reponse">
+    <h2>Réponse</h2>
+    <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
+    <div class="button-group">
+        <a href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
+    </div>
+    <p>Ou par téléphone :</p>
+    <p>Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></p>
+    <p>Clément : <a href="tel:+33645873429">06 45 87 34 29</a></p>
 </section>
 
 <script>
-  const eventDate = new Date("June 28, 2025 14:00:00").getTime();
-  const countdownEl = document.getElementById("countdown-banner");
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = eventDate - now;
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    countdownEl.innerHTML = `Mariage Mélanie & Clément – Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
-  }, 1000);
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date("June 28, 2025 14:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdown.innerHTML = `Mariage Mélanie & Clément – Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
 </script>
 
 </body>
