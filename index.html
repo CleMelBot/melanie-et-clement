@@ -1,71 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mariage Mélanie & Clément</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
+      font-family: 'Quicksand', sans-serif;
       margin: 0;
-      font-family: 'Courier New', monospace;
-      background-color: #fff6e5;
-      color: #1f4d3d;
+      background-color: #fffdf7;
+      color: #2e463b;
     }
-    .parallax {
-      background-image: url("banner.jpg");
-      height: 400px;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('banner.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
     }
-    .content {
-      padding: 30px;
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 999;
+      font-weight: 600;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    nav a {
+      color: #2e463b;
+      text-decoration: none;
+    }
+    .compteur {
+      background-color: #f5f0eb;
+      color: #b85c38;
+      padding: 1.5rem;
+      margin: -5vh auto 4rem auto;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      max-width: 90%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    section {
+      padding: 2rem 1rem;
       text-align: center;
     }
-    .counter-box {
-      border: 3px dashed #b55228;
-      background-color: #fff6e5;
-      padding: 20px;
-      max-width: 90%;
-      margin: 0 auto;
-      font-size: 1.5em;
+    section:nth-child(even) {
+      background-color: #f9f9f9;
     }
-    .counter-box strong {
-      display: block;
-      font-size: 1.6em;
-      color: #1f4d3d;
+    img {
+      max-width: 90%;
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+    .button {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.2rem;
+      background-color: #2e463b;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
 
-<div class="parallax"></div>
+<header>
+  <h1>Mélanie & Clément</h1>
+  <p>Le 28 juin 2025</p>
+</header>
 
-<div class="content">
-  <div class="counter-box">
-    <strong>Mariage Mélanie & Clément</strong>
-    <span id="countdown">Décollage dans ...</span>
-  </div>
+<nav>
+  <a href="#ceremonie">Cérémonie</a>
+  <a href="#reception">Réception</a>
+  <a href="#rsvp">Réponse</a>
+</nav>
+
+<div class="compteur">
+  Mariage Mélanie & Clément – <span id="countdown">Décollage dans...</span>
 </div>
 
+<section id="ceremonie">
+  <h2>Cérémonie</h2>
+  <img src="lieu_ceremonie.jpg" alt="Lieu de la cérémonie">
+  <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
+  <a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank"><i class="fas fa-map-marker-alt"></i> Itinéraire avec Google Maps</a>
+  <a class="button" href="https://waze.com/ul?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank"><i class="fab fa-waze"></i> Itinéraire avec Waze</a>
+</section>
+
+<section id="reception">
+  <h2>Réception</h2>
+  <img src="lieu_reception.jpg" alt="Lieu de la réception">
+  <p>À partir de 17h - Abbaye du Valasse, salle des Convers</p>
+  <a class="button" href="https://maps.google.com/?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank"><i class="fas fa-map-marker-alt"></i> Itinéraire avec Google Maps</a>
+  <a class="button" href="https://waze.com/ul?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank"><i class="fab fa-waze"></i> Itinéraire avec Waze</a>
+</section>
+
+<section id="rsvp">
+  <h2>Réponse</h2>
+  <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
+  <a class="button" href="mailto:clemel.bottois@hotmail.com"><i class="fas fa-envelope"></i> Envoyer un e-mail</a>
+  <p><i class="fas fa-phone"></i> Mélanie : <a href="tel:0607029462">06 07 02 94 62</a></p>
+  <p><i class="fas fa-phone"></i> Clément : <a href="tel:0645873429">06 45 87 34 29</a></p>
+</section>
+
+<footer>
+  © 2025 Mélanie & Clément – Tous droits réservés
+</footer>
+
 <script>
-  const countdown = () => {
-    const eventDate = new Date("2025-06-28T14:00:00").getTime();
+  const countdown = document.getElementById("countdown");
+  const eventDate = new Date("June 28, 2025 14:00:00").getTime();
+  setInterval(() => {
     const now = new Date().getTime();
-    const distance = eventDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML = 
-      "Décollage dans " + days + "j " + hours + "h " + minutes + "m " + seconds + "s";
-  };
-
-  countdown();
-  setInterval(countdown, 1000);
+    const diff = eventDate - now;
+    if (diff <= 0) {
+      countdown.innerHTML = "C'est le grand jour !";
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    countdown.innerHTML = `Décollage dans ${d}j ${h}h ${m}m ${s}s`;
+  }, 1000);
 </script>
 
 </body>
