@@ -4,136 +4,63 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<title>Mélanie &amp; Clément</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mariage Mélanie &amp; Clément</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <style>
-    body {
-      margin: 0;
-      background-color: #fdf4e3;
-      font-family: 'Courier New', monospace;
-      color: #004225;
-    }
-    header {
-      position: relative;
-      height: 60vh;
-      overflow: hidden;
-    }
-    header img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .countdown-block {
-      background-color: #fff3e6;
-      margin: -40px auto 60px auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 90%;
-      max-width: 500px;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #c1440e;
-      border: 3px dashed #c1440e;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      text-align: center;
-      color: #004225;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-    .location, .gallery {
-      text-align: center;
-    }
-    .location img, .gallery img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-    .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .gallery-grid img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .rsvp {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    .rsvp p {
-      margin-bottom: 10px;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #004225;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-  </style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #FFF6E5;
+            color: #114232;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .section {
+            padding: 20px;
+        }
+        .photo {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        .btn {
+            background-color: #114232;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #19603d;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+    </style>
 </head>
 <body>
-<header>
-<img alt="Photo Mélanie &amp; Clément" src="banner.jpg"/>
-</header>
-<div class="countdown-block" id="countdown" style="background-color: #fff3e6; padding: 20px 15px; border-radius: 12px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); text-align: center; width: 90%; margin: 30px auto 40px auto; font-size: 1.4rem; font-weight: bold; color: #c1440e; border: 3px dashed #c1440e; line-height: 1.6;"><div style="font-size: 1.5rem; color: #004225; margin-bottom: 12px;">Mariage Mélanie &amp; Clément</div><div style="font-size: 1.3rem; font-weight: bold; color: #c1440e;">Décollage dans <span id="timer"></span></div></div>
-<section>
-<h2>Cérémonie</h2>
-<div class="location">
-<img alt="Abbaye Saint-Martin de Boscherville" src="lieu_ceremonie.jpg"/>
-<p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p><a class="button" href="https://www.google.com/maps?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a><br/><a class="button" href="https://waze.com/ul?ll=49.419892,0.963902&amp;navigate=yes" target="_blank">Voir sur Waze</a>
+<div class="section">
+<img alt="Photo Mélanie &amp; Clément" class="photo" src="photo_accueil.jpeg"/>
 </div>
-</section>
-<section>
-<h2>Réception</h2>
-<div class="location">
-<img alt="Abbaye du Valasse" src="lieu_reception.jpg"/>
+<div class="section">
+<div class="title">Cérémonie</div>
+<img alt="Abbaye Saint-Martin de Boscherville" class="photo" src="photo_ceremonie.jpeg"/>
+<p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
+<a class="btn" href="https://www.google.com/maps/place/Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a>
+<a class="btn" href="https://waze.com/ul?ll=49.420208,0.957233" target="_blank">Voir sur Waze</a>
+</div>
+<div class="section">
+<div class="title">Réception</div>
+<img alt="Abbaye du Valasse" class="photo" src="photo_reception.jpeg"/>
 <p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
+<a class="btn" href="https://www.google.com/maps/place/289+Rue+de+la+Bréarderie,+76210+Gruchet-le-Valasse" target="_blank">Voir sur Google Maps</a>
+<a class="btn" href="https://waze.com/ul?ll=49.554006,0.482022" target="_blank">Voir sur Waze</a>
 </div>
-</section>
-<section>
-<h2>Réponse</h2>
-<div class="rsvp">
-<p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-<p>Par mail à : <strong>clemel.bottois@hotmail.com</strong></p>
-<p>Ou par téléphone :<br/>
-      Mélanie : 06 07 02 94 62<br/>
-      Clément : 06 45 87 34 29</p>
-</div>
-</section>
-<script>
-const targetDate = new Date("2025-06-28T13:45:00").getTime();
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-  const timer = document.getElementById("timer");
-  if (timer) {
-    timer.textContent = `${days}j ${hours}h ${minutes}m ${seconds}s`;
-  }
-}, 1000);
-</script>
-</body>
+<div class="section"><div class="title">Réponse</div><p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p><a class="btn" href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a><p>Ou par téléphone : Mélanie : 06 07 02 94 62 | Clément : 06 45 87 34 29</p></div></body>
 </html>
