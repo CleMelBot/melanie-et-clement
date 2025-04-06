@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mélanie & Clément</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+<meta charset="utf-8"/>
+<title>Mélanie &amp; Clément</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
     body {
       margin: 0;
       background-color: #fdf4e3;
@@ -91,64 +92,48 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="banner.jpg" alt="Photo Mélanie & Clément">
-  </header>
-
-  <div id="countdown" class="countdown-block"></div>
-
-  <section>
-    <h2>Cérémonie</h2>
-    <div class="location">
-      <img src="lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville">
-      <p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
-      <a class="button" href="https://maps.google.com/?q=Abbaye+Saint+Martin+de+Boscherville+76840" target="_blank">Voir sur Google Maps</a>
-    </div>
-  </section>
-
-  <section>
-    <h2>Réception</h2>
-    <div class="location">
-      <img src="lieu_reception.jpg" alt="Abbaye du Valasse">
-      <p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Réponse</h2>
-    <div class="rsvp">
-      <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-      <p>Par mail à : <strong>clemel.bottois@hotmail.com</strong></p>
-      <p>Ou par téléphone :<br>
-      Mélanie : 06 07 02 94 62<br>
+<header>
+<img alt="Photo Mélanie &amp; Clément" src="banner.jpg"/>
+</header>
+<div class="countdown-block" id="countdown" style="background-color: #fff3e6; margin: 40px auto 60px auto; padding: 30px; border-radius: 12px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.1); text-align: center; width: 90%; font-size: 1.6rem; font-weight: bold; color: #c1440e; border: 3px dashed #c1440e; line-height: 1.8;"><div style="font-size: 1.5rem; color: #004225; margin-bottom: 12px;">Mariage Mélanie &amp; Clément</div><div style="font-size: 1.3rem; font-weight: bold; color: #c1440e;">Décollage dans <span id="timer"></span></div></div>
+<section>
+<h2>Cérémonie</h2>
+<div class="location">
+<img alt="Abbaye Saint-Martin de Boscherville" src="lieu_ceremonie.jpg"/>
+<p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p><a class="button" href="https://www.google.com/maps?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a><br/><a class="button" href="https://waze.com/ul?ll=49.419892,0.963902&amp;navigate=yes" target="_blank">Voir sur Waze</a>
+</div>
+</section>
+<section>
+<h2>Réception</h2>
+<div class="location">
+<img alt="Abbaye du Valasse" src="lieu_reception.jpg"/>
+<p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
+</div>
+</section>
+<section>
+<h2>Réponse</h2>
+<div class="rsvp">
+<p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
+<p>Par mail à : <strong>clemel.bottois@hotmail.com</strong></p>
+<p>Ou par téléphone :<br/>
+      Mélanie : 06 07 02 94 62<br/>
       Clément : 06 45 87 34 29</p>
-    </div>
-  </section>
-
-  <script>
-    function updateCountdown() {
-      const countdownEl = document.getElementById('countdown');
-      const weddingDate = new Date("2025-06-28T00:00:00");
-      const now = new Date();
-      const diff = weddingDate - now;
-
-      if (diff <= 0) {
-        countdownEl.textContent = "C’EST LE GRAND JOUR !";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownEl.textContent = `Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    });
-  </script>
+</div>
+</section>
+<script>
+const targetDate = new Date("2025-06-28T13:45:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  const timer = document.getElementById("timer");
+  if (timer) {
+    timer.textContent = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+  }
+}, 1000);
+</script>
 </body>
 </html>
