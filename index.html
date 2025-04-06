@@ -5,169 +5,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariage Mélanie & Clément</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdfcef;
+            background: #fefdf5;
+            color: #1c3b2f;
         }
-        .hero {
-            position: relative;
+        header {
+            background-color: #fefdf5;
             text-align: center;
-            color: white;
+            padding: 2em 1em 1em 1em;
         }
-        .hero img {
+        .banner {
             width: 100%;
             height: auto;
-            display: block;
         }
-        .hero-text {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .hero-text h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-        .hero-text p {
-            font-size: 1.2em;
-            margin: 0.5em 0 0;
-        }
-        .countdown-banner {
-            background-color: #f8f5eb;
-            color: #9b3d18;
-            text-align: center;
+        .countdown {
+            background-color: #f9f8f4;
+            color: #a3471e;
             padding: 1em;
             font-size: 1.4em;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
         }
         nav {
-            background-color: white;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
-            top: 1px;
-            z-index: 999;
-            text-align: center;
-            padding: 0.5em 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0.5em;
+        }
+        nav li {
+            margin: 0 1em;
         }
         nav a {
-            margin: 0 15px;
             text-decoration: none;
-            color: #294936;
             font-weight: bold;
-            font-size: 1em;
+            color: #1c3b2f;
         }
         section {
-            padding: 2em;
-            text-align: center;
+            padding: 2em 1em;
         }
-        section h2 {
-            color: #294936;
+        h2 {
+            color: #1c3b2f;
             font-size: 1.8em;
-            margin-bottom: 1em;
+            margin-bottom: 0.5em;
         }
-        section img {
-            max-width: 100%;
-            border-radius: 12px;
-            margin-bottom: 1em;
+        .photo-section {
+            display: flex;
+            align-items: center;
+            gap: 1em;
         }
-        .button-group {
-            margin-top: 1em;
+        .photo-section img {
+            width: 60px;
+            height: 60px;
         }
-        .button-group a {
-            display: block;
-            margin: 0.5em auto;
-            padding: 0.8em 1.2em;
-            background-color: #294936;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            max-width: 300px;
+        .photo-section a {
+            color: #a3471e;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-
-<div class="hero">
-    <img src="banner.jpg" alt="Photo Mélanie & Clément">
-    <div class="hero-text">
+    <header>
+        <img src="https://clemelbot.github.io/banner.jpg" alt="Photo Mélanie & Clément" class="banner">
         <h1>Mélanie & Clément</h1>
         <p>Le 28 juin 2025</p>
-    </div>
-</div>
-
-<div class="countdown-banner" id="countdown">
-    Mariage Mélanie & Clément – Décollage dans...
-</div>
-
-<nav>
-    <a href="#ceremonie">Cérémonie</a>
-    <a href="#reception">Réception</a>
-    <a href="#liste">Liste de mariage</a>
-    <a href="#photos">Photos</a>
-    <a href="#reponse">Réponse</a>
-</nav>
-
-<section id="ceremonie">
-    <h2>Cérémonie</h2>
-    <img src="lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville">
-    <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
-    <div class="button-group">
-        <a href="https://www.google.com/maps/place/Abbaye+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
-        <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">Itinéraire avec Waze</a>
-    </div>
-</section>
-
-<section id="reception">
-    <h2>Réception</h2>
-    <img src="lieu_reception.jpg" alt="Abbaye du Valasse">
-    <p>17h00 - Abbaye du Valasse - Salle des Convers</p>
-    <div class="button-group">
-        <a href="https://www.google.com/maps?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank">Itinéraire avec Google Maps</a>
-        <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">Itinéraire avec Waze</a>
-    </div>
-</section>
-
-<section id="liste">
-    <h2>Liste de mariage</h2>
-    <p>Contenu à venir.</p>
-</section>
-
-<section id="photos">
-    <h2>Photos</h2>
-    <p>Galerie à venir.</p>
-</section>
-
-<section id="reponse">
-    <h2>Réponse</h2>
-    <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-    <div class="button-group">
-        <a href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
-    </div>
-    <p>Ou par téléphone :</p>
-    <p>Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></p>
-    <p>Clément : <a href="tel:+33645873429">06 45 87 34 29</a></p>
-</section>
-
-<script>
-    const countdown = document.getElementById('countdown');
-    const weddingDate = new Date("June 28, 2025 14:00:00").getTime();
-    setInterval(() => {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        countdown.innerHTML = `Mariage Mélanie & Clément – Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-</script>
-
+    </header>
+    <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
+    <nav>
+        <ul>
+            <li><a href="#ceremonie">Cérémonie</a></li>
+            <li><a href="#reception">Réception</a></li>
+            <li><a href="#liste">Liste de mariage</a></li>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#reponse">Réponse</a></li>
+        </ul>
+    </nav>
+    <section id="ceremonie">
+        <h2>Cérémonie</h2>
+        <p>Détails à venir...</p>
+    </section>
+    <section id="reception">
+        <h2>Réception</h2>
+        <p>Détails à venir...</p>
+    </section>
+    <section id="liste">
+        <h2>Liste de mariage</h2>
+        <p>Contenu à venir...</p>
+    </section>
+    <section id="photos">
+        <h2>Photos</h2>
+        <div class="photo-section">
+            <img src="icloud_logo.png" alt="Logo iCloud">
+            <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
+        </div>
+    </section>
+    <section id="reponse">
+        <h2>Réponse</h2>
+        <p>Merci de confirmer votre présence avant le 30 avril 2025.</p>
+    </section>
 </body>
 </html>
