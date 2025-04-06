@@ -4,23 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Mariage Mélanie & Clément</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
-            background-color: #fff8e7;
+            background-color: #FFF6E5;
+            color: #114232;
+            text-align: center;
             margin: 0;
             padding: 0;
         }
-        .header-photo {
+        .section {
+            padding: 20px;
+        }
+        .photo {
             width: 100%;
-            display: block;
-            margin: 0 auto;
             max-width: 100%;
             height: auto;
+        }
+        .btn {
+            background-color: #114232;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #19603d;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0 10px;
         }
     </style>
 </head>
 <body>
-    <img src="header_entete.jpg" alt="Photo Mélanie & Clément" class="header-photo">
+
+    <div class="section">
+        <img src="photo_accueil.jpeg" alt="Photo Mélanie & Clément" class="photo">
+    </div>
+
+    <div class="section">
+        <div class="title">Cérémonie</div>
+        <img src="photo_ceremonie.jpeg" alt="Abbaye Saint-Martin de Boscherville" class="photo">
+        <p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
+        <a href="https://www.google.com/maps/place/Abbaye+Saint-Martin+de+Boscherville" class="btn" target="_blank">Voir sur Google Maps</a>
+        <a href="https://waze.com/ul?ll=49.420208,0.957233" class="btn" target="_blank">Voir sur Waze</a>
+    </div>
+
+    <div class="section">
+        <div class="title">Réception</div>
+        <img src="photo_reception.jpeg" alt="Abbaye du Valasse" class="photo">
+        <p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
+        <a href="https://www.google.com/maps/place/289+Rue+de+la+Bréarderie,+76210+Gruchet-le-Valasse" class="btn" target="_blank">Voir sur Google Maps</a>
+        <a href="https://waze.com/ul?ll=49.554006,0.482022" class="btn" target="_blank">Voir sur Waze</a>
+    </div>
+
 </body>
 </html>
