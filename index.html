@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mariage Mélanie &amp; Clément</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariage Mélanie & Clément</title>
+  <style>
     body {
       font-family: 'Courier New', Courier, monospace;
       background-color: #fdf1dc;
@@ -58,34 +57,39 @@
   </style>
 </head>
 <body>
-<img alt="Photo Mélanie &amp; Clément" src="banner.jpg"/>
-<div class="countdown-box">
-<div class="countdown-title">Mariage Mélanie &amp; Clément</div>
-<div class="countdown" id="countdown">Décollage dans ...</div>
-</div>
-<div class="section">
-<h2>Cérémonie</h2>
-<img alt="Abbaye Saint-Martin de Boscherville" src="lieu_ceremonie.jpg"/>
-<p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
-<a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a>
-<a class="button" href="https://waze.com/ul?ll=49.437022,0.919652&amp;navigate=yes" target="_blank">Voir sur Waze</a>
-</div>
-<div class="section">
-<h2>Réception</h2>
-<img alt="Abbaye du Valasse" src="lieu_reception.jpg"/>
-<p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
-<a class="button" href="https://maps.google.com/?q=289+Rue+de+la+Bréarderie+76210+Gruchet-le-Valasse" target="_blank">Voir sur Google Maps</a>
-<a class="button" href="https://waze.com/ul?ll=49.53127,0.48041&amp;navigate=yes" target="_blank">Voir sur Waze</a>
-</div>
-<div class="section">
-<h2>Réponse</h2>
-<p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-<a class="button" href="mailto:clemel.bottois@free.fr">Envoyer un e-mail</a>
-<div class="contact-line">Ou par téléphone :</div>
-<div class="contact-line">Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></div>
-<div class="contact-line">Clément : <a href="tel:+33645873429">06 45 87 34 29</a></div>
-</div>
-<script>
+  <img src="banner.jpg" alt="Photo Mélanie & Clément">
+
+  <div class="countdown-box">
+    <div class="countdown-title">Mariage Mélanie & Clément</div>
+    <div class="countdown" id="countdown">Décollage dans ...</div>
+  </div>
+
+  <div class="section">
+    <h2>Cérémonie</h2>
+    <img src="lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville">
+    <p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
+    <a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a>
+    <a class="button" href="https://waze.com/ul?ll=49.437022,0.919652&navigate=yes" target="_blank">Voir sur Waze</a>
+  </div>
+
+  <div class="section">
+    <h2>Réception</h2>
+    <img src="lieu_reception.jpg" alt="Abbaye du Valasse">
+    <p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
+    <a class="button" href="https://maps.google.com/?q=289+Rue+de+la+Bréarderie+76210+Gruchet-le-Valasse" target="_blank">Voir sur Google Maps</a>
+    <a class="button" href="https://waze.com/ul?ll=49.53127,0.48041&navigate=yes" target="_blank">Voir sur Waze</a>
+  </div>
+
+  <div class="section">
+    <h2>Réponse</h2>
+    <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
+    <a class="button" href="mailto:clemel.bottois@free.fr">Envoyer un e-mail</a>
+    <div class="contact-line">Ou par téléphone :</div>
+    <div class="contact-line">Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></div>
+    <div class="contact-line">Clément : <a href="tel:+33645873429">06 45 87 34 29</a></div>
+  </div>
+
+  <script>
     const countdown = document.getElementById('countdown');
     const targetDate = new Date('2025-06-28T13:45:00').getTime();
     setInterval(() => {
