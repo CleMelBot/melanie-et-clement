@@ -1,105 +1,112 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mariage Mélanie & Clément</title>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Courier New', Courier, monospace;
-      background-color: #fdf1dc;
-      color: #004225;
-      text-align: center;
+      font-family: 'Courier Prime', monospace;
+      background-color: #fdf2dc;
+      color: #003b1f;
       margin: 0;
       padding: 0;
     }
-    img {
+    .banner {
       width: 100%;
-      height: auto;
+      display: block;
     }
-    h1, h2 {
-      color: #004225;
-    }
-    .countdown-box {
-      border: 3px dashed #b84c00;
-      margin: 20px auto;
-      padding: 10px;
-      max-width: 90%;
-      background-color: #fef9f1;
-    }
-    .countdown-title {
+    .compteur-container {
+      text-align: center;
+      border: 3px dashed #b94700;
+      margin: 1em;
+      padding: 1em;
       font-weight: bold;
-      font-size: 20px;
     }
-    .countdown {
-      font-size: 20px;
-      color: #b84c00;
+    .compteur-container h2 {
+      margin: 0;
+      font-size: 1.3em;
+    }
+    .compteur-container #countdown {
+      margin-top: 0.5em;
+      color: #b94700;
+      font-size: 1.2em;
+      font-weight: bold;
     }
     .section {
-      padding: 30px 20px;
+      padding: 1em;
+      text-align: center;
+    }
+    .section img {
+      width: 90%;
+      border-radius: 10px;
     }
     .button {
-      background-color: #004225;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
+      background-color: #1f5133;
+      color: #fff;
+      padding: 0.6em 1.2em;
+      margin: 0.5em;
       display: inline-block;
-      margin: 10px auto;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    .contact-line {
-      margin-top: 5px;
-    }
-    a[href^="tel:"], a[href^="mailto:"] {
       text-decoration: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    .contact {
+      text-align: center;
+      margin: 2em;
     }
   </style>
 </head>
 <body>
-  <img src="banner.jpg" alt="Photo Mélanie & Clément">
-
-  <div class="countdown-box">
-    <div class="countdown-title">Mariage Mélanie & Clément</div>
-    <div class="countdown" id="countdown">Décollage dans ...</div>
+  <img src="banner.jpg" alt="Photo Mélanie & Clément" class="banner" />
+  <div class="compteur-container">
+    <h2>Mariage Mélanie & Clément</h2>
+    <div id="countdown">Décollage dans...</div>
   </div>
 
   <div class="section">
     <h2>Cérémonie</h2>
-    <img src="lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville">
+    <img src="lieu_ceremonie.jpg" alt="Lieu de cérémonie">
     <p>La cérémonie aura lieu à 13h45 à l’Abbaye de Saint-Martin de Boscherville.</p>
-    <a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Voir sur Google Maps</a>
-    <a class="button" href="https://waze.com/ul?ll=49.437022,0.919652&navigate=yes" target="_blank">Voir sur Waze</a>
+    <a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
+    <a class="button" href="https://waze.com/ul?ll=49.4431,0.9636&navigate=yes" target="_blank">Itinéraire avec Waze</a>
   </div>
 
   <div class="section">
     <h2>Réception</h2>
-    <img src="lieu_reception.jpg" alt="Abbaye du Valasse">
+    <img src="lieu_reception.jpg" alt="Lieu de réception">
     <p>La réception aura lieu à l’Abbaye du Valasse, dans la salle des Convers, à partir de 17h.</p>
-    <a class="button" href="https://maps.google.com/?q=289+Rue+de+la+Bréarderie+76210+Gruchet-le-Valasse" target="_blank">Voir sur Google Maps</a>
-    <a class="button" href="https://waze.com/ul?ll=49.53127,0.48041&navigate=yes" target="_blank">Voir sur Waze</a>
+    <a class="button" href="https://maps.google.com/?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank">Itinéraire avec Google Maps</a>
+    <a class="button" href="https://waze.com/ul?ll=49.5489,0.4823&navigate=yes" target="_blank">Itinéraire avec Waze</a>
   </div>
 
-  <div class="section">
+  <div class="section contact">
     <h2>Réponse</h2>
     <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-    <a class="button" href="mailto:clemel.bottois@free.fr">Envoyer un e-mail</a>
-    <div class="contact-line">Ou par téléphone :</div>
-    <div class="contact-line">Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></div>
-    <div class="contact-line">Clément : <a href="tel:+33645873429">06 45 87 34 29</a></div>
+    <a class="button" href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
+    <p>Ou par téléphone :</p>
+    <p>Mélanie : <a href="tel:0607029462">06 07 02 94 62</a></p>
+    <p>Clément : <a href="tel:0645873429">06 45 87 34 29</a></p>
   </div>
 
   <script>
     const countdown = document.getElementById('countdown');
-    const targetDate = new Date('2025-06-28T13:45:00').getTime();
-    setInterval(() => {
+    const eventDate = new Date("June 28, 2025 14:00:00").getTime();
+    const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = targetDate - now;
+      const distance = eventDate - now;
+      if (distance <= 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "C'est le grand jour !";
+        return;
+      }
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdown.textContent = `Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
   </script>
 </body>
