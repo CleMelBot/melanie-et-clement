@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mélanie & Clément</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff8f2;
+            color: #333;
+        }
+        header {
+            background-image: url('banner_resized.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin: 0;
+        }
+        h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        #countdown {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d77c5e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .green-text { color: #3c6e47; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mélanie & Clément</h1>
+    <h2>On se dit oui le 28 juin 2025 à l’Abbaye du Valasse</h2>
+    <div id="countdown"></div>
+</header>
+
+<section>
+    <h2 class="green-text">Le mariage</h2>
+    <p>La cérémonie et la fête auront lieu à l’Abbaye du Valasse, en Normandie. Plus d’infos très bientôt ici sur les horaires, le programme et les hébergements !</p>
+</section>
+
+<section>
+    <h2 class="green-text">Liste de mariage</h2>
+    <p>Vous pouvez accéder à notre liste de cadeaux ici :</p>
+    <ul>
+        <li><a href="#">Assiettes Le Creuset</a></li>
+        <li><a href="#">Séjour en amoureux</a></li>
+        <li><a href="#">Participation lune de miel</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2 class="green-text">RSVP</h2>
+    <p>Merci de nous confirmer votre présence :</p>
+    <a href="mailto:melanieetclement@email.com?subject=RSVP Mariage 28.06.2025" class="btn">Je réponds</a>
+</section>
+
+<script>
+    const countdown = () => {
+        const endDate = new Date("2025-06-28T00:00:00");
+        const now = new Date();
+        const diff = endDate - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerText = "C’est le grand jour !";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('countdown').innerText =
+            "Dans " + days + "j " + hours + "h " + minutes + "m " + seconds + "s";
+    };
+
+    setInterval(countdown, 1000);
+</script>
+
+</body>
+</html>
