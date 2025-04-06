@@ -26,6 +26,7 @@ h2 { color: #2e463b; }
       object-fit: cover;
     }
     .hero-text {
+      font-family: 'Quicksand', sans-serif;
       position: absolute;
       top: 40%;
       left: 50%;
@@ -113,7 +114,7 @@ nav {
   </div>
 
   <div class="countdown" id="countdown">
-    Mariage Mélanie & Clément – Décollage dans...
+    Mariage Mélanie & Clément Décollage dans...
   </div>
 
   <nav>
@@ -169,7 +170,7 @@ nav {
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      countdown.textContent = `Mariage Mélanie & Clément – Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
+      countdown.textContent = `Mariage Mélanie & Clément Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
     }
 
     setInterval(updateCountdown, 1000);
