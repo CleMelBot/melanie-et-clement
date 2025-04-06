@@ -1,144 +1,172 @@
 
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mariage Mélanie &amp; Clément</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariage Mélanie & Clément</title>
+  <style>
     body {
-      font-family: 'Quicksand', sans-serif;
       margin: 0;
-      background-color: #fffdf7;
-      color: #2e463b;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fcfaef;
+      color: #2d2d2d;
     }
-    header {
+    .hero {
       position: relative;
-      width: 100%;
-      height: 100vh;
-      background: url('banner.jpg') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       text-align: center;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .hero-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+    }
+    .hero-date {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.2em;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+    }
+    .countdown {
+      margin-top: -10px;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #f9f5f1;
+      color: #a04925;
+      font-size: 1.4em;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     nav {
+      background: white;
+      padding: 10px 0;
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      z-index: 999;
+      gap: 40px;
       font-weight: 600;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    nav a {
-      color: #2e463b;
-      text-decoration: none;
-    }
-    .compteur {
-      background-color: #f5f0eb;
-      color: #b85c38;
-      padding: 1.5rem;
-      margin: -5vh auto 4rem auto;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      max-width: 90%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
     section {
-      padding: 2rem 1rem;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
       text-align: center;
     }
-    section:nth-child(even) {
-      background-color: #f9f9f9;
+    section img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 20px 0;
     }
-    img {
-      max-width: 90%;
-      border-radius: 10px;
-      margin: 1rem 0;
-    }
-    .button {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.8rem 1.2rem;
-      background-color: #2e463b;
+    .btn {
+      display: block;
+      background-color: #264d3c;
       color: white;
+      padding: 12px 20px;
+      margin: 10px auto;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      width: 80%;
+      max-width: 300px;
+    }
+    .btn:hover {
+      background-color: #3b6d56;
     }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      padding: 30px;
+      font-size: 0.9em;
       color: #888;
     }
   </style>
 </head>
 <body>
-<header>
+  <div class="hero">
+    <img src="banner.jpg" alt="Photo Mélanie & Clément" />
+    <div class="hero-text">Mélanie & Clément</div>
+    <div class="hero-date">Le 28 juin 2025</div>
+  </div>
 
-<h1>Mélanie &amp; Clément</h1>
-<p>Le 28 juin 2025</p>
-</header>
-<div class="compteur">
-  Mariage Mélanie &amp; Clément – <span id="countdown">Décollage dans...</span>
-</div><nav>
-<a href="#ceremonie">Cérémonie</a>
-<a href="#reception">Réception</a>
-<a href="#rsvp">Réponse</a>
-</nav>
+  <div class="countdown" id="countdown">
+    Mariage Mélanie & Clément – Décollage dans...
+  </div>
 
-<section id="ceremonie">
-<h2>Cérémonie</h2>
-<img alt="Lieu de la cérémonie" src="lieu_ceremonie.jpg"/>
-<p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
-<a class="button" href="https://maps.google.com/?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank"><i class="fas fa-map-marker-alt"></i> Itinéraire avec Google Maps</a>
-<a class="button" href="https://waze.com/ul?q=Abbaye+Saint-Martin+de+Boscherville" target="_blank"><i class="fab fa-waze"></i> Itinéraire avec Waze</a>
-</section>
-<section id="reception">
-<h2>Réception</h2>
-<img alt="Lieu de la réception" src="lieu_reception.jpg"/>
-<p>À partir de 17h - Abbaye du Valasse, salle des Convers</p>
-<a class="button" href="https://maps.google.com/?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank"><i class="fas fa-map-marker-alt"></i> Itinéraire avec Google Maps</a>
-<a class="button" href="https://waze.com/ul?q=Abbaye+du+Valasse+-+289+Rue+de+la+Briarderie,+76210+Gruchet-le-Valasse" target="_blank"><i class="fab fa-waze"></i> Itinéraire avec Waze</a>
-</section>
-<section id="rsvp">
-<h2>Réponse</h2>
-<p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
-<a class="button" href="mailto:clemel.bottois@hotmail.com"><i class="fas fa-envelope"></i> Envoyer un e-mail</a>
-<p><i class="fas fa-phone"></i> Mélanie : <a href="tel:0607029462">06 07 02 94 62</a></p>
-<p><i class="fas fa-phone"></i> Clément : <a href="tel:0645873429">06 45 87 34 29</a></p>
-</section>
-<footer>
-  © 2025 Mélanie &amp; Clément – Tous droits réservés
-</footer>
-<script>
-  const countdown = document.getElementById("countdown");
-  const eventDate = new Date("June 28, 2025 14:00:00").getTime();
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = eventDate - now;
-    if (diff <= 0) {
-      countdown.innerHTML = "C'est le grand jour !";
-      return;
+  <nav>
+    <a href="#ceremonie">Cérémonie</a>
+    <a href="#reception">Réception</a>
+    <a href="#reponse">Réponse</a>
+  </nav>
+
+  <section id="ceremonie">
+    <h2>Cérémonie</h2>
+    <img src="lieu_ceremonie.jpg" alt="Abbaye de Saint-Martin-de-Boscherville" />
+    <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <a class="btn" href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
+    <a class="btn" href="https://waze.com/ul?ll=49.456,0.962" target="_blank">Itinéraire avec Waze</a>
+  </section>
+
+  <section id="reception">
+    <h2>Réception</h2>
+    <img src="lieu_reception.jpg" alt="Abbaye du Valasse" />
+    <p>La réception aura lieu à l’Abbaye du Valasse, salle des Convers à partir de 17h.</p>
+    <a class="btn" href="https://www.google.com/maps?q=289+Rue+de+la+Br%C3%A9arderie,+76210+Gruchet-le-Valasse" target="_blank">Itinéraire avec Google Maps</a>
+    <a class="btn" href="https://waze.com/ul?ll=49.551,0.522" target="_blank">Itinéraire avec Waze</a>
+  </section>
+
+  <section id="reponse">
+    <h2>Réponse</h2>
+    <p>Merci de nous confirmer votre présence avant le 30 avril 2025.</p>
+    <a class="btn" href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
+    <p style="margin-top: 20px;">Ou par téléphone :</p>
+    <p>Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></p>
+    <p>Clément : <a href="tel:+33645873429">06 45 87 34 29</a></p>
+  </section>
+
+  <footer>
+    Site de mariage de Mélanie & Clément — 2025
+  </footer>
+
+  <script>
+    const targetDate = new Date("2025-06-28T14:00:00");
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdown.textContent = "C'est le grand jour !";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.textContent = `Mariage Mélanie & Clément – Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
     }
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-    countdown.innerHTML = `Décollage dans ${d}j ${h}h ${m}m ${s}s`;
-  }, 1000);
-</script>
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
