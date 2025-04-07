@@ -8,65 +8,65 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #fefdf5;
+            background-color: #fefdf5;
             color: #1c3b2f;
             margin: 0;
             padding: 0;
         }
         header {
-            text-align: center;
             position: relative;
-        }
-        .banner {
-            width: 100%;
-            height: auto;
-        }
-        header h1, header p {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
             color: white;
-            text-shadow: 2px 2px 4px #000;
+        }
+        header img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+        }
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header-text h1 {
+            font-size: 2.5em;
             margin: 0;
         }
-        header h1 {
-            top: 35%;
-            font-size: 2.5em;
-        }
-        header p {
-            top: 50%;
+        .header-text p {
             font-size: 1.2em;
+            margin: 0;
         }
         .countdown {
             background-color: #f9f8f4;
             color: #a3471e;
-            padding: 1em;
+            text-align: center;
             font-size: 1.4em;
             font-weight: bold;
-            text-align: center;
+            padding: 1em;
         }
         nav {
             background-color: #ffffff;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
         }
         nav ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            list-style: none;
             margin: 0;
-            padding: 0.5em;
+            padding: 0.5em 0;
+            list-style: none;
         }
         nav li {
-            margin: 0 0.8em;
+            margin: 0 0.7em;
         }
         nav a {
+            color: #1c3b2f;
             text-decoration: none;
             font-weight: bold;
-            color: #1c3b2f;
         }
         section {
             padding: 2em 1em;
@@ -74,14 +74,25 @@
         h2 {
             color: #1c3b2f;
             font-size: 1.8em;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2em;
+            margin-top: 1em;
+        }
+        .contact-icons div {
             text-align: center;
-            margin-bottom: 0.8em;
+        }
+        .contact-icons img {
+            width: 50px;
+            height: 50px;
         }
         .photo-section {
             display: flex;
             align-items: center;
             gap: 1em;
-            justify-content: center;
         }
         .photo-section img {
             width: 60px;
@@ -91,33 +102,33 @@
             color: #a3471e;
             text-decoration: underline;
         }
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2em;
-            flex-wrap: wrap;
-            margin-top: 1.5em;
-        }
-        .contact-block {
-            text-align: center;
-        }
-        .contact-block a {
+        .btn {
             display: inline-block;
-            margin: 0.5em;
+            background-color: #1c3b2f;
+            color: white;
+            padding: 0.6em 1.2em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
         }
-        .contact-block img {
-            width: 40px;
-            height: 40px;
+        .btn img {
+            vertical-align: middle;
+            height: 18px;
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="https://clemelbot.github.io/banner.jpg" alt="Photo Mélanie & Clément" class="banner">
-        <h1>Mélanie & Clément</h1>
-        <p>Le 28 juin 2025</p>
+        <img src="banner.jpg" alt="Mélanie et Clément">
+        <div class="header-text">
+            <h1>Mélanie & Clément</h1>
+            <p>Le 28 juin 2025</p>
+        </div>
     </header>
-    <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
+    <div class="countdown">
+        Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s
+    </div>
     <nav>
         <ul>
             <li><a href="#ceremonie">Cérémonie</a></li>
@@ -129,33 +140,27 @@
     </nav>
     <section id="ceremonie">
         <h2>Cérémonie</h2>
+        <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%; max-width:700px;">
         <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
-        <div class="photo-section">
-            <img src="https://clemelbot.github.io/lieu_ceremonie.jpg" alt="Lieu cérémonie" style="max-width: 100%;">
-        </div>
-        <div class="photo-section" style="margin-top: 1em;">
-            <a href="https://maps.google.com/?q=Abbaye+de+Saint-Martin+de+Boscherville" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
-                Google Maps
-            </a>
-            <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
-                Waze
-            </a>
-        </div>
+        <a class="btn" href="https://maps.google.com/?q=Abbaye de Saint-Martin de Boscherville">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Google_Maps_icon.svg" alt="Maps">Itinéraire avec Google Maps
+        </a>
+        <br><br>
+        <a class="btn" href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes">
+            <img src="waze_logo.png" alt="Waze">Itinéraire avec Waze
+        </a>
     </section>
     <section id="reception">
         <h2>Réception</h2>
-        <p>17h30 - Abbaye du Valasse, Gruchet-le-Valasse</p>
-        <div class="photo-section">
-            <img src="https://clemelbot.github.io/lieu_reception.jpg" alt="Lieu réception" style="max-width: 100%;">
-        </div>
-        <div class="photo-section" style="margin-top: 1em;">
-            <a href="https://maps.google.com/?q=Abbaye+du+Valasse" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
-                Google Maps
-            </a>
-            <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
-                Waze
-            </a>
-        </div>
+        <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%; max-width:700px;">
+        <p>Abbaye du Valasse - 289 Rue de la Briarderie, 76210 Gruchet-le-Valasse</p>
+        <a class="btn" href="https://maps.google.com/?q=Abbaye du Valasse">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Google_Maps_icon.svg" alt="Maps">Itinéraire avec Google Maps
+        </a>
+        <br><br>
+        <a class="btn" href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes">
+            <img src="waze_logo.png" alt="Waze">Itinéraire avec Waze
+        </a>
     </section>
     <section id="liste">
         <h2>Notre liste</h2>
@@ -164,27 +169,32 @@
     <section id="photos">
         <h2>Photos</h2>
         <div class="photo-section">
-            <img src="https://clemelbot.github.io/icloud_logo.png" alt="Logo iCloud">
+            <img src="icloud_logo.png" alt="iCloud Logo">
             <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
         </div>
     </section>
     <section id="contact">
-        <h2>Contact</h2>
-        <div class="photo-section">
-            <a href="mailto:clemel.bottois@hotmail.com">
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="filter: hue-rotate(90deg);">
-            </a>
-        </div>
+        <h2 style="text-align:center;">Contact</h2>
         <div class="contact-icons">
-            <div class="contact-block">
-                <a href="tel:+33607029462"><img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Téléphone Mélanie"></a>
-                <a href="sms:+33607029462"><img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="SMS Mélanie"></a>
-                <div><strong>Mélanie</strong></div>
+            <div>
+                <a href="mailto:clemel.bottois@hotmail.com"><img src="https://img.icons8.com/color/48/000000/email.png" alt="Mail"></a>
+                <p>Email</p>
             </div>
-            <div class="contact-block">
-                <a href="tel:+33645873429"><img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Téléphone Clément"></a>
-                <a href="sms:+33645873429"><img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="SMS Clément"></a>
-                <div><strong>Clément</strong></div>
+            <div>
+                <a href="sms:+33607029462"><img src="https://img.icons8.com/color/48/000000/sms.png" alt="SMS"></a>
+                <p>Mélanie</p>
+            </div>
+            <div>
+                <a href="sms:+33645873429"><img src="https://img.icons8.com/color/48/000000/sms.png" alt="SMS"></a>
+                <p>Clément</p>
+            </div>
+            <div>
+                <a href="tel:+33607029462"><img src="https://img.icons8.com/color/48/000000/phone.png" alt="Téléphone"></a>
+                <p>Mélanie</p>
+            </div>
+            <div>
+                <a href="tel:+33645873429"><img src="https://img.icons8.com/color/48/000000/phone.png" alt="Téléphone"></a>
+                <p>Clément</p>
             </div>
         </div>
     </section>
