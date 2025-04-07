@@ -15,30 +15,35 @@
         }
         .header-image {
             position: relative;
-            width: 100%;
-            height: 60vh;
-            background: url('banner.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
             text-align: center;
+            color: white;
         }
-        .header-image h1 {
-            font-size: 2.8em;
+        .header-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .header-text {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header-text h1 {
+            font-size: 2.5em;
             margin: 0;
-            text-shadow: 2px 2px 5px #000;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
         }
-        .header-image p {
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px #000;
+        .header-text p {
+            font-size: 1.3em;
+            margin: 0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
         .countdown {
             background-color: #f9f8f4;
             color: #a3471e;
             padding: 1em;
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: bold;
             text-align: center;
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
@@ -49,23 +54,24 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            overflow-x: auto;
         }
         nav ul {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             list-style: none;
             margin: 0;
-            padding: 0.5em;
+            padding: 0.5em 1em;
+            flex-wrap: wrap;
         }
         nav li {
-            margin: 0.5em;
+            margin: 0 0.8em;
         }
         nav a {
             text-decoration: none;
             font-weight: bold;
             color: #1c3b2f;
-            font-size: 1em;
+            white-space: nowrap;
         }
         section {
             padding: 2em 1em;
@@ -88,55 +94,54 @@
             color: #a3471e;
             text-decoration: underline;
         }
-        .location-img {
-            width: 100%;
-            max-width: 800px;
-            display: block;
-            margin: 1em auto;
-            border-radius: 8px;
-        }
-        .button {
+        .btn {
             display: inline-block;
+            padding: 0.7em 1.5em;
             background-color: #1c3b2f;
             color: white;
-            padding: 0.8em 1.5em;
             text-decoration: none;
             border-radius: 6px;
-            margin: 0.5em 0;
+            margin-top: 1em;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="header-image">
-        <h1>Mélanie & Clément</h1>
-        <p>Le 28 juin 2025</p>
+        <img src="banner.jpg" alt="Photo Mélanie & Clément">
+        <div class="header-text">
+            <h1>Mélanie & Clément</h1>
+            <p>Le 28 juin 2025</p>
+        </div>
     </div>
     <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
     <nav>
         <ul>
             <li><a href="#ceremonie">Cérémonie</a></li>
             <li><a href="#reception">Réception</a></li>
-            <li><a href="#liste">Liste de mariage</a></li>
+            <li><a href="#liste">Notre liste</a></li>
             <li><a href="#photos">Photos</a></li>
             <li><a href="#reponse">Réponse</a></li>
         </ul>
     </nav>
     <section id="ceremonie">
         <h2>Cérémonie</h2>
-        <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" class="location-img">
+        <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:8px;">
         <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
-        <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" class="button" target="_blank">Itinéraire avec Google Maps</a><br>
-        <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" class="button" target="_blank">Itinéraire avec Waze</a>
+        <a class="btn" href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
+        <br><br>
+        <a class="btn" href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">Itinéraire avec Waze</a>
     </section>
     <section id="reception">
         <h2>Réception</h2>
-        <img src="lieu_reception.jpg" alt="Lieu réception" class="location-img">
-        <p>17h00 - Abbaye du Valasse, 289 Rue de la Bréarderie, 76210 Gruchet-le-Valasse</p>
-        <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" class="button" target="_blank">Itinéraire avec Google Maps</a><br>
-        <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" class="button" target="_blank">Itinéraire avec Waze</a>
+        <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:8px;">
+        <p>17h - Abbaye du Valasse, salle des Convers</p>
+        <a class="btn" href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">Itinéraire avec Google Maps</a>
+        <br><br>
+        <a class="btn" href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">Itinéraire avec Waze</a>
     </section>
     <section id="liste">
-        <h2>Liste de mariage</h2>
+        <h2>Notre liste</h2>
         <p>Contenu à venir...</p>
     </section>
     <section id="photos">
@@ -149,8 +154,8 @@
     <section id="reponse">
         <h2>Réponse</h2>
         <p>Merci de confirmer votre présence avant le 30 avril 2025.</p>
-        <a href="mailto:clemel.bottois@hotmail.com" class="button">Envoyer un e-mail</a>
-        <p>Ou par téléphone :</p>
+        <a class="btn" href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
+        <p style="margin-top:2em;">Ou par téléphone :</p>
         <ul>
             <li>Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></li>
             <li>Clément : <a href="tel:+33645873429">06 45 87 34 29</a></li>
