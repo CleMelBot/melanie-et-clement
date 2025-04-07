@@ -19,7 +19,7 @@
     }
     .header-image img {
       width: 100%;
-      max-height: 600px;
+      max-height: 480px;
       object-fit: cover;
     }
     .header-text {
@@ -29,13 +29,13 @@
       transform: translate(-50%, -50%);
     }
     .header-text h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       margin: 0;
-      text-shadow: 1px 1px 4px black;
+      text-shadow: 1px 1px 3px black;
     }
     .header-text p {
-      font-size: 1.4em;
-      text-shadow: 1px 1px 4px black;
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px black;
     }
     .countdown {
       background-color: #f9f8f4;
@@ -44,6 +44,7 @@
       font-size: 1.4em;
       font-weight: bold;
       text-align: center;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     }
     nav {
       background-color: #ffffff;
@@ -76,6 +77,19 @@
       margin-bottom: 0.5em;
       text-align: center;
     }
+    .photo-section {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .photo-section img {
+      width: 60px;
+      height: 60px;
+    }
+    .photo-section a {
+      color: #a3471e;
+      text-decoration: underline;
+    }
     .btn-group {
       display: flex;
       gap: 1em;
@@ -105,14 +119,17 @@
       const countDate = new Date("June 28, 2025 00:00:00").getTime();
       const now = new Date().getTime();
       const gap = countDate - now;
+
       const second = 1000;
       const minute = second * 60;
       const hour = minute * 60;
       const day = hour * 24;
+
       const d = Math.floor(gap / day);
       const h = Math.floor((gap % day) / hour);
       const m = Math.floor((gap % hour) / minute);
       const s = Math.floor((gap % minute) / second);
+
       document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
     }
     setInterval(countdown, 1000);
@@ -136,6 +153,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
   <section id="ceremonie">
     <h2>Cérémonie</h2>
     <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
@@ -145,7 +163,21 @@
         <img src="icon_google.png" alt="Google Maps">Google Maps
       </a>
       <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-green">
-        <img src="icon_waze.png" alt="Waze">Waze
+        <img src="waze_logo.png" alt="Waze">Waze
+      </a>
+    </div>
+  </section>
+
+  <section id="reception">
+    <h2>Réception</h2>
+    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;">
+    <p style="text-align:center;">17h00 - Abbaye du Valasse, Salle des Convers</p>
+    <div class="btn-group">
+      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-green">
+        <img src="icon_google.png" alt="Google Maps">Google Maps
+      </a>
+      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-green">
+        <img src="waze_logo.png" alt="Waze">Waze
       </a>
     </div>
   </section>
