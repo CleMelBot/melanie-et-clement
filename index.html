@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -44,6 +43,7 @@
             list-style: none;
             margin: 0;
             padding: 0.5em;
+            flex-wrap: wrap;
         }
         nav li {
             margin: 0 1em;
@@ -74,6 +74,19 @@
             color: #a3471e;
             text-decoration: underline;
         }
+        .buttons {
+            margin-top: 1em;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 0.5em 0.25em;
+            padding: 0.8em 1.5em;
+            background-color: #1c3b2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -94,11 +107,21 @@
     </nav>
     <section id="ceremonie">
         <h2>Cérémonie</h2>
-        <p>Détails à venir...</p>
+        <img src="https://clemelbot.github.io/lieu_ceremonie.jpg" alt="Abbaye Saint-Martin de Boscherville" style="width: 100%; max-width: 600px;">
+        <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
+        <div class="buttons">
+            <a href="https://www.google.com/maps/place/49.44442,0.963771" target="_blank">Itinéraire avec Google Maps</a>
+            <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+        </div>
     </section>
     <section id="reception">
         <h2>Réception</h2>
-        <p>Détails à venir...</p>
+        <img src="https://clemelbot.github.io/lieu_reception.jpg" alt="Abbaye du Valasse" style="width: 100%; max-width: 600px;">
+        <p>17h00 - Abbaye du Valasse, Salle des Convers</p>
+        <div class="buttons">
+            <a href="https://www.google.com/maps/place/49.537117,0.508053" target="_blank">Itinéraire avec Google Maps</a>
+            <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+        </div>
     </section>
     <section id="liste">
         <h2>Liste de mariage</h2>
@@ -114,6 +137,14 @@
     <section id="reponse">
         <h2>Réponse</h2>
         <p>Merci de confirmer votre présence avant le 30 avril 2025.</p>
+        <div class="buttons">
+            <a href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
+        </div>
+        <p>Ou par téléphone :</p>
+        <ul>
+            <li>Mélanie : <a href="tel:0607029462">06 07 02 94 62</a></li>
+            <li>Clément : <a href="tel:0645873429">06 45 87 34 29</a></li>
+        </ul>
     </section>
 </body>
 </html>
