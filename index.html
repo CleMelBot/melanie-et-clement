@@ -46,6 +46,97 @@
       text-align: center;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     }
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0.4em 0.2em;
+      gap: 0.6em;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #1c3b2f;
+      font-size: 0.9em;
+    }
+    section {
+      padding: 2em 1em;
+    }
+    h2 {
+      color: #1c3b2f;
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+    #contact h2 {
+      text-align: center;
+    }
+    .photo-section {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .photo-section img {
+      width: 60px;
+      height: 60px;
+    }
+    .photo-section a {
+      color: #a3471e;
+      text-decoration: underline;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1em;
+    }
+    .btn-green {
+      background-color: #1c3b2f;
+      color: white;
+      padding: 0.6em 1em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 0.95em;
+      font-weight: bold;
+    }
+    .btn-green img {
+      width: 18px;
+      height: 18px;
+    }
+    .contact-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      padding-top: 1.5em;
+    }
+    .contact-icons .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .contact-icons img {
+      width: 50px;
+      height: 50px;
+    }
+    .contact-icons span {
+      font-size: 0.9em;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -58,6 +149,93 @@
   </div>
 
   <div class="countdown" id="countdown">Décollage dans...</div>
+
+  <nav>
+    <ul>
+      <li><a href="#ceremonie">Cérémonie</a></li>
+      <li><a href="#reception">Réception</a></li>
+      <li><a href="#liste">Notre liste</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="ceremonie">
+    <h2>Cérémonie</h2>
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
+    <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <div class="btn-group">
+      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-green">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991231.png" alt="GMaps">Google Maps
+      </a>
+      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-green">
+        <img src="waze_logo.png" alt="Waze">Waze
+      </a>
+    </div>
+  </section>
+
+  <section id="reception">
+    <h2>Réception</h2>
+    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;">
+    <p style="text-align:center;">17h00 - Abbaye du Valasse, Salle des Convers</p>
+    <div class="btn-group">
+      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-green">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991231.png" alt="GMaps">Google Maps
+      </a>
+      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-green">
+        <img src="waze_logo.png" alt="Waze">Waze
+      </a>
+    </div>
+  </section>
+
+  <section id="liste">
+    <h2>Notre liste</h2>
+    <p style="text-align:center;">Contenu à venir...</p>
+  </section>
+
+  <section id="photos">
+    <h2>Photos</h2>
+    <div class="photo-section">
+      <img src="icloud_logo.png" alt="Logo iCloud">
+      <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align:center;">Contact</h2>
+    <div class="contact-icons">
+      <div class="item">
+        <a href="mailto:clemel.bottois@hotmail.com">
+          <img src="mail_icon_green.png" alt="Mail">
+        </a>
+        <span>Mail</span>
+      </div>
+      <div class="item">
+        <a href="sms:+33607029462">
+          <img src="sms_icon.png" alt="SMS Mélanie">
+        </a>
+        <span>Mélanie</span>
+      </div>
+      <div class="item">
+        <a href="sms:+33645873429">
+          <img src="sms_icon.png" alt="SMS Clément">
+        </a>
+        <span>Clément</span>
+      </div>
+      <div class="item">
+        <a href="tel:+33607029462">
+          <img src="call_icon.png" alt="Appel Mélanie">
+        </a>
+        <span>Mélanie</span>
+      </div>
+      <div class="item">
+        <a href="tel:+33645873429">
+          <img src="call_icon.png" alt="Appel Clément">
+        </a>
+        <span>Clément</span>
+      </div>
+    </div>
+  </section>
 
   <script>
     const countdown = document.getElementById("countdown");
