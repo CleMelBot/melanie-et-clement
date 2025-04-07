@@ -4,233 +4,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariage Mélanie & Clément</title>
+  <title>Mélanie & Clément – 28 juin 2025</title>
   <style>
+    :root {
+      --green: #1c3b2f;
+      --terracotta: #a3471e;
+      --cream: #fefdf5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      background: #fefdf5;
-      color: #1c3b2f;
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--green);
+      overflow-x: hidden;
     }
-    .header-image {
+    header {
       position: relative;
+      height: 100vh;
+      background: url('banner.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: white;
     }
-    .header-image img {
-      width: 100%;
-      height: 90vh;
-      object-fit: cover;
-    }
-    .header-text {
+    header::after {
+      content: "";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 3px black;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
     }
-    .header-text h1 {
-      font-size: 3em;
-      margin: 0;
+    .hero-text {
+      position: relative;
+      z-index: 2;
     }
-    .header-text p {
-      font-size: 1.5em;
+    .hero-text h1 {
+      font-size: 3.5em;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+    .hero-text p {
+      font-size: 1.3em;
+      margin-top: 0.5em;
     }
     .countdown {
-      background-color: #f9f8f4;
-      color: #a3471e;
+      background: #f9f8f4;
+      color: var(--terracotta);
+      text-align: center;
       padding: 1em;
       font-size: 1.4em;
       font-weight: bold;
-      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     nav {
-      background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      background: white;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav ul {
       display: flex;
       justify-content: center;
       list-style: none;
-      margin: 0;
-      padding: 0.4em 0.2em;
-      gap: 0.6em;
+      padding: 1em;
+      gap: 1em;
       flex-wrap: wrap;
     }
-    nav a {
+    nav li a {
+      color: var(--green);
       text-decoration: none;
       font-weight: bold;
-      color: #1c3b2f;
       font-size: 0.9em;
     }
     section {
-      padding: 2em 1em;
+      padding: 4em 1em;
+      max-width: 1000px;
+      margin: auto;
     }
     h2 {
-      color: #1c3b2f;
-      font-size: 1.8em;
-      margin-bottom: 0.5em;
+      font-size: 2.4em;
+      margin-bottom: 0.4em;
       text-align: center;
     }
-    .photo-section {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      margin-bottom: 1em;
-    }
-    .photo-section img {
-      width: 60px;
-      height: 60px;
-    }
-    .photo-section a {
-      color: #a3471e;
-      text-decoration: underline;
+    .subtitle {
+      text-align: center;
+      margin-bottom: 1.5em;
+      font-style: italic;
     }
     .btn-group {
       display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
       margin-top: 1em;
     }
-    .btn-modern {
-      background-color: #1c3b2f;
-      color: white;
-      font-weight: 500;
-      font-size: 1em;
-      padding: 0.8em 1.6em;
-      border-radius: 999px;
+    .btn {
       display: flex;
       align-items: center;
-      gap: 0.6em;
+      gap: 0.5em;
+      background: var(--green);
+      color: white;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      padding: 0.8em 1.5em;
+      border-radius: 50px;
+      font-weight: bold;
     }
-    .btn-modern img {
-      width: 22px;
-      height: 22px;
+    .btn img {
+      width: 20px;
+      height: 20px;
     }
-    .btn-modern:hover {
-      background-color: #355c4a;
-      transform: translateY(-2px);
+    .photo-section, .media-section {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 1.5em;
+    }
+    .photo-section img, .media-section img {
+      width: 60px;
+      height: 60px;
+    }
+    .contact-block {
+      text-align: center;
+    }
+    .contact-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2em;
+    }
+    .contact-person {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+    .contact-person img {
+      width: 50px;
+      height: 50px;
+    }
+    #countdown-timer {
+      display: inline;
     }
   </style>
   <script>
-    function countdown() {
+    function updateCountdown() {
       const countDate = new Date("June 28, 2025 14:00:00").getTime();
       const now = new Date().getTime();
       const gap = countDate - now;
-
-      const second = 1000;
-      const minute = second * 60;
-      const hour = minute * 60;
-      const day = hour * 24;
-
+      const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
       const d = Math.floor(gap / day);
       const h = Math.floor((gap % day) / hour);
       const m = Math.floor((gap % hour) / minute);
       const s = Math.floor((gap % minute) / second);
-
       document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
     }
-    setInterval(countdown, 1000);
+    setInterval(updateCountdown, 1000);
+    window.onload = updateCountdown;
   </script>
 </head>
 <body>
-<div class="header-image">
-  <img src="banner.jpg" alt="Photo Mélanie & Clément">
-  <div class="header-text">
-    <h1>Mélanie & Clément</h1>
-    <p>Le 28 juin 2025</p>
-  </div>
-</div>
+  <header>
+    <div class="hero-text">
+      <h1>Mélanie & Clément</h1>
+      <p>28 juin 2025</p>
+    </div>
+  </header>
+  <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
+  <nav>
+    <ul>
+      <li><a href="#ceremonie">Cérémonie</a></li>
+      <li><a href="#reception">Réception</a></li>
+      <li><a href="#liste">Liste</a></li>
+      <li><a href="#multimedia">Multimédia</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
+  <section id="ceremonie">
+    <h2>Cérémonie</h2>
+    <div class="subtitle">13h45 – Abbaye de Saint-Martin de Boscherville</div>
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%; border-radius:10px;">
+    <div class="btn-group">
+      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn">
+        <img src="icon_google.png" alt="Maps"> Maps
+      </a>
+      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn">
+        <img src="waze_logo.png" alt="Waze"> Waze
+      </a>
+    </div>
+  </section>
 
-<nav>
-  <ul>
-    <li><a href="#ceremonie">Cérémonie</a></li>
-    <li><a href="#reception">Réception</a></li>
-    <li><a href="#liste">Liste</a></li>
-    <li><a href="#photos">Multimédia</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <section id="reception">
+    <h2>Réception</h2>
+    <div class="subtitle">17h00 – Abbaye du Valasse</div>
+    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%; border-radius:10px;">
+    <div class="btn-group">
+      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn">
+        <img src="icon_google.png" alt="Maps"> Maps
+      </a>
+      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn">
+        <img src="waze_logo.png" alt="Waze"> Waze
+      </a>
+    </div>
+  </section>
 
-<section id="ceremonie">
-  <h2>Cérémonie</h2>
-  <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
-  <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;margin-top:1em;">
-  <div class="btn-group">
-    <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-modern">
-      <img src="icon_google.png" alt="Maps">Maps
-    </a>
-    <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-modern">
-      <img src="waze_logo.png" alt="Waze">Waze
-    </a>
-  </div>
-</section>
+  <section id="liste">
+    <h2>Liste</h2>
+    <p style="text-align:center;">Contenu à venir...</p>
+  </section>
 
-<section id="reception">
-  <h2>Réception</h2>
-  <p style="text-align:center;">17h00 - Abbaye du Valasse</p>
-  <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;margin-top:1em;">
-  <div class="btn-group">
-    <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-modern">
-      <img src="icon_google.png" alt="Maps">Maps
-    </a>
-    <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-modern">
-      <img src="waze_logo.png" alt="Waze">Waze
-    </a>
-  </div>
-</section>
+  <section id="multimedia">
+    <h2>Multimédia</h2>
+    <div class="photo-section">
+      <img src="icloud_logo.png" alt="iCloud">
+      <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
+    </div>
+    <div class="media-section">
+      <img src="photographe_logo.png" alt="Photographe">
+      <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
+    </div>
+    <div class="media-section">
+      <img src="videaste_logo.PNG" alt="Vidéo">
+      <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
+    </div>
+  </section>
 
-<section id="liste">
-  <h2>Liste</h2>
-  <p style="text-align:center;">Contenu à venir...</p>
-</section>
-
-<section id="photos">
-  <h2>Multimédia</h2>
-  <div class="photo-section">
-    <img src="icloud_logo.png" alt="Logo iCloud"/>
-    <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-  </div>
-  <div class="photo-section">
-    <img src="photographe_logo.png" alt="Logo Photographe"/>
-    <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
-  </div>
-  <div class="photo-section">
-    <img src="videaste_logo.PNG" alt="Logo Vidéaste"/>
-    <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2 style="text-align:center;">Contact</h2>
-  
-    <div style="display: flex; justify-content: center; align-items: center; gap: 6em; flex-wrap: wrap; margin-top: 2em;">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5em;">
-        <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
-        <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
-        <span>Mélanie</span>
+  <section id="contact">
+    <h2 style="text-align:center;">Contact</h2>
+    <div class="contact-block">
+      <div style="text-align:center; margin-bottom: 2em;">
+        <a href="mailto:clemel.bottois@hotmail.com">
+          <img src="icon_mail.png" alt="Mail" width="50" height="50">
+        </a>
       </div>
-      <div style="text-align: center;">
-        <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50"></a>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5em;">
-        <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
-        <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
-        <span>Clément</span>
+      <div class="contact-grid">
+        <div class="contact-person">
+          <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie"></a>
+          <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie"></a>
+          <span>Mélanie</span>
+        </div>
+        <div class="contact-person">
+          <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément"></a>
+          <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément"></a>
+          <span>Clément</span>
+        </div>
       </div>
     </div>
-    
-</section>
+  </section>
 </body>
 </html>
