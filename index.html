@@ -2,229 +2,191 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariage Mélanie & Clément</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      background: #fefdf5;
-      color: #1c3b2f;
-    }
-    .header-image {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-    .header-image img {
-      width: 100%;
-      max-height: 480px;
-      object-fit: cover;
-    }
-    .header-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .header-text h1 {
-      font-size: 2.5em;
-      margin: 0;
-      text-shadow: 1px 1px 3px black;
-    }
-    .header-text p {
-      font-size: 1.2em;
-      text-shadow: 1px 1px 3px black;
-    }
-    .countdown {
-      background-color: #f9f8f4;
-      color: #a3471e;
-      padding: 1em;
-      font-size: 1.4em;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    nav {
-      background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0.4em 0.2em;
-      gap: 1em;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #1c3b2f;
-      font-size: 0.95em;
-    }
-    section {
-      padding: 2em 1em;
-    }
-    h2 {
-      color: #1c3b2f;
-      font-size: 1.8em;
-      margin-bottom: 0.5em;
-      text-align: center;
-    }
-    .photo-section {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    .photo-section img {
-      width: 60px;
-      height: 60px;
-    }
-    .photo-section a {
-      color: #a3471e;
-      text-decoration: underline;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1em;
-    }
-    .btn-green {
-      background-color: #1c3b2f;
-      color: white;
-      padding: 0.6em 1em;
-      border-radius: 6px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      font-size: 0.95em;
-      font-weight: bold;
-    }
-    .btn-green img {
-      width: 18px;
-      height: 18px;
-    }
-    .contact-icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2em;
-      padding-top: 1.5em;
-    }
-    .contact-icons .item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3em;
-    }
-    .contact-icons img {
-      width: 50px;
-      height: 50px;
-    }
-    .contact-icons span {
-      font-size: 0.9em;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage Mélanie & Clément</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fefdf5;
+            color: #1c3b2f;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            position: relative;
+        }
+        .banner {
+            width: 100%;
+            height: auto;
+        }
+        header h1, header p {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            margin: 0;
+        }
+        header h1 {
+            top: 35%;
+            font-size: 2.5em;
+        }
+        header p {
+            top: 50%;
+            font-size: 1.2em;
+        }
+        .countdown {
+            background-color: #f9f8f4;
+            color: #a3471e;
+            padding: 1em;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+        }
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0.5em;
+        }
+        nav li {
+            margin: 0 0.8em;
+        }
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #1c3b2f;
+        }
+        section {
+            padding: 2em 1em;
+        }
+        h2 {
+            color: #1c3b2f;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 0.8em;
+        }
+        .photo-section {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            justify-content: center;
+        }
+        .photo-section img {
+            width: 60px;
+            height: 60px;
+        }
+        .photo-section a {
+            color: #a3471e;
+            text-decoration: underline;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            flex-wrap: wrap;
+            margin-top: 1.5em;
+        }
+        .contact-block {
+            text-align: center;
+        }
+        .contact-block a {
+            display: inline-block;
+            margin: 0.5em;
+        }
+        .contact-block img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div class="header-image">
-    <img src="banner.jpg" alt="Photo Mélanie & Clément">
-    <div class="header-text">
-      <h1>Mélanie & Clément</h1>
-      <p>Le 28 juin 2025</p>
-    </div>
-  </div>
-  <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
-  <nav>
-    <ul>
-      <li><a href="#ceremonie">Cérémonie</a></li>
-      <li><a href="#reception">Réception</a></li>
-      <li><a href="#liste">Notre liste</a></li>
-      <li><a href="#photos">Photos</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <section id="ceremonie">
-    <h2>Cérémonie</h2>
-    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
-    <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
-    <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-green">
-        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991231.png" alt="GMaps">Google Maps
-      </a>
-      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-green">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968525.png" alt="Waze">Waze
-      </a>
-    </div>
-  </section>
-  <section id="reception">
-    <h2>Réception</h2>
-    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;">
-    <p style="text-align:center;">17h00 - Abbaye du Valasse, Salle des Convers</p>
-    <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-green">
-        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991231.png" alt="GMaps">Google Maps
-      </a>
-      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-green">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968525.png" alt="Waze">Waze
-      </a>
-    </div>
-  </section>
-  <section id="liste">
-    <h2>Notre liste</h2>
-    <p style="text-align:center;">Contenu à venir...</p>
-  </section>
-  <section id="photos">
-    <h2>Photos</h2>
-    <div class="photo-section">
-      <img src="icloud_logo.png" alt="Logo iCloud">
-      <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-    </div>
-  </section>
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-icons">
-      <div class="item">
-        <a href="mailto:clemel.bottois@hotmail.com">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Mail">
-        </a>
-      </div>
-      <div class="item">
-        <a href="sms:+33607029462">
-          <img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png" alt="SMS Mélanie">
-        </a>
-        <span>Mélanie</span>
-      </div>
-      <div class="item">
-        <a href="sms:+33645873429">
-          <img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png" alt="SMS Clément">
-        </a>
-        <span>Clément</span>
-      </div>
-      <div class="item">
-        <a href="tel:+33607029462">
-          <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Appel Mélanie">
-        </a>
-        <span>Mélanie</span>
-      </div>
-      <div class="item">
-        <a href="tel:+33645873429">
-          <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Appel Clément">
-        </a>
-        <span>Clément</span>
-      </div>
-    </div>
-  </section>
+    <header>
+        <img src="https://clemelbot.github.io/banner.jpg" alt="Photo Mélanie & Clément" class="banner">
+        <h1>Mélanie & Clément</h1>
+        <p>Le 28 juin 2025</p>
+    </header>
+    <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
+    <nav>
+        <ul>
+            <li><a href="#ceremonie">Cérémonie</a></li>
+            <li><a href="#reception">Réception</a></li>
+            <li><a href="#liste">Notre liste</a></li>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="ceremonie">
+        <h2>Cérémonie</h2>
+        <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
+        <div class="photo-section">
+            <img src="https://clemelbot.github.io/lieu_ceremonie.jpg" alt="Lieu cérémonie" style="max-width: 100%;">
+        </div>
+        <div class="photo-section" style="margin-top: 1em;">
+            <a href="https://maps.google.com/?q=Abbaye+de+Saint-Martin+de+Boscherville" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
+                Google Maps
+            </a>
+            <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
+                Waze
+            </a>
+        </div>
+    </section>
+    <section id="reception">
+        <h2>Réception</h2>
+        <p>17h30 - Abbaye du Valasse, Gruchet-le-Valasse</p>
+        <div class="photo-section">
+            <img src="https://clemelbot.github.io/lieu_reception.jpg" alt="Lieu réception" style="max-width: 100%;">
+        </div>
+        <div class="photo-section" style="margin-top: 1em;">
+            <a href="https://maps.google.com/?q=Abbaye+du+Valasse" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
+                Google Maps
+            </a>
+            <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" style="background:#1c3b2f;color:white;padding:0.5em 1em;border-radius:6px;text-decoration:none;">
+                Waze
+            </a>
+        </div>
+    </section>
+    <section id="liste">
+        <h2>Notre liste</h2>
+        <p>Contenu à venir...</p>
+    </section>
+    <section id="photos">
+        <h2>Photos</h2>
+        <div class="photo-section">
+            <img src="https://clemelbot.github.io/icloud_logo.png" alt="Logo iCloud">
+            <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="photo-section">
+            <a href="mailto:clemel.bottois@hotmail.com">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="filter: hue-rotate(90deg);">
+            </a>
+        </div>
+        <div class="contact-icons">
+            <div class="contact-block">
+                <a href="tel:+33607029462"><img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Téléphone Mélanie"></a>
+                <a href="sms:+33607029462"><img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="SMS Mélanie"></a>
+                <div><strong>Mélanie</strong></div>
+            </div>
+            <div class="contact-block">
+                <a href="tel:+33645873429"><img src="https://cdn-icons-png.flaticon.com/512/15/15874.png" alt="Téléphone Clément"></a>
+                <a href="sms:+33645873429"><img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="SMS Clément"></a>
+                <div><strong>Clément</strong></div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
