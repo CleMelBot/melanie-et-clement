@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mélanie & Clément – 28 Juin 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Mariage Mélanie & Clément</title>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
       background: #fefdf5;
       color: #1c3b2f;
+      font-family: 'Arial', sans-serif;
     }
     .header-image {
       position: relative;
-      text-align: center;
-      color: white;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
     }
     .header-image img {
       width: 100%;
-      height: 90vh;
+      height: 100%;
       object-fit: cover;
     }
     .header-text {
@@ -28,8 +28,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
       color: white;
+      text-align: center;
       text-shadow: 1px 1px 3px black;
     }
     .header-text h1 {
@@ -37,7 +37,8 @@
       margin: 0;
     }
     .header-text p {
-      font-size: 1.5em;
+      font-size: 1.4em;
+      margin: 0.2em 0 0 0;
     }
     .countdown {
       background-color: #f9f8f4;
@@ -49,7 +50,7 @@
     }
     nav {
       background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -59,8 +60,8 @@
       justify-content: center;
       list-style: none;
       margin: 0;
-      padding: 0.4em 0.2em;
-      gap: 0.6em;
+      padding: 0.4em;
+      gap: 0.8em;
       flex-wrap: wrap;
     }
     nav a {
@@ -70,68 +71,47 @@
       font-size: 0.9em;
     }
     section {
-      padding: 3em 1em;
-      max-width: 960px;
-      margin: auto;
+      padding: 2em 1em;
     }
     h2 {
-      font-family: 'Inter', sans-serif;
+      font-size: 1.8em;
+      text-align: center;
       color: #1c3b2f;
-      font-size: 2em;
-      margin-bottom: 0.3em;
-      text-align: center;
-    }
-    .subtext {
-      text-align: center;
-      font-weight: 500;
-      color: #555;
-      margin-bottom: 1.2em;
-    }
-    section img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1.5em;
     }
     .btn-group {
       display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
       margin-top: 1em;
     }
     .btn-modern {
       background-color: #1c3b2f;
       color: white;
-      padding: 0.8em 1.4em;
-      border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
+      font-size: 0.95em;
+      padding: 0.6em 1em;
+      border-radius: 40px;
       display: flex;
       align-items: center;
-      gap: 0.6em;
-      transition: background-color 0.3s ease;
-      font-size: 0.95em;
+      gap: 0.5em;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .btn-modern:hover {
+      background-color: #355c4a;
     }
     .btn-modern img {
       width: 20px;
       height: 20px;
     }
-    .btn-modern:hover {
-      background-color: #a3471e;
-    }
-    #countdown-timer {
-      display: inline;
-    }
   </style>
   <script>
     function countdown() {
-      const countDate = new Date("June 28, 2025 14:00:00").getTime();
+      const countDate = new Date("June 28, 2025 00:00:00").getTime();
       const now = new Date().getTime();
       const gap = countDate - now;
-      const second = 1000;
-      const minute = second * 60;
-      const hour = minute * 60;
-      const day = hour * 24;
+      const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
       const d = Math.floor(gap / day);
       const h = Math.floor((gap % day) / hour);
       const m = Math.floor((gap % hour) / minute);
@@ -143,7 +123,7 @@
 </head>
 <body>
   <div class="header-image">
-    <img src="banner.jpg" alt="Photo Mélanie & Clément">
+    <img src="banner.jpg" alt="Photo en-tête">
     <div class="header-text">
       <h1>Mélanie & Clément</h1>
       <p>Le 28 juin 2025</p>
@@ -162,26 +142,13 @@
 
   <section id="ceremonie">
     <h2>Cérémonie</h2>
-    <p class="subtext">13h45 – Abbaye de Saint-Martin de Boscherville</p>
-    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie">
+    <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;margin-top:0.5em;">
     <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-modern">
-        <img src="icon_google.png" alt="GMaps">Google Maps
+      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" class="btn-modern" target="_blank">
+        <img src="icon_google.png" alt="Google Maps">Google Maps
       </a>
-      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-modern">
-        <img src="waze_logo.png" alt="Waze">Waze
-      </a>
-    </div>
-  </section>
-  <section id="reception">
-    <h2>Réception</h2>
-    <p class="subtext">17h00 – Abbaye du Valasse</p>
-    <img src="lieu_reception.jpg" alt="Lieu réception">
-    <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-modern">
-        <img src="icon_google.png" alt="GMaps">Google Maps
-      </a>
-      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-modern">
+      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" class="btn-modern" target="_blank">
         <img src="waze_logo.png" alt="Waze">Waze
       </a>
     </div>
