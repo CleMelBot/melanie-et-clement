@@ -13,31 +13,28 @@
             background: #fefdf5;
             color: #1c3b2f;
         }
-        .header-image {
+        header {
             position: relative;
             text-align: center;
             color: white;
         }
-        .header-image img {
+        .banner {
             width: 100%;
-            height: auto;
-            display: block;
+            max-height: 480px;
+            object-fit: cover;
         }
         .header-text {
             position: absolute;
-            top: 35%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
         .header-text h1 {
             font-size: 2.5em;
             margin: 0;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
         }
         .header-text p {
-            font-size: 1.3em;
-            margin: 0;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            font-size: 1.2em;
         }
         .countdown {
             background-color: #f9f8f4;
@@ -54,24 +51,21 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            overflow-x: auto;
         }
         nav ul {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             list-style: none;
             margin: 0;
-            padding: 0.5em 1em;
-            flex-wrap: wrap;
+            padding: 0.4em 0.2em;
+            gap: 0.8em;
         }
-        nav li {
-            margin: 0 0.8em;
-        }
-        nav a {
+        nav li a {
             text-decoration: none;
             font-weight: bold;
             color: #1c3b2f;
-            white-space: nowrap;
+            font-size: 0.95em;
         }
         section {
             padding: 2em 1em;
@@ -94,26 +88,26 @@
             color: #a3471e;
             text-decoration: underline;
         }
-        .btn {
-            display: inline-block;
-            padding: 0.7em 1.5em;
-            background-color: #1c3b2f;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 1em;
-            font-weight: bold;
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            padding-top: 1em;
+        }
+        .contact-icons a img {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="header-image">
-        <img src="banner.jpg" alt="Photo Mélanie & Clément">
+    <header>
+        <img src="banner.jpg" alt="Photo Mélanie & Clément" class="banner">
         <div class="header-text">
             <h1>Mélanie & Clément</h1>
             <p>Le 28 juin 2025</p>
         </div>
-    </div>
+    </header>
     <div class="countdown">Mariage Mélanie & Clément – Décollage dans 82j 15h 15m 26s</div>
     <nav>
         <ul>
@@ -121,24 +115,22 @@
             <li><a href="#reception">Réception</a></li>
             <li><a href="#liste">Notre liste</a></li>
             <li><a href="#photos">Photos</a></li>
-            <li><a href="#reponse">Réponse</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <section id="ceremonie">
         <h2>Cérémonie</h2>
-        <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:8px;">
+        <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;max-width:100%;height:auto;">
         <p>13h45 - Abbaye de Saint-Martin de Boscherville</p>
-        <a class="btn" href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">Itinéraire avec Google Maps</a>
-        <br><br>
-        <a class="btn" href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+        <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank"><button>Itinéraire avec Google Maps</button></a>
+        <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank"><button>Itinéraire avec Waze</button></a>
     </section>
     <section id="reception">
         <h2>Réception</h2>
-        <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:8px;">
-        <p>17h - Abbaye du Valasse, salle des Convers</p>
-        <a class="btn" href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">Itinéraire avec Google Maps</a>
-        <br><br>
-        <a class="btn" href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">Itinéraire avec Waze</a>
+        <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;max-width:100%;height:auto;">
+        <p>17h00 - Abbaye du Valasse, Salle des Convers</p>
+        <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank"><button>Itinéraire avec Google Maps</button></a>
+        <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank"><button>Itinéraire avec Waze</button></a>
     </section>
     <section id="liste">
         <h2>Notre liste</h2>
@@ -151,15 +143,19 @@
             <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
         </div>
     </section>
-    <section id="reponse">
-        <h2>Réponse</h2>
-        <p>Merci de confirmer votre présence avant le 30 avril 2025.</p>
-        <a class="btn" href="mailto:clemel.bottois@hotmail.com">Envoyer un e-mail</a>
-        <p style="margin-top:2em;">Ou par téléphone :</p>
-        <ul>
-            <li>Mélanie : <a href="tel:+33607029462">06 07 02 94 62</a></li>
-            <li>Clément : <a href="tel:+33645873429">06 45 87 34 29</a></li>
-        </ul>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-icons">
+            <a href="mailto:clemel.bottois@hotmail.com">
+                <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Envoyer un e-mail">
+            </a>
+            <a href="sms:+33607029462">
+                <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="SMS Mélanie">
+            </a>
+            <a href="sms:+33645873429">
+                <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="SMS Clément">
+            </a>
+        </div>
     </section>
 </body>
 </html>
