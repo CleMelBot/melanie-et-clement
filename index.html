@@ -4,237 +4,170 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariage Mélanie & Clément</title>
+  <title>Mélanie & Clément – 28 Juin 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #fefdf5;
+      background: #ffffff;
       color: #1c3b2f;
+      line-height: 1.6;
     }
-    .header-image {
+    header {
       position: relative;
-      text-align: center;
-      color: white;
-    }
-    .header-image img {
-      width: 100%;
-      height: 90vh;
-      object-fit: cover;
-    }
-    .header-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 3px black;
-    }
-    .header-text h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-    .header-text p {
-      font-size: 1.5em;
-    }
-    .countdown {
-      background-color: #f9f8f4;
-      color: #a3471e;
-      padding: 1em;
-      font-size: 1.4em;
-      font-weight: bold;
-      text-align: center;
-    }
-    nav {
-      background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      padding: 0.4em 0.2em;
-      gap: 0.6em;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      color: #1c3b2f;
-      font-size: 0.9em;
-    }
-    section {
-      padding: 2em 1em;
-    }
-    h2 {
-      color: #1c3b2f;
-      font-size: 1.8em;
-      margin-bottom: 0.5em;
-      text-align: center;
-    }
-    .photo-section {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    .photo-section img {
-      width: 60px;
-      height: 60px;
-    }
-    .photo-section a {
-      color: #a3471e;
-      text-decoration: underline;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1em;
-    }
-    .btn-green {
-      background-color: #1c3b2f;
-      color: white;
-      padding: 0.6em 1em;
-      border-radius: 6px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      font-size: 0.95em;
-      font-weight: bold;
-    }
-    .btn-green img {
-      width: 18px;
-      height: 18px;
-    }
-    .contact-grid {
-      display: flex;
-      justify-content: center;
-      gap: 4em;
-      margin-top: 2em;
-      flex-wrap: wrap;
-    }
-    .contact-person {
+      height: 100vh;
+      background-image: url('banner.jpg');
+      background-size: cover;
+      background-position: center;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+      margin: 0.2em;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 3.5em;
+      font-weight: 800;
+    }
+    header p {
+      font-size: 1.3em;
+      font-weight: 400;
+    }
+    .countdown {
+      background-color: #fff;
+      color: #a3471e;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.5em;
+      padding: 1.2em 1em;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #fefdf5;
+      display: flex;
+      justify-content: center;
+      padding: 1em;
+      border-bottom: 1px solid #ddd;
+      z-index: 999;
+    }
+    nav a {
+      color: #1c3b2f;
+      text-decoration: none;
+      margin: 0 1.2em;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #a3471e;
+    }
+    section {
+      padding: 4em 2em;
+      max-width: 960px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2em;
+      font-weight: 800;
+      margin-bottom: 0.5em;
+      color: #1c3b2f;
+      text-align: center;
+    }
+    section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1em;
+    }
+    .btn-group {
+      margin-top: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+    }
+    .btn {
+      background-color: #1c3b2f;
+      color: white;
+      padding: 0.8em 1.4em;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
       align-items: center;
       gap: 0.5em;
+      transition: background-color 0.3s ease;
     }
-    .contact-person img {
-      width: 40px;
-      height: 40px;
+    .btn img {
+      width: 20px;
+      height: 20px;
     }
-    .mail-icon img {
-      width: 50px;
-      height: 50px;
-    }
-    #countdown-timer {
-      display: inline;
+    .btn:hover {
+      background-color: #a3471e;
     }
   </style>
   <script>
     function countdown() {
-      const countDate = new Date("June 28, 2025 00:00:00").getTime();
+      const countDate = new Date("June 28, 2025 14:00:00").getTime();
       const now = new Date().getTime();
       const gap = countDate - now;
-
       const second = 1000;
       const minute = second * 60;
       const hour = minute * 60;
       const day = hour * 24;
-
       const d = Math.floor(gap / day);
       const h = Math.floor((gap % day) / hour);
       const m = Math.floor((gap % hour) / minute);
       const s = Math.floor((gap % minute) / second);
-
       document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
     }
     setInterval(countdown, 1000);
   </script>
 </head>
 <body>
-  <div class="header-image">
-    <img src="banner.jpg" alt="Photo Mélanie & Clément">
-    <div class="header-text">
-      <h1>Mélanie & Clément</h1>
-      <p>Le 28 juin 2025</p>
-    </div>
-  </div>
+  <header>
+    <h1>Mélanie & Clément</h1>
+    <p>Le 28 juin 2025</p>
+  </header>
   <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
   <nav>
-    <ul>
-      <li><a href="#ceremonie">Cérémonie</a></li>
-      <li><a href="#reception">Réception</a></li>
-      <li><a href="#liste">Notre liste</a></li>
-      <li><a href="#photos">Photos</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#ceremonie">Cérémonie</a>
+    <a href="#reception">Réception</a>
+    <a href="#liste">Notre liste</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section id="ceremonie">
     <h2>Cérémonie</h2>
-    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
     <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <img src="lieu_ceremonie.jpg" alt="Photo cérémonie">
     <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-green">
-        <img src="icon_google.png" alt="GMaps">Google Maps
+      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" class="btn" target="_blank">
+        <img src="icon_google.png" alt="Google Maps">Google Maps
       </a>
-      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-green">
+      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" class="btn" target="_blank">
         <img src="waze_logo.png" alt="Waze">Waze
       </a>
-    </div>
-  </section>
-
-  <section id="reception">
-    <h2>Réception</h2>
-    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;">
-    <p style="text-align:center;">17h00 - Abbaye du Valasse, Salle des Convers</p>
-    <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-green">
-        <img src="icon_google.png" alt="GMaps">Google Maps
-      </a>
-      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-green">
-        <img src="waze_logo.png" alt="Waze">Waze
-      </a>
-    </div>
-  </section>
-
-  <section id="liste">
-    <h2>Notre liste</h2>
-    <p style="text-align:center;">Contenu à venir...</p>
-  </section>
-
-  <section id="photos">
-    <h2>Photos</h2>
-    <div class="photo-section">
-      <img src="icloud_logo.png" alt="Logo iCloud">
-      <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 style="text-align:center;">Contact</h2>
-    <div class="contact-grid">
-      <div class="contact-person">
-        <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie"></a>
-        <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie"></a>
-        <span>Mélanie</span>
-      </div>
-      <div class="contact-person" style="display:flex; align-items:center; justify-content:center; padding-bottom:1.2em;">
-        <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" style="width:50px;height:50px;"></a>
-      </div>
-      <div class="contact-person">
-        <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément"></a>
-        <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément"></a>
-        <span>Clément</span>
-      </div>
     </div>
   </section>
 </body>
