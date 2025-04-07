@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariage Mélanie & Clément</title>
+  <title>Mélanie & Clément – 28 Juin 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       background: #fefdf5;
       color: #1c3b2f;
@@ -69,26 +70,27 @@
       font-size: 0.9em;
     }
     section {
-      padding: 2em 1em;
+      padding: 3em 1em;
+      max-width: 960px;
+      margin: auto;
     }
     h2 {
+      font-family: 'Inter', sans-serif;
       color: #1c3b2f;
-      font-size: 1.8em;
-      margin-bottom: 0.5em;
+      font-size: 2em;
+      margin-bottom: 0.3em;
       text-align: center;
     }
-    .photo-section {
-      display: flex;
-      align-items: center;
-      gap: 1em;
+    .subtext {
+      text-align: center;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 1.2em;
     }
-    .photo-section img {
-      width: 60px;
-      height: 60px;
-    }
-    .photo-section a {
-      color: #a3471e;
-      text-decoration: underline;
+    section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1.5em;
     }
     .btn-group {
       display: flex;
@@ -97,42 +99,25 @@
       justify-content: center;
       margin-top: 1em;
     }
-    .btn-green {
+    .btn-modern {
       background-color: #1c3b2f;
       color: white;
-      padding: 0.6em 1em;
-      border-radius: 6px;
+      padding: 0.8em 1.4em;
+      border-radius: 30px;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      font-size: 0.95em;
       font-weight: bold;
-    }
-    .btn-green img {
-      width: 18px;
-      height: 18px;
-    }
-    .contact-grid {
       display: flex;
-      justify-content: center;
-      gap: 4em;
-      margin-top: 2em;
-      flex-wrap: wrap;
-    }
-    .contact-person {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.5em;
+      gap: 0.6em;
+      transition: background-color 0.3s ease;
+      font-size: 0.95em;
     }
-    .contact-person img {
-      width: 40px;
-      height: 40px;
+    .btn-modern img {
+      width: 20px;
+      height: 20px;
     }
-    .mail-icon img {
-      width: 50px;
-      height: 50px;
+    .btn-modern:hover {
+      background-color: #a3471e;
     }
     #countdown-timer {
       display: inline;
@@ -140,20 +125,17 @@
   </style>
   <script>
     function countdown() {
-      const countDate = new Date("June 28, 2025 00:00:00").getTime();
+      const countDate = new Date("June 28, 2025 14:00:00").getTime();
       const now = new Date().getTime();
       const gap = countDate - now;
-
       const second = 1000;
       const minute = second * 60;
       const hour = minute * 60;
       const day = hour * 24;
-
       const d = Math.floor(gap / day);
       const h = Math.floor((gap % day) / hour);
       const m = Math.floor((gap % hour) / minute);
       const s = Math.floor((gap % minute) / second);
-
       document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
     }
     setInterval(countdown, 1000);
@@ -180,61 +162,28 @@
 
   <section id="ceremonie">
     <h2>Cérémonie</h2>
-    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
-    <p style="text-align:center;">13h45 - Abbaye de Saint-Martin de Boscherville</p>
+    <p class="subtext">13h45 – Abbaye de Saint-Martin de Boscherville</p>
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie">
     <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-green">
+      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank" class="btn-modern">
         <img src="icon_google.png" alt="GMaps">Google Maps
       </a>
-      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-green">
+      <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank" class="btn-modern">
         <img src="waze_logo.png" alt="Waze">Waze
       </a>
     </div>
   </section>
-
   <section id="reception">
     <h2>Réception</h2>
-    <img src="lieu_reception.jpg" alt="Lieu réception" style="width:100%;border-radius:10px;">
-    <p style="text-align:center;">17h00 - Abbaye du Valasse</p>
+    <p class="subtext">17h00 – Abbaye du Valasse</p>
+    <img src="lieu_reception.jpg" alt="Lieu réception">
     <div class="btn-group">
-      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-green">
+      <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank" class="btn-modern">
         <img src="icon_google.png" alt="GMaps">Google Maps
       </a>
-      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-green">
+      <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank" class="btn-modern">
         <img src="waze_logo.png" alt="Waze">Waze
       </a>
-    </div>
-  </section>
-
-  <section id="liste">
-    <h2>Notre liste</h2>
-    <p style="text-align:center;">Contenu à venir...</p>
-  </section>
-
-  <section id="photos">
-    <h2>Photos</h2>
-    <div class="photo-section">
-      <img src="icloud_logo.png" alt="Logo iCloud">
-      <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 style="text-align:center;">Contact</h2>
-    <div class="contact-grid">
-      <div class="contact-person">
-        <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie"></a>
-        <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie"></a>
-        <span>Mélanie</span>
-      </div>
-      <div class="contact-person" style="display:flex; align-items:center; justify-content:center; padding-bottom:1.2em;">
-        <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" style="width:50px;height:50px;"></a>
-      </div>
-      <div class="contact-person">
-        <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément"></a>
-        <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément"></a>
-        <span>Clément</span>
-      </div>
     </div>
   </section>
 </body>
