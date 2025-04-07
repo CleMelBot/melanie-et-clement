@@ -115,27 +115,34 @@
       width: 18px;
       height: 18px;
     }
-    .contact-icons {
+    .contact-center {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 2em;
-      padding-top: 1.5em;
+      padding: 1em 0;
     }
-    .contact-icons .item {
+    .contact-center img {
+      width: 60px;
+      height: 60px;
+    }
+    .contact-columns {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3em;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4em;
+      padding-top: 2em;
     }
-    .contact-icons img {
+    .contact-columns .person {
+      text-align: center;
+    }
+    .contact-columns img {
       width: 50px;
       height: 50px;
+      margin: 0 0.5em;
     }
-    .contact-icons span {
-      font-size: 0.9em;
+    .contact-columns span {
+      display: block;
+      margin-top: 0.5em;
       font-weight: bold;
-      text-align: center;
     }
   </style>
 </head>
@@ -196,34 +203,27 @@
   </section>
   <section id="contact">
     <h2>Contact</h2>
-    <div class="contact-icons">
-      <div class="item">
-        <a href="mailto:clemel.bottois@hotmail.com">
-          <img src="mail_icon_green.png" alt="Mail">
+    <div class="contact-center">
+      <a href="mailto:clemel.bottois@hotmail.com">
+        <img src="mail_icon_green.png" alt="Mail">
+      </a>
+    </div>
+    <div class="contact-columns">
+      <div class="person">
+        <a href="tel:+33607029462">
+          <img src="call_icon.png" alt="Téléphone Mélanie">
         </a>
-        <span>Mail</span>
-      </div>
-      <div class="item">
         <a href="sms:+33607029462">
           <img src="sms_icon.png" alt="SMS Mélanie">
         </a>
         <span>Mélanie</span>
       </div>
-      <div class="item">
+      <div class="person">
+        <a href="tel:+33645873429">
+          <img src="call_icon.png" alt="Téléphone Clément">
+        </a>
         <a href="sms:+33645873429">
           <img src="sms_icon.png" alt="SMS Clément">
-        </a>
-        <span>Clément</span>
-      </div>
-      <div class="item">
-        <a href="tel:+33607029462">
-          <img src="call_icon.png" alt="Appel Mélanie">
-        </a>
-        <span>Mélanie</span>
-      </div>
-      <div class="item">
-        <a href="tel:+33645873429">
-          <img src="call_icon.png" alt="Appel Clément">
         </a>
         <span>Clément</span>
       </div>
