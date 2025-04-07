@@ -75,8 +75,6 @@
       color: #1c3b2f;
       font-size: 1.8em;
       margin-bottom: 0.5em;
-    }
-    #contact h2 {
       text-align: center;
     }
     .photo-section {
@@ -115,34 +113,38 @@
       width: 18px;
       height: 18px;
     }
-    .contact-center {
+    .contact-icons {
       display: flex;
-      justify-content: center;
-      padding: 1em 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5em;
+      padding-top: 1.5em;
     }
-    .contact-center img {
-      width: 60px;
-      height: 60px;
+    .contact-icons .mail {
+      text-align: center;
+    }
+    .contact-icons img.icon {
+      width: 50px;
+      height: 50px;
     }
     .contact-columns {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 4em;
-      padding-top: 2em;
+      flex-wrap: wrap;
     }
-    .contact-columns .person {
+    .contact-column {
       text-align: center;
     }
-    .contact-columns img {
-      width: 50px;
-      height: 50px;
-      margin: 0 0.5em;
-    }
-    .contact-columns span {
-      display: block;
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
       margin-top: 0.5em;
-      font-weight: bold;
+    }
+    .contact-buttons a img {
+      width: 48px;
+      height: 48px;
     }
   </style>
 </head>
@@ -203,29 +205,27 @@
   </section>
   <section id="contact">
     <h2>Contact</h2>
-    <div class="contact-center">
-      <a href="mailto:clemel.bottois@hotmail.com">
-        <img src="mail_icon_green.png" alt="Mail">
-      </a>
-    </div>
-    <div class="contact-columns">
-      <div class="person">
-        <a href="tel:+33607029462">
-          <img src="call_icon.png" alt="Téléphone Mélanie">
+    <div class="contact-icons">
+      <div class="mail">
+        <a href="mailto:clemel.bottois@hotmail.com">
+          <img src="mail_icon_green.png" alt="Mail" class="icon">
         </a>
-        <a href="sms:+33607029462">
-          <img src="sms_icon.png" alt="SMS Mélanie">
-        </a>
-        <span>Mélanie</span>
       </div>
-      <div class="person">
-        <a href="tel:+33645873429">
-          <img src="call_icon.png" alt="Téléphone Clément">
-        </a>
-        <a href="sms:+33645873429">
-          <img src="sms_icon.png" alt="SMS Clément">
-        </a>
-        <span>Clément</span>
+      <div class="contact-columns">
+        <div class="contact-column">
+          <div class="contact-buttons">
+            <a href="tel:+33607029462"><img src="call_icon.png" alt="Appel Mélanie"></a>
+            <a href="sms:+33607029462"><img src="sms_icon.png" alt="SMS Mélanie"></a>
+          </div>
+          <p><strong>Mélanie</strong></p>
+        </div>
+        <div class="contact-column">
+          <div class="contact-buttons">
+            <a href="tel:+33645873429"><img src="call_icon.png" alt="Appel Clément"></a>
+            <a href="sms:+33645873429"><img src="sms_icon.png" alt="SMS Clément"></a>
+          </div>
+          <p><strong>Clément</strong></p>
+        </div>
       </div>
     </div>
   </section>
