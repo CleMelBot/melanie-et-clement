@@ -77,88 +77,34 @@
       margin-bottom: 0.5em;
       text-align: center;
     }
-    .photo-section {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    .photo-section img {
-      width: 60px;
-      height: 60px;
-    }
-    .photo-section a {
-      color: #a3471e;
-      text-decoration: underline;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1em;
-    }
-    .btn-green {
-      background-color: #1c3b2f;
-      color: white;
-      padding: 0.6em 1em;
-      border-radius: 6px;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      font-size: 0.95em;
-      font-weight: bold;
-    }
-    .btn-green img {
-      width: 18px;
-      height: 18px;
-    }
-    .contact-block {
-      text-align: center;
-    }
-    .contact-grid {
-      display: flex;
-      justify-content: center;
-      gap: 5em;
-      margin-top: 2em;
-    }
-    .contact-person {
+    .contact-icons {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1em;
+      gap: 2em;
+      padding-top: 1.5em;
     }
-    .contact-person img {
+    .contact-icons .row {
+      display: flex;
+      gap: 2em;
+    }
+    .contact-icons .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .contact-icons img {
       width: 50px;
       height: 50px;
+      object-fit: contain;
     }
-    .mail-icon {
-      margin-top: 1em;
-    }
-    #countdown-timer {
-      display: inline;
+    .contact-icons span {
+      font-size: 0.9em;
+      font-weight: bold;
+      text-align: center;
     }
   </style>
-  <script>
-    function countdown() {
-      const countDate = new Date("June 28, 2025 00:00:00").getTime();
-      const now = new Date().getTime();
-      const gap = countDate - now;
-
-      const second = 1000;
-      const minute = second * 60;
-      const hour = minute * 60;
-      const day = hour * 24;
-
-      const d = Math.floor(gap / day);
-      const h = Math.floor((gap % day) / hour);
-      const m = Math.floor((gap % hour) / minute);
-      const s = Math.floor((gap % minute) / second);
-
-      document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
-    }
-    setInterval(countdown, 1000);
-  </script>
 </head>
 <body>
   <div class="header-image">
@@ -168,7 +114,7 @@
       <p>Le 28 juin 2025</p>
     </div>
   </div>
-  <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
+  <div class="countdown" id="countdown">Décollage dans...</div>
   <nav>
     <ul>
       <li><a href="#ceremonie">Cérémonie</a></li>
@@ -179,6 +125,7 @@
     </ul>
   </nav>
 
+  
   <section id="ceremonie">
     <h2>Cérémonie</h2>
     <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
@@ -219,28 +166,47 @@
       <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
     </div>
   </section>
-
+    
   <section id="contact">
-    <h2 style="text-align:center;">Contact</h2>
-    <div class="contact-block">
-      <div class="mail-icon">
+    <h2>Contact</h2>
+    <div class="contact-icons">
+      <div class="item">
         <a href="mailto:clemel.bottois@hotmail.com">
-          <img src="icon_mail.png" alt="Mail" width="50" height="50">
+          <img src="icon_mail.png" alt="Mail">
         </a>
+        <span>Mail</span>
       </div>
-      <div class="contact-grid">
-        <div class="contact-person">
-          <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie"></a>
+      <div class="row">
+        <div class="item">
+          <a href="tel:+33607029462"><img src="icon_phone.png" alt="Téléphone Mélanie"></a>
           <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie"></a>
           <span>Mélanie</span>
         </div>
-        <div class="contact-person">
-          <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément"></a>
+        <div class="item">
+          <a href="tel:+33645873429"><img src="icon_phone.png" alt="Téléphone Clément"></a>
           <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément"></a>
           <span>Clément</span>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    function updateCountdown() {
+      const eventDate = new Date("2025-06-28T00:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText = `Décollage dans ${days}j ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
