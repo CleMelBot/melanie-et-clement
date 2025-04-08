@@ -26,7 +26,7 @@
       overflow: hidden;
     }
     .parallax-bg {
-      background: url('banner.jpg') center bottom/cover no-repeat fixed;
+      background: url('banner.jpg') center bottom/cover no-repeat;
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: 0;
@@ -125,6 +125,13 @@
       color: var(--terracotta);
       text-decoration: underline;
     }
+
+@media (min-width: 768px) {
+  .parallax-bg {
+    background-attachment: fixed;
+  }
+}
+
 </style>
 <script>
     function updateCountdown() {
