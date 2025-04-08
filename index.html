@@ -8,9 +8,47 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: #fefdf5;
       margin: 0;
+      background: #fefdf5;
       color: #1c3b2f;
+    }
+    .header-image {
+      position: relative;
+      text-align: center;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .header-text h1 {
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 1px 1px 3px black;
+    }
+    .header-text p {
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px black;
+    }
+    .countdown {
+      background-color: #f9f8f4;
+      color: #a3471e;
+      padding: 1em;
+      font-size: 1.4em;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
     }
     nav {
       background-color: #ffffff;
@@ -24,72 +62,26 @@
       justify-content: center;
       list-style: none;
       margin: 0;
-      padding: 0.6em 0.4em;
-      gap: 1em;
-      flex-wrap: wrap;
+      padding: 0.5em 0.2em;
+      gap: 0.5em;
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
     nav a {
       text-decoration: none;
       font-weight: bold;
       color: #1c3b2f;
-      font-size: 0.95em;
-    }
-    .header-image {
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-    .header-image img {
-      width: 100%;
-      height: auto;
-      max-height: 600px;
-      object-fit: cover;
-    }
-    .header-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-shadow: 1px 1px 3px black;
-    }
-    .header-text h1 {
-      font-size: 2.6em;
-      margin: 0;
-    }
-    .header-text p {
-      font-size: 1.3em;
-    }
-    .countdown {
-      background-color: #f9f8f4;
-      color: #a3471e;
-      padding: 1em;
-      font-size: 1.4em;
-      font-weight: bold;
-      text-align: center;
+      font-size: 0.9em;
+      white-space: nowrap;
     }
     section {
       padding: 2em 1em;
     }
     h2 {
-      font-size: 1.9em;
       color: #1c3b2f;
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
       text-align: center;
-      margin-bottom: 0.3em;
-    }
-    .subtext {
-      text-align: center;
-      font-style: italic;
-      margin-bottom: 1em;
-      color: #3a4a3f;
-    }
-    .btn-billet {
-      text-align: center;
-      margin: 1em 0;
-    }
-    .btn-billet img {
-      max-width: 90%;
-      height: auto;
     }
   </style>
 </head>
@@ -101,9 +93,7 @@
       <p>Le 28 juin 2025</p>
     </div>
   </div>
-
   <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
-
   <nav>
     <ul>
       <li><a href="#ceremonie">Cérémonie</a></li>
@@ -116,13 +106,12 @@
 
   <section id="ceremonie">
     <h2>Cérémonie</h2>
-    <div class="subtext">13h45 – Abbaye de Saint-Martin de Boscherville</div>
-    <img src="lieu_ceremonie.jpg" alt="Lieu de la cérémonie" style="width:100%;border-radius:10px;margin-bottom:1em;">
-    <div class="btn-billet">
-      <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
-        <img src="maps_waze_buttons.png" alt="Boutons Maps et Waze">
-      </a>
-    </div>
+    <p style="text-align:center;font-style:italic;">13h45 – Abbaye de Saint-Martin de Boscherville</p>
+    <p style="text-align:center;">
+      Notre cérémonie se déroulera dans l'écrin majestueux de l’Abbaye de Saint-Martin de Boscherville. Un lieu chargé d'histoire, parfait pour célébrer notre union.
+      Nous vous attendons à 13h45 pour le début de l’embarquement !
+    </p>
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" style="width:100%;border-radius:10px;">
   </section>
 </body>
 </html>
