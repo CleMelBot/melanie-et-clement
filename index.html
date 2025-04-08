@@ -135,32 +135,41 @@
 }
 
 
-    .header-content h1 {
-      overflow: hidden;
-      border-right: .1em solid white;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .05em;
-      animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite;
+    .header-content h1 span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: letterStagger 0.6s ease-out forwards;
     }
+
     .header-content p {
       opacity: 0;
-      animation: fadeInText 1.5s ease-in 2.5s forwards;
+      animation: fadeInText 1.2s ease-out 1s forwards;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: white }
+    @keyframes letterStagger {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeInText {
-      to { opacity: 1; }
+      to {
+        opacity: 1;
+      }
     }
+
+    /* Inject spans in h1 via JS */
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const h1 = document.querySelector(".header-content h1");
+      if (h1) {
+        const chars = h1.textContent.split("");
+        h1.innerHTML = chars.map((c, i) => `<span style="animation-delay:${i * 0.06}s">${c}</span>`).join("");
+      }
+    });
+    </script>
 
 </style>
 <script>
