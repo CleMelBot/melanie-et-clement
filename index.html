@@ -310,16 +310,20 @@
 </script>
 
 <script>
+  // Clique sur "Offrir"
   function envoyerMontant() {
-    const input = document.querySelector('#liste input[type="number"]');
-    const montant = input.value;
+    const montant = document.querySelector('#liste input[type="number"]').value;
     if (!montant) return alert("Merci d’entrer un montant !");
-    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?entry.1384813891=" + encodeURIComponent(montant) + "&entry.1793545861=Participation libre";
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1384813891=" + encodeURIComponent(montant)
+              + "&entry.1793545861=" + encodeURIComponent("Participation libre");
     window.open(url, '_blank');
   }
 
+  // Clique sur "Je participe" dans Thermomix
   function envoyerThermomix() {
-    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?entry.1793545861=Thermomix";
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1793545861=" + encodeURIComponent("Thermomix");
     window.open(url, '_blank');
   }
 </script>
