@@ -262,7 +262,7 @@
         <input type="number" min="1" placeholder="0" style="padding: 0.4em 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
         <span style="margin-left: 0.5em; font-weight: bold;">€</span>
       </div>
-      <a href="https://forms.gle/qY4uAnsgCCwqnzFP9" target="_blank" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
+      <a href="#" onclick="envoyerMontant()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
     </div>
     <div style="margin-top: 2em; color: #888;">
       — Ou choisissez des cadeaux dans la liste —
@@ -276,7 +276,7 @@
       <p style="margin: 0.2em 0;">Robot cuiseur multifonction dernière génération.</p>
       <p style="margin: 0.5em 0; font-weight: bold;">0€ / 1 599€</p>
       <p style="margin: 0.5em 0; color: #a3471e;">Restant : 1 599€</p>
-      <a href="https://forms.gle/qY4uAnsgCCwqnzFP9" target="_blank" style="display: inline-block; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
+      <a href="#" onclick="envoyerThermomix()" style="display: inline-block; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
     </div>
   </div>
 </section>
@@ -308,5 +308,21 @@
     }
   });
 </script>
+
+<script>
+  function envoyerMontant() {
+    const input = document.querySelector('#liste input[type="number"]');
+    const montant = input.value;
+    if (!montant) return alert("Merci d’entrer un montant !");
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?entry.1384813891=" + encodeURIComponent(montant) + "&entry.1793545861=Participation%20libre";
+    window.open(url, '_blank');
+  }
+
+  function envoyerThermomix() {
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?entry.1793545861=Thermomix";
+    window.open(url, '_blank');
+  }
+</script>
 </body>
 </html>
+
