@@ -1,0 +1,204 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mélanie & Clément - Mariage</title>
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
+    header { text-align: center; padding: 60px 20px; background: #f7f7f7; }
+    h1 { margin: 0; font-size: 2.5em; color: #2d6a4f; }
+    h2 { color: #444; text-align: center; margin: 50px 0 20px; }
+    h3 { color: #2d6a4f; text-align: center; margin-top: 10px; }
+    p { color: #666; text-align: center; max-width: 800px; margin: 10px auto; }
+    .section { padding: 40px 20px; }
+    .gift { border: 1px solid #ccc; border-radius: 8px; margin: 20px auto; max-width: 600px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .gift img { width: 100%; height: auto; border-bottom: 1px solid #ccc; }
+    .gift-content { padding: 20px; text-align: center; }
+    a.button { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #2d6a4f; color: white; border-radius: 5px; text-decoration: none; }
+    hr { border: none; border-top: 1px solid #ccc; margin: 60px 0; }
+    select { margin: 20px auto; padding: 10px; font-size: 1em; display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Mélanie & Clément</h1>
+  <p>Le 28 juin 2025</p>
+</header>
+
+<nav style="position:sticky;top:0;background:white;padding:10px 0;box-shadow:0 2px 5px rgba(0,0,0,0.1);z-index:1000;">
+  <div style="text-align:center;">
+    <a href="#ceremonie" style="margin:0 10px;">Cérémonie</a>
+    <a href="#reception" style="margin:0 10px;">Réception</a>
+    <a href="#liste" style="margin:0 10px;">Liste de mariage</a>
+    <a href="#multimedia" style="margin:0 10px;">Multimédia</a>
+    <a href="#reponse" style="margin:0 10px;">Réponse</a>
+  </div>
+</nav>
+
+<section id="ceremonie" class="section">
+  <h2>Cérémonie</h2>
+  <p>13h45 – Abbaye de Saint-Martin de Boscherville</p>
+</section>
+
+<section id="reception" class="section">
+  <h2>Réception</h2>
+  <p>17h00 – Abbaye du Valasse</p>
+</section>
+
+<section id="liste" class="section">
+  <h2>-- Ou choisissez des cadeaux dans la liste --</h2>
+  <select onchange="location.href=this.value;">
+    <option value="">-- Sélectionner une catégorie --</option>
+    <option value="#voyage">Voyage de Noces</option>
+    <option value="#equipement-cuisine">Équipement de Cuisine</option>
+    <option value="#artdelatable">Art de la Table</option>
+  </select>
+</section>
+
+<section id="voyage" class="section">
+  <hr>
+  <h2>Voyage de Noces</h2>
+  <div class="gift">
+    <img src="BALI.JPG" alt="Voyage Bali">
+    <div class="gift-content">
+      <h3>Faites décoller notre lune de miel</h3>
+      <p>En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces" target="_blank">Participer</a>
+    </div>
+  </div>
+</section>
+
+<section id="equipement-cuisine" class="section">
+  <hr>
+  <h2>Équipement de Cuisine</h2>
+  <div class="gift">
+    <img src="TM7.jpeg" alt="Thermomix TM7">
+    <div class="gift-content">
+      <h3>Thermomix TM7</h3>
+      <p>Robot cuiseur multifonction dernière génération.</p>
+      <p><strong>0€ / 1 599€</strong></p>
+      <p>Restant : 1 599€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Thermomix" target="_blank">Participer</a>
+    </div>
+  </div>
+</section>
+
+<section id="artdelatable" class="section">
+  <hr>
+  <h2>Art de la Table</h2>
+
+  <div class="gift">
+    <img src="1.JPG" alt="2× NewMoon Verre à champagne">
+    <div class="gift-content">
+      <h3>2× NewMoon Verre à champagne</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 70€</strong></p>
+      <p>Restant : 70€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+champagne" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="1.JPG" alt="2× NewMoon Verre à vin rouge">
+    <div class="gift-content">
+      <h3>2× NewMoon Verre à vin rouge</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 70€</strong></p>
+      <p>Restant : 70€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+vin+rouge" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <!-- (et ainsi de suite pour tous les cadeaux Art de la Table...) -->
+
+</section>
+
+  <div class="gift">
+    <img src="1.JPG" alt="2× NewMoon Verre à vin blanc">
+    <div class="gift-content">
+      <h3>2× NewMoon Verre à vin blanc</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 70€</strong></p>
+      <p>Restant : 70€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+vin+blanc" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="2.jpg" alt="8× Piemont Ménagère couverts 4 pcs">
+    <div class="gift-content">
+      <h3>8× Piemont Ménagère couverts 4 pcs</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 122€</strong></p>
+      <p>Restant : 122€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Couverts+Piemont" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="3.JPG" alt="4× Mug avec anse">
+    <div class="gift-content">
+      <h3>4× Mug avec anse</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 64€</strong></p>
+      <p>Restant : 64€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Mug" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="4.WEBP" alt="8× Sous-tasse à café">
+    <div class="gift-content">
+      <h3>8× Sous-tasse à café</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 84€</strong></p>
+      <p>Restant : 84€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Sous-tasse+à+café" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="5.WEBP" alt="4× Sous-tasse à expresso">
+    <div class="gift-content">
+      <h3>4× Sous-tasse à expresso</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 39€</strong></p>
+      <p>Restant : 39€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Sous-tasse+à+expresso" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="6.JPG" alt="4× Tasse à expresso">
+    <div class="gift-content">
+      <h3>4× Tasse à expresso</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 47€</strong></p>
+      <p>Restant : 47€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Tasse+à+expresso" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="7.JPG" alt="4× Tasse à café">
+    <div class="gift-content">
+      <h3>4× Tasse à café</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 50€</strong></p>
+      <p>Restant : 50€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Tasse+à+café" target="_blank">Participer</a>
+    </div>
+  </div>
+
+  <div class="gift">
+    <img src="8.PNG" alt="1× Saladier 2,5l">
+    <div class="gift-content">
+      <h3>1× Saladier 2,5l</h3>
+      <p>Villeroy & Boch</p>
+      <p><strong>0€ / 34€</strong></p>
+      <p>Restant : 34€</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Saladier+2,5l" target="_blank">Participer</a>
+    </div>
+  </div>
