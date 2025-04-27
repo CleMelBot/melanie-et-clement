@@ -340,11 +340,13 @@
     </p>
     <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">NewMoon Verre à mousseux et champagne</p>
 
-    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #f9f8f4; border-radius: 10px; padding: 0.6em; margin-top: 1.5em;">
-      <input type="number" id="montantProduit1" min="1" placeholder="70" 
-             style="width: 70px; padding: 0.4em; font-size: 0.9em; border: 1px solid #ccc; border-radius: 6px; text-align: right;" />
+    <div style="display: flex; align-items: center; justify-content: space-between; background: #f9f8f4; border-radius: 12px; padding: 0.8em 1em; margin-top: 1.5em;">
+      <div style="text-align: left; font-size: 0.95em; color: #555; cursor: pointer;" onclick="transformerEnInput('montantProduit1')">
+        <div style="font-weight: bold;">Restant</div>
+        <div id="montantProduit1" style="font-size: 1.2em; font-weight: bold;">70€</div>
+      </div>
       <a href="#" onclick="envoyerParticipationProduit1()" 
-         style="background: #2d6a4f; color: white; padding: 0.4em 0.8em; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85em;">
+         style="background: #d7f3ee; color: #00796b; font-weight: bold; padding: 0.5em 1.2em; border-radius: 12px; text-decoration: none; font-size: 0.95em;">
         Participer
       </a>
     </div>
@@ -495,8 +497,16 @@
     window.open(url, '_blank');
   }
 <script>
+<script>
+  function transformerEnInput(id) {
+    const montantDiv = document.getElementById(id);
+    const montantTexte = montantDiv.innerText.replace('€', '').trim();
+    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 80px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: right;">';
+  }
+
   function envoyerParticipationProduit1() {
-    const montant = document.getElementById('montantProduit1').value;
+    const montantElem = document.getElementById('montantProduit1');
+    let montant = montantElem.value || montantElem.innerText.replace('€', '').trim();
     if (!montant) {
       alert("Merci d'entrer un montant !");
       return;
