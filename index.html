@@ -340,12 +340,12 @@
     </p>
     <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">NewMoon Verre à mousseux et champagne</p>
 
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; margin-top: 1.5em;">
-      <div onclick="transformerEnInput('montantProduit1')" style="flex: 1; background: #f9f8f4; padding: 0.8em; text-align: center; font-size: 0.9em; font-weight: bold; cursor: pointer;">
+    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; margin-top: 1.5em; height: 55px;">
+      <div onclick="transformerEnInput('montantProduit1')" style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 0.8em; font-weight: bold; cursor: pointer;">
         <div style="color: #555;">Restant</div>
-        <div id="montantProduit1" style="font-size: 1.2em;">70€</div>
+        <div id="montantProduit1" style="font-size: 1em;">70€</div>
       </div>
-      <a href="#" onclick="envoyerParticipationProduit1()" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 0.9em; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+      <a href="#" onclick="envoyerParticipationProduit1()" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.8em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
         Participer
       </a>
     </div>
@@ -499,14 +499,14 @@
   function transformerEnInput(id) {
     const montantDiv = document.getElementById(id);
     const montantTexte = montantDiv.innerText.replace('€', '').trim();
-    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 70px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: center;">';
+    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 50px; font-size: 1em; font-weight: bold; border: none; background: transparent; text-align: center;">';
   }
 
   function envoyerParticipationProduit1() {
     const montantElem = document.getElementById('montantProduit1');
     let montant = montantElem.value || montantElem.innerText.replace('€', '').trim();
     if (!montant) {
-      alert("Merci d'entrer un montant !");
+      alert("Merci d’entrer un montant !");
       return;
     }
     const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
