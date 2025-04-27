@@ -313,18 +313,17 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
       </a>
     </p>
     <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à champagne</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 75px; flex-direction: column; justify-content: center;">
+
+    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
         <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit1" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 80px;">
-        <div id="error-montantProduit1" style="color: red; font-size: 0.7em; margin-top: 0.3em; display: none;">
-          Merci de remplir ce champ
-        </div>
+        <input id="montantProduit1" type="number" min="1" placeholder="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;" />
       </div>
-      <a href="#" onclick="envoyerProduit(event, 'Verre à champagne', 'montantProduit1')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.8em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top: 1px solid #ccc; border-bottom-right-radius: 12px; border-bottom-left-radius: 12px;">
+      <button onclick="envoyerProduit(event, 'Verre à champagne', 'montantProduit1')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
         Participer
-      </a>
+      </button>
     </div>
+
   </div>
 </div>
 <!-- Produit 2 -->
@@ -651,10 +650,23 @@ function envoyerParticipationLibre() {
 
 // === Envoi Participation par produit (NOUVELLE VERSION) ===
 function envoyerProduit(event, nomProduit, idInput) {
-  event.preventDefault(); // Empêche de remonter en haut du site
-
+  event.preventDefault();
   const montantInput = document.getElementById(idInput);
-  const errorDiv = document.getElementById('error-' + idInput);
+  if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
+    montantInput.focus();
+    montantInput.setCustomValidity("Merci d'entrer un montant !");
+    montantInput.reportValidity();
+    return;
+  } else {
+    montantInput.setCustomValidity("");
+  }
+
+  const montant = montantInput.value;
+  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+            + "?entry.1061348133=" + encoderPourGoogle(montant)
+            + "&entry.1786079912=" + encoderPourGoogle(nomProduit);
+  window.open(url, '_blank');
+}
 
   // Réinitialiser message erreur
   if (errorDiv) errorDiv.style.display = 'none';
