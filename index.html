@@ -155,6 +155,58 @@ h2 {
   margin-bottom: 1em;
 }
 </style>
+<style>
+.section-liste-cadeaux {
+  max-width: 400px;
+  margin: 2em 0 2em 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.section-liste-cadeaux.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-liste-cadeaux h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
+
+/* CORRECTION pour centrer les contenus internes (balises à l'intérieur) */
+.section-liste-cadeaux > div {
+  text-align: center;
+}
+</style>
+<style>
+.section-liste-art {
+  max-width: 400px;
+  margin: 2em 0 2em 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.section-liste-art.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-liste-art h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
+
+/* CORRECTION pour centrer les contenus internes */
+.section-liste-art > div {
+  text-align: center;
+}
+</style>
 </head>
 <body>
 
