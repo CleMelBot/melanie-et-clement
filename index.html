@@ -1,136 +1,224 @@
+
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mélanie & Clément – Mariage 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+<title>Mélanie &amp; Clément – Mariage 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --green: #1c3b2f;
+      --terracotta: #a3471e;
+      --cream: #fefdf5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--green);
+      overflow-x: hidden;
+    }
+    header {
+      position: relative;
+      height: 95vh;
+      overflow: hidden;
+    }
+    .parallax-bg {
+      background: url('banner_mobile_recentre.jpg') center/cover no-repeat;
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+    }
+    .header-content {
+      padding-bottom: 80px;
+      
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+    .header-content h1 {
+      font-size: 3.8em;
+      animation: fadeInDown 2s ease-out;
+    }
+    .header-content p {
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      animation: fadeInUp 2s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .countdown {
+      background: #f9f8f4;
+      color: var(--terracotta);
+      text-align: center;
+      padding: 1em;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 0.6em;
+      padding: 0.6em 0.2em;
+      flex-wrap: wrap;
+    }
+    nav li a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    section {
+      padding: 4em 1em;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: 0.4em;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 2em;
+    }
+    .photo-section {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 2em;
+    }
+    .photo-section img {
+      width: 60px;
+      height: 60px;
+    }
+    .photo-section p a {
+      color: var(--terracotta);
+      text-decoration: underline;
+    }
+
+@media (min-width: 768px) {
+  .parallax-bg {
+    background-attachment: fixed;
+  }
+}
+
+
+    .header-content h1, .header-content p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.6s ease-out forwards;
+    }
+
+    .header-content h1 {
+      animation-delay: 0.3s;
+    }
+
+    .header-content p {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+.header-content h1, .header-content p {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeScale 1.4s ease-out forwards;
+}
+.header-content h1 { animation-delay: 0.3s; }
+.header-content p { animation-delay: 0.6s; }
+@keyframes fadeScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+</style>
+<script>
+    function updateCountdown() {
+      const countDate = new Date("June 28, 2025 14:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = countDate - now;
+      const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+      const d = Math.floor(gap / day);
+      const h = Math.floor((gap % day) / hour);
+      const m = Math.floor((gap % hour) / minute);
+      const s = Math.floor((gap % minute) / second);
+      document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
+    }
+    window.onload = () => {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      const sections = document.querySelectorAll("section");
+      const reveal = () => {
+        sections.forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < window.innerHeight * 0.85) sec.classList.add("visible");
+        });
+      };
+      window.addEventListener("scroll", reveal);
+      reveal();
+    };
+</script>
 
 <style>
-:root {
-  --green: #1c3b2f;
-  --terracotta: #a3471e;
-  --cream: #fefdf5;
-  --orange: #d26500;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: var(--green);
-  overflow-x: hidden;
-}
-header {
-  position: relative;
-  height: 95vh;
-  overflow: hidden;
-}
-.parallax-bg {
-  background: url('banner_mobile_recentre.jpg') center/cover no-repeat;
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0;
-}
-.header-content {
-  padding-bottom: 80px;
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-}
-.header-content h1 {
-  font-size: 3.8em;
-  animation: fadeInDown 2s ease-out;
-}
-.header-content p {
-  font-size: 1.5em;
-  margin-top: 0.5em;
-  animation: fadeInUp 2s ease-out;
-}
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-nav {
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 0.6em;
-  padding: 0.6em 0.2em;
-  flex-wrap: wrap;
-}
-nav li a {
-  color: var(--green);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.85em;
-}
-section {
-  padding: 4em 1em;
-  max-width: 1000px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-h2 {
-  font-size: 2.2em;
-  margin-bottom: 0.4em;
-  text-align: center;
-}
-.subtitle {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2em;
-  color: #666;
-}
-.countdown {
-  text-align: center;
-  font-size: 1.2em;
-  padding: 0.7em;
-  color: var(--orange);
-  background: var(--cream);
-  font-weight: bold;
-}
-@media (min-width: 768px) {
-  .parallax-bg { background-attachment: fixed; }
-}
+  .section-titre-liste {
+    text-align: left;
+    font-size: 1.6em;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    margin-bottom: 0.8em;
+    margin-left: 0.5em;
+  }
 </style>
 
 </head>
 <body>
-
 <header>
 <div class="parallax-bg"></div>
 <div class="header-content">
-<h1>Mélanie & Clément</h1>
+<h1>Mélanie &amp; Clément</h1>
 <p>Le 28 juin 2025</p>
 </div>
 </header>
-
 <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
-
 <nav>
 <ul>
 <li><a href="#ceremonie">Cérémonie</a></li>
@@ -140,477 +228,332 @@ h2 {
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
-
 <section id="ceremonie">
 <h2>Cérémonie</h2>
-<div class="subtitle">13h45 – Abbaye de Saint-Martin de Boscherville</div>
+<div class="subtitle" style="color: #666;">13h45 – Abbaye de Saint-Martin de Boscherville</div>
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !</p>
 <img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
-    <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
-  </a>
-  <a href="https://waze.com/ul?ll=49.44442,0.963771&amp;navigate=yes" target="_blank">
-    <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
-  </a>
+<a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
+<img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+</a>
+<a href="https://waze.com/ul?ll=49.44442,0.963771&amp;navigate=yes" target="_blank">
+<img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+</a>
 </div>
 </section>
-
 <section id="reception">
 <h2>Réception</h2>
-<div class="subtitle">17h00 – Abbaye du Valasse</div>
+<div class="subtitle" style="color: #666;">17h00 – Abbaye du Valasse</div>
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.</p>
 <img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">
-    <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
-  </a>
-  <a href="https://waze.com/ul?ll=49.537117,0.508053&amp;navigate=yes" target="_blank">
-    <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
-  </a>
+<a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">
+<img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+</a>
+<a href="https://waze.com/ul?ll=49.537117,0.508053&amp;navigate=yes" target="_blank">
+<img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+</a>
 </div>
 </section>
 
 <section id="liste">
-<h2>Liste de mariage</h2>
-<div class="subtitle">Notre liste</div>
-<p style="text-align:center; max-width: 700px; margin: 0 auto 2em;">
-Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong><br>Mélanie & Clément
-</p>
+  <h2>Liste de mariage</h2>
+  <div class="subtitle" style="color: #666;">Notre liste</div>
+  <p style="text-align:center; max-width: 700px; margin: 0 auto 1em;">
+    Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong><br>Mélanie & Clément
+  </p>
 
-<div style="max-width: 400px; margin: 2em auto; text-align: center;">
-  <h3 style="margin-bottom: 0.3em;">Faites une contribution libre</h3>
-  <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
-    <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/></svg>
-      <input type="number" id="montantLibre" min="1" placeholder="0" style="padding: 0.4em 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
-      <span style="margin-left: 0.5em; font-weight: bold;">€</span>
+  <div style="max-width: 400px; margin: 2em auto; text-align: center;">
+    <h3 style="margin-bottom: 0.3em;">Faites une contribution libre</h3>
+    <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
+      <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/></svg>
+        <input type="number" min="1" placeholder="0" style="padding: 0.4em 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
+        <span style="margin-left: 0.5em; font-weight: bold;">€</span>
+      </div>
+      <a href="#" onclick="envoyerMontant()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
     </div>
-    <a href="#" onclick="envoyerParticipationLibre()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
-  </div>
+    <div style="margin-top: 2em; color: #888;">
+      — Ou choisissez des cadeaux dans la liste —
+<div style="text-align: center; margin: 2em 0;">
+  <label for="navigation-cadeaux" style="font-family: 'Poppins', sans-serif; font-size: 1em;">Accédez directement à :</label><br>
   
-  <div style="margin-top: 1.5em; font-size: 0.9em; color: #666;">— Ou choisissez des cadeaux dans la liste —</div>
-  
-  <select id="liste-cadeaux" onchange="allerVersCadeau()" style="margin-top: 1em; padding: 0.5em; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 100%;">
-    <option value="">Choisissez un cadeau</option>
-    <option value="#voyagedenoces">Voyage de noces</option>
-    <option value="#equipement">Équipement de cuisine</option>
-    <option value="#artdelatable">Art de la table</option>
-  </select>
+<select id="navigation-cadeaux" onchange="location = this.value;" style="padding: 0.6em; border-radius: 5px; font-family: 'Poppins', sans-serif; margin-top: 0.5em; background-color: #2d6a4f; color: white; width: 250px;">
+  <option value="">-- Choisissez une catégorie --</option>
+  <option value="#voyagedenoces">Voyage de Noces</option>
+  <option value="#equipement-cuisine">Équipement de Cuisine</option>
+  <option value="#artdelatable">Art de la Table</option>
+</select>
+
 </div>
+    </div>
+  </div>
 
+  
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
-
 <section id="voyagedenoces">
-<h2 class="section-titre-liste" style="text-align: center;">Voyage de Noces</h2>
-<div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-  <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
-  <div style="padding: 1.2em; text-align: center;">
-    <h3 style="margin: 0 0 0.5em;">Faites décoller notre lune de miel</h3>
-    <p style="margin: 0.2em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1061348133=&entry.1786079912=Voyage+de+Noces"
-       target="_blank"
-       style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
-      Participer
-    </a>
+  <h2 class="section-titre-liste">Voyage de Noces</h2>
+  <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
+    <div style="padding: 1.2em; text-align: center;">
+      <h3 style="margin: 0 0 0.5em; color: #1c3b2f;">Faites décoller notre lune de miel</h3>
+      <p style="margin: 0.2em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces" 
+         target="_blank" 
+         style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
+        Participer
+      </a>
+    </div>
   </div>
-</div>
 </section>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
-
-<section id="equipement">
-<h2 class="section-titre-liste" style="text-align: center;">Équipement de Cuisine</h2>
-<div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-  <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; object-fit: cover; height: auto;">
-  <div style="padding: 1.2em; text-align: center;">
-    <h3 style="margin: 0 0 0.5em;">Thermomix TM7</h3>
-    <p style="margin: 0.2em 0; color: #666;">Robot cuiseur multifonction dernière génération : gagnez du temps, régalez-vous facilement au quotidien.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1061348133=&entry.1786079912=Thermomix+TM7"
-       target="_blank"
-       style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
-      Participer
-    </a>
+<section id="equipement-cuisine">
+  <h2 class="section-titre-liste">Équipement de Cuisine</h2>
+  <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+    <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; object-fit: cover; height: auto;">
+    <div style="padding: 1.2em; text-align: center;">
+      <h3 style="margin: 0 0 0.5em;">Thermomix TM7</h3>
+      <p style="margin: 0.2em 0; color: #666;">Robot cuiseur multifonction dernière génération.</p>
+      <p style="margin: 0.5em 0; font-weight: bold;">0€ / 1 599€</p>
+      <p style="margin: 0.5em 0; color: #a3471e;">Restant : 1 599€</p>
+      <a href="#" onclick="envoyerThermomix()" style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
+    </div>
   </div>
-</div>
+</section>
 </section>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
-
 <section id="artdelatable">
-<h2 class="section-titre-liste" style="text-align: center;">Art de la Table</h2>
+  <h2 class="section-titre-liste">Art de la Table</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 2em;">
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
-
-<!-- Produit 1 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à champagne" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à champagne</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit1" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="1.JPG" alt="2× NewMoon Verre à champagne" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">2× NewMoon Verre à champagne</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 70€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 70€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+champagne" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Verre à champagne', 'montantProduit1')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 2 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à vin rouge" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à vin rouge</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit2" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="1.JPG" alt="2× NewMoon Verre à vin rouge" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">2× NewMoon Verre à vin rouge</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 70€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 70€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+vin+rouge" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Verre à vin rouge', 'montantProduit2')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 3 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à vin blanc" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à vin blanc</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit3" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="1.JPG" alt="2× NewMoon Verre à vin blanc" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">2× NewMoon Verre à vin blanc</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 70€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 70€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Verre+à+vin+blanc" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Verre à vin blanc', 'montantProduit3')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 4 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="2.jpg" alt="Couverts Piemont" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 122€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Couverts Piemont</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit4" type="number" min="1" value="122" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="2.jpg" alt="8× Piemont Ménagère couverts 4 pcs" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Piemont Ménagère couverts 4 pcs</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 123€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 123€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Couverts+Piemont" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Couverts Piemont', 'montantProduit4')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 5 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="3.JPG" alt="Mug" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 64€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Mug</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit5" type="number" min="1" value="64" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="3.JPG" alt="4× Mug avec anse" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">4× Mug avec anse</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 64€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 64€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Mug" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Mug', 'montantProduit5')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 6 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="4.WEBP" alt="Sous-tasse à café" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 84€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Sous-tasse à café</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit6" type="number" min="1" value="84" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="4.WEBP" alt="8× Sous-tasse à café" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Sous-tasse à café</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 84€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 84€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Sous-tasse+à+café" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Sous-tasse à café', 'montantProduit6')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 7 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="5.WEBP" alt="Sous-tasse à expresso" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 39€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Sous-tasse à expresso</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit7" type="number" min="1" value="39" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="5.WEBP" alt="4× Sous-tasse à expresso" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">4× Sous-tasse à expresso</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 40€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 40€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Sous-tasse+à+expresso" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Sous-tasse à expresso', 'montantProduit7')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 8 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="6.JPG" alt="Tasse à expresso" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 47€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Tasse à expresso</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit8" type="number" min="1" value="47" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="6.JPG" alt="4× Tasse à expresso" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">4× Tasse à expresso</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 48€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 48€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Tasse+à+expresso" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Tasse à expresso', 'montantProduit8')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 9 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="7.JPG" alt="Tasse à café" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 50€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Tasse à café</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit9" type="number" min="1" value="50" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="7.JPG" alt="4× Tasse à café" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">4× Tasse à café</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 50€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 50€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Tasse+à+café" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Tasse à café', 'montantProduit9')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 10 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="8.PNG" alt="Saladier 2,5l" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 34€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-saladier-1042933160/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Saladier 2,5l</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit10" type="number" min="1" value="34" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="8.PNG" alt="1× Saladier 2,5l" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">1× Saladier 2,5l</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 34€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 34€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Saladier+2,5l" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Saladier 2,5l', 'montantProduit10')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 11 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="9.JPG" alt="Bol à céréales" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 122€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Bol à céréales</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit11" type="number" min="1" value="122" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="13.PNG" alt="1× Assiette gourmet Ø32,1cm" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">1× Assiette gourmet Ø32,1cm</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 27€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 27€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Assiette+gourmet" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Bol à céréales', 'montantProduit11')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 12 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="10.JPG" alt="Assiette creuse" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 167€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Assiette creuse</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit12" type="number" min="1" value="167" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="10.WEBP" alt="8× Assiette creuse Ø29,2 cm" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Assiette creuse Ø29,2 cm</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 168€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 168€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Assiette+creuse" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Assiette creuse', 'montantProduit12')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
-  </div>
-</div>
-
-<!-- Produit 13 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="11.JPG" alt="Assiette plate" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 139€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Assiette plate</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit13" type="number" min="1" value="139" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="11.WEBP" alt="8× Assiette plate Ø27,2 cm" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Assiette plate Ø27,2 cm</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 140€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 140€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Assiette+plate" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
       </div>
-      <a href="#" onclick="envoyerProduit('Assiette plate', 'montantProduit13')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
     </div>
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="12.WEBP" alt="8× Assiette à dessert Ø22 cm" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Assiette à dessert Ø22 cm</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 128€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 128€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Assiette+à+dessert" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
+      </div>
+    </div>
+    
+    <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Poppins', 'Roboto', sans-serif; text-align: center;">
+      <img src="9.PNG" alt="8× Bol à céréales" style="width: 100%; height: 200px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <h3 style="margin: 0 0 0.5em; font-size: 1.1em;">8× Bol à céréales</h3>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 123€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 123€</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Bol+à+céréales" target="_blank" style="display: inline-block; margin-top: 0.5em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
+      </div>
+    </div>
+    
   </div>
-</div>
-
-</div> <!-- Fin du flex-container Art de la Table -->
 </section>
-
-<section id="multimedia">
-<h2>Multimédia</h2>
-<div class="subtitle">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div>
-
-<div class="photo-section">
-  <img alt="Logo iCloud" src="icloud_logo.png"/>
-  <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-</div>
-
-<div class="photo-section">
-  <img alt="Logo Photographe" src="photographe_logo.png"/>
-  <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
-</div>
-
-<div class="photo-section">
-  <img alt="Logo Vidéaste" src="videaste_logo.PNG"/>
-  <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
-</div>
-</section>
-
-<section id="contact">
-<h2 style="text-align:center;">Contact</h2>
-
-<div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-    <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
-    <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
-    <span>Mélanie</span>
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-    <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
-    <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
-    <span>Clément</span>
-  </div>
-</div>
-</section>
+<section id="multimedia"><h2>Multimédia</h2><div class="subtitle" style="color: #666;">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div><div class="photo-section"><img alt="Logo iCloud" src="icloud_logo.png"/><p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p></div><div class="photo-section"><img alt="Logo Photographe" src="photographe_logo.png"/><p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p></div><div class="photo-section"><img alt="Logo Vidéaste" src="videaste_logo.PNG"/><p>Vous retrouverez prochainement ici l’after movie du mariage.</p></div></section>
+  <section id="contact">
+    <h2 style="text-align:center;">Contact</h2>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
+        <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
+        <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
+        <span>Mélanie</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
+        <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
+        <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
+        <span>Clément</span>
+      </div>
+    </div>
+  </section>
 
 <script>
-// === Compte à rebours ===
-function updateCountdown() {
-  const countDate = new Date("June 28, 2025 14:00:00").getTime();
-  const now = new Date().getTime();
-  const gap = countDate - now;
-  const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-  const d = Math.floor(gap / day);
-  const h = Math.floor((gap % day) / hour);
-  const m = Math.floor((gap % hour) / minute);
-  const s = Math.floor((gap % minute) / second);
-  document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
-}
-
-// === Animation au scroll ===
-function revealSections() {
-  const sections = document.querySelectorAll("section");
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight * 0.85) sec.classList.add("visible");
+  window.addEventListener("DOMContentLoaded", () => {
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname);
+      window.scrollTo(0, 0);
+    }
   });
-}
-
-// === Redirection sélection liste cadeaux ===
-function allerVersCadeau() {
-  const choix = document.getElementById("liste-cadeaux").value;
-  if (choix) {
-    location.href = choix;
-  }
-}
-
-// === Encodage URL Google Form ===
-function encoderPourGoogle(value) {
-  return encodeURIComponent(value).replace(/%20/g, '+');
-}
-
-// === Envoi Participation Libre ===
-function envoyerParticipationLibre() {
-  const montant = document.getElementById('montantLibre').value;
-  if (!montant || parseInt(montant) <= 0) {
-    alert("Merci d’entrer un montant !");
-    return;
-  }
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=Participation+libre";
-  window.open(url, '_blank');
-}
-
-// === Envoi Participation par produit ===
-function envoyerProduit(nomProduit, idInput) {
-  const montantInput = document.getElementById(idInput);
-  if (!montantInput || !montantInput.value || parseInt(montantInput.value) <= 0) {
-    alert("Merci d’entrer un montant !");
-    return;
-  }
-  const montant = montantInput.value;
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=" + encoderPourGoogle(nomProduit);
-  window.open(url, '_blank');
-}
-
-// === Ready ===
-window.onload = () => {
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-  revealSections();
-  window.addEventListener("scroll", revealSections);
-
-  if (window.location.hash) {
-    history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0);
-  }
-};
 </script>
 
+<script>
+  function encoderPourGoogle(value) {
+    return encodeURIComponent(value).replace(/%20/g, '+');
+  }
+
+  function envoyerMontant() {
+    const input = document.querySelector('#liste input[type="number"]');
+    const montant = input.value;
+    if (!montant) return alert("Merci d’entrer un montant !");
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1061348133=" + encoderPourGoogle(montant)
+              + "&entry.1786079912=" + encoderPourGoogle("Participation libre");
+    window.open(url, '_blank');
+  }
+
+  function envoyerThermomix() {
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1786079912=" + encoderPourGoogle("Thermomix");
+    window.open(url, '_blank');
+  }
+</script>
+
+<script>
+  function encoderPourGoogle(value) {
+    return encodeURIComponent(value).replace(/%20/g, '+');
+  }
+
+  function envoyerMontant() {
+    const montant = document.querySelector('#liste input[type="number"]').value;
+    if (!montant) return alert("Merci d’entrer un montant !");
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1061348133=" + encoderPourGoogle(montant)
+              + "&entry.1786079912=" + encoderPourGoogle("Participation libre");
+    window.open(url, '_blank');
+  }
+
+  function envoyerThermomix() {
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
+              + "?entry.1786079912=" + encoderPourGoogle("Thermomix");
+    window.open(url, '_blank');
+  }
+</script>
 </body>
 </html>
+
+
