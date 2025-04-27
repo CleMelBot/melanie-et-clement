@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Mélanie & Clément – Mariage 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 
@@ -116,97 +116,40 @@ h2 {
 @media (min-width: 768px) {
   .parallax-bg { background-attachment: fixed; }
 }
-</style>
-<style>
-.section-liste-cadeaux {
+
+/* Style des sections liste cadeaux + art de la table */
+.section-liste-cadeaux, .section-liste-art {
   max-width: 400px;
-  margin: 2em 0 2em 0;
+  margin: 2em 0;
   padding: 0;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
 }
-.section-liste-cadeaux.visible {
+.section-liste-cadeaux.visible, .section-liste-art.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.section-liste-cadeaux h2 {
+.section-liste-cadeaux h2, .section-liste-art h2 {
   text-align: left;
   font-size: 1.6em;
   margin-bottom: 1em;
 }
-</style>
-<style>
-.section-liste-art {
-  max-width: 400px;
-  margin: 2em 0 2em 0;
-  padding: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-.section-liste-art.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.section-liste-art h2 {
+.section-liste-cadeaux > div, .section-liste-art > div {
   text-align: left;
-  font-size: 1.6em;
-  margin-bottom: 1em;
+}
+.section-liste-cadeaux h3, .section-liste-art h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: var(--green);
+}
+.section-liste-cadeaux p, .section-liste-art p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 0.8em;
 }
 </style>
-<style>
-.section-liste-cadeaux {
-  max-width: 400px;
-  margin: 2em 0 2em 0;
-  padding: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
 
-.section-liste-cadeaux.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-liste-cadeaux h2 {
-  text-align: left;
-  font-size: 1.6em;
-  margin-bottom: 1em;
-}
-
-/* CORRECTION pour centrer les contenus internes (balises à l'intérieur) */
-.section-liste-cadeaux > div {
-  text-align: center;
-}
-</style>
-<style>
-.section-liste-art {
-  max-width: 400px;
-  margin: 2em 0 2em 0;
-  padding: 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-
-.section-liste-art.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-liste-art h2 {
-  text-align: left;
-  font-size: 1.6em;
-  margin-bottom: 1em;
-}
-
-/* CORRECTION pour centrer les contenus internes */
-.section-liste-art > div {
-  text-align: center;
-}
-</style>
 </head>
 <body>
 
