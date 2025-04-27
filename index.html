@@ -341,11 +341,11 @@
     <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">NewMoon Verre à mousseux et champagne</p>
 
     <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; margin-top: 1.5em;">
-      <div onclick="transformerEnInput('montantProduit1')" style="flex: 1; background: #f9f8f4; padding: 0.8em; text-align: left; font-size: 0.9em; font-weight: bold; cursor: pointer;">
+      <div onclick="transformerEnInput('montantProduit1')" style="flex: 1; background: #f9f8f4; padding: 0.8em; text-align: center; font-size: 0.9em; font-weight: bold; cursor: pointer;">
         <div style="color: #555;">Restant</div>
         <div id="montantProduit1" style="font-size: 1.2em;">70€</div>
       </div>
-      <a href="#" onclick="envoyerParticipationProduit1()" style="flex: 1; background: #d7f3ee; color: #00796b; text-align: center; font-weight: bold; font-size: 1em; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+      <a href="#" onclick="envoyerParticipationProduit1()" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 0.9em; display: flex; align-items: center; justify-content: center; text-decoration: none;">
         Participer
       </a>
     </div>
@@ -499,7 +499,7 @@
   function transformerEnInput(id) {
     const montantDiv = document.getElementById(id);
     const montantTexte = montantDiv.innerText.replace('€', '').trim();
-    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 70px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: left;">';
+    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 70px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: center;">';
   }
 
   function envoyerParticipationProduit1() {
