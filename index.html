@@ -614,7 +614,7 @@ function encoderPourGoogle(value) {
   return encodeURIComponent(value).replace(/%20/g, '+');
 }
 
-// === Envoi pour Participation libre (générale) ===
+// === Envoi pour Participation libre ===
 function envoyerParticipationLibre() {
   const montant = document.getElementById('montantLibre').value;
   if (!montant || parseInt(montant) <= 0) {
@@ -627,7 +627,7 @@ function envoyerParticipationLibre() {
   window.open(url, '_blank');
 }
 
-// === Envoi pour Participation par produit (Art de la Table) ===
+// === Envoi pour Participation par produit ===
 function envoyerProduit(nomProduit, idInput) {
   const montantInput = document.getElementById(idInput);
   if (!montantInput || !montantInput.value || parseInt(montantInput.value) <= 0) {
@@ -641,11 +641,10 @@ function envoyerProduit(nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// === Au chargement de la page ===
+// === Page ready ===
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
   revealSections();
   window.addEventListener("scroll", revealSections);
 
