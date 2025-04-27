@@ -668,21 +668,6 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-  // Réinitialiser message erreur
-  if (errorDiv) errorDiv.style.display = 'none';
-
-  if (!montantInput || !montantInput.value || parseInt(montantInput.value) <= 0) {
-    if (errorDiv) errorDiv.style.display = 'block'; // Affiche le message d'erreur
-    return;
-  }
-
-  const montant = montantInput.value;
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=" + encoderPourGoogle(nomProduit);
-  window.open(url, '_blank');
-}
-
 // === Ready ===
 window.onload = () => {
   updateCountdown();
