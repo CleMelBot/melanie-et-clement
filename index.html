@@ -331,7 +331,7 @@
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 2em;">
 
     <!-- Produit 1 -->
- <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); font-family: 'Poppins', sans-serif; text-align: center;">
+ <div style="flex: 0 1 calc(50% - 20px); background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); font-family: 'Poppins', sans-serif; text-align: center;">
   <img src="1.JPG" alt="NewMoon Verre à mousseux et champagne" style="width: 100%; height: 200px; object-fit: cover;">
   <div style="padding: 1em;">
     <p style="margin: 0; font-weight: bold; font-size: 1em;">0€ / 70€</p>
@@ -340,13 +340,12 @@
     </p>
     <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">NewMoon Verre à mousseux et champagne</p>
 
-    <div style="display: flex; align-items: center; justify-content: space-between; background: #f9f8f4; border-radius: 12px; padding: 0.8em 1em; margin-top: 1.5em;">
-      <div style="text-align: left; font-size: 0.95em; color: #555; cursor: pointer;" onclick="transformerEnInput('montantProduit1')">
-        <div style="font-weight: bold;">Restant</div>
-        <div id="montantProduit1" style="font-size: 1.2em; font-weight: bold;">70€</div>
+    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; margin-top: 1.5em;">
+      <div onclick="transformerEnInput('montantProduit1')" style="flex: 1; background: #f9f8f4; padding: 0.8em; text-align: left; font-size: 0.9em; font-weight: bold; cursor: pointer;">
+        <div style="color: #555;">Restant</div>
+        <div id="montantProduit1" style="font-size: 1.2em;">70€</div>
       </div>
-      <a href="#" onclick="envoyerParticipationProduit1()" 
-         style="background: #d7f3ee; color: #00796b; font-weight: bold; padding: 0.5em 1.2em; border-radius: 12px; text-decoration: none; font-size: 0.95em;">
+      <a href="#" onclick="envoyerParticipationProduit1()" style="flex: 1; background: #d7f3ee; color: #00796b; text-align: center; font-weight: bold; font-size: 1em; display: flex; align-items: center; justify-content: center; text-decoration: none;">
         Participer
       </a>
     </div>
@@ -497,11 +496,10 @@
     window.open(url, '_blank');
   }
 <script>
-<script>
   function transformerEnInput(id) {
     const montantDiv = document.getElementById(id);
     const montantTexte = montantDiv.innerText.replace('€', '').trim();
-    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 80px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: right;">';
+    montantDiv.outerHTML = '<input type="number" id="'+id+'" value="'+montantTexte+'" min="1" style="width: 70px; font-size: 1.2em; font-weight: bold; border: none; background: transparent; text-align: left;">';
   }
 
   function envoyerParticipationProduit1() {
