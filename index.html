@@ -1,295 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mélanie & Clément – Mariage 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --green: #1c3b2f;
-  --terracotta: #a3471e;
-  --cream: #fefdf5;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: var(--green);
-  overflow-x: hidden;
-}
-header {
-  position: relative;
-  height: 95vh;
-  overflow: hidden;
-}
-.parallax-bg {
-  background: url('banner_mobile_recentre.jpg') center/cover no-repeat;
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: 0;
-}
-.header-content {
-  padding-bottom: 80px;
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-}
-.header-content h1 {
-  font-size: 3.8em;
-  animation: fadeInDown 2s ease-out;
-}
-.header-content p {
-  font-size: 1.5em;
-  margin-top: 0.5em;
-  animation: fadeInUp 2s ease-out;
-}
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.countdown {
-  background: #f9f8f4;
-  color: var(--terracotta);
-  text-align: center;
-  padding: 1em;
-  font-size: 1.4em;
-  font-weight: bold;
-}
-nav {
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 0.6em;
-  padding: 0.6em 0.2em;
-  flex-wrap: wrap;
-}
-nav li a {
-  color: var(--green);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.85em;
-}
-section {
-  padding: 4em 1em;
-  max-width: 1000px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-h2 {
-  font-size: 2.2em;
-  margin-bottom: 0.4em;
-  text-align: center;
-}
-.subtitle {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2em;
-}
-.photo-section {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin-bottom: 2em;
-}
-.photo-section img {
-  width: 60px;
-  height: 60px;
-}
-.photo-section p a {
-  color: var(--terracotta);
-  text-decoration: underline;
-}
-@media (min-width: 768px) {
-  .parallax-bg {
-    background-attachment: fixed;
-  }
-}
-.header-content h1, .header-content p {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1.6s ease-out forwards;
-}
-.header-content h1 { animation-delay: 0.3s; }
-.header-content p { animation-delay: 0.6s; }
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.header-content h1, .header-content p {
-  opacity: 0;
-  transform: scale(0.95);
-  animation: fadeScale 1.4s ease-out forwards;
-}
-.header-content h1 { animation-delay: 0.3s; }
-.header-content p { animation-delay: 0.6s; }
-@keyframes fadeScale {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.section-titre-liste {
-  text-align: left;
-  font-size: 1.6em;
-  font-family: 'Poppins', 'Roboto', sans-serif;
-  margin-bottom: 0.8em;
-  margin-left: 0.5em;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mélanie & Clément – Mariage 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --green: #1c3b2f;
+      --terracotta: #a3471e;
+      --cream: #fefdf5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--green);
+      overflow-x: hidden;
+    }
+    header {
+      position: relative;
+      height: 95vh;
+      overflow: hidden;
+    }
+    .parallax-bg {
+      background: url('banner_mobile_recentre.jpg') center/cover no-repeat;
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+    }
+    .header-content {
+      padding-bottom: 80px;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    }
+    .header-content h1 {
+      font-size: 3.8em;
+      animation: fadeInDown 2s ease-out;
+    }
+    .header-content p {
+      font-size: 1.5em;
+      margin-top: 0.5em;
+      animation: fadeInUp 2s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 0.6em;
+      padding: 0.6em 0.2em;
+      flex-wrap: wrap;
+    }
+    nav li a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85em;
+    }
+    .countdown {
+      background: #f9f8f4;
+      color: var(--terracotta);
+      text-align: center;
+      padding: 1em;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+  </style>
 
-/* NOUVEAU STYLE pour la grille "Art de la Table" */
-.gift-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-.gift-card {
-  flex: 0 1 calc(50% - 20px);
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-}
-.gift-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.gift-card-content {
-  padding: 1em;
-}
-.gift-card-content h3 {
-  font-size: 1.1em;
-  margin-bottom: 0.3em;
-}
-.gift-card-content .brand-link {
-  color: #a3471e;
-  text-decoration: underline;
-  font-size: 0.9em;
-}
-.gift-card-content .price {
-  font-weight: bold;
-  margin: 0.5em 0;
-}
-.restant-participer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e7f6f4;
-  border-radius: 10px;
-  padding: 0.8em;
-  margin-top: 1em;
-}
-.restant {
-  text-align: left;
-}
-.restant span {
-  font-size: 0.8em;
-  color: #555;
-}
-.restant strong {
-  font-size: 1.3em;
-  color: #1c3b2f;
-  display: block;
-}
-.restant input {
-  margin-top: 5px;
-  padding: 0.4em;
-  width: 80px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-  text-align: right;
-}
-.restant-participer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #daf5f0;
-  border-radius: 10px;
-  padding: 0.8em;
-  margin-top: 1em;
-}
-
-.restant {
-  width: 55%;
-  text-align: left;
-}
-
-.restant span {
-  font-size: 0.8em;
-  color: #555;
-}
-
-.restant strong {
-  font-size: 1.1em; /* Plus fin */
-  color: #1c3b2f;
-  display: block;
-}
-
-.restant input {
-  margin-top: 5px;
-  padding: 0.4em;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 0.9em;
-  text-align: right;
-}
-
-.restant-participer button {
-  width: 45%;
-  background: #daf5f0;
-  color: #00473e;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7em 0.8em;
-  cursor: pointer;
-  font-size: 0.9em; /* Plus fin */
-  transition: background 0.3s;
-}
-
-.restant-participer button:hover {
-  background: #c8ece6;
-}
-</style>
 </head>
+
 <body>
 <header>
   <div class="parallax-bg"></div>
   <div class="header-content">
-    <h1>Mélanie &amp; Clément</h1>
+    <h1>Mélanie & Clément</h1>
     <p>Le 28 juin 2025</p>
   </div>
 </header>
@@ -297,260 +105,284 @@ h2 {
 <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
 
 <nav>
-<ul>
-<li><a href="#ceremonie">Cérémonie</a></li>
-<li><a href="#reception">Réception</a></li>
-<li><a href="#liste">Liste</a></li>
-<li><a href="#multimedia">Multimédia</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+  <ul>
+    <li><a href="#ceremonie">Cérémonie</a></li>
+    <li><a href="#reception">Réception</a></li>
+    <li><a href="#liste">Liste de mariage</a></li>
+    <li><a href="#multimedia">Multimédia</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section id="ceremonie">
   <h2>Cérémonie</h2>
-  <div class="subtitle" style="color: #666;">13h45 – Abbaye de Saint-Martin de Boscherville</div>
+  <div style="text-align: center; margin: 1em 0; color: #666;">13h45 – Abbaye de Saint-Martin de Boscherville</div>
   <p style="text-align:center; max-width: 700px; margin: 2em auto;">
     Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !
   </p>
-  <img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;"/>
+  <img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;margin-top:2em;"/>
   <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
     <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
-      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;">
     </a>
-    <a href="https://waze.com/ul?ll=49.44442,0.963771&amp;navigate=yes" target="_blank">
-      <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+    <a href="https://waze.com/ul?ll=49.44442,0.963771&navigate=yes" target="_blank">
+      <img alt="Waze" src="waze_logo.png" style="height: 34px;">
     </a>
   </div>
 </section>
 
 <section id="reception">
   <h2>Réception</h2>
-  <div class="subtitle" style="color: #666;">17h00 – Abbaye du Valasse</div>
+  <div style="text-align: center; margin: 1em 0; color: #666;">17h00 – Abbaye du Valasse</div>
   <p style="text-align:center; max-width: 700px; margin: 2em auto;">
     Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.
   </p>
-  <img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;"/>
+  <img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;margin-top:2em;"/>
   <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
     <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">
-      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;">
     </a>
-    <a href="https://waze.com/ul?ll=49.537117,0.508053&amp;navigate=yes" target="_blank">
-      <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+    <a href="https://waze.com/ul?ll=49.537117,0.508053&navigate=yes" target="_blank">
+      <img alt="Waze" src="waze_logo.png" style="height: 34px;">
     </a>
   </div>
 </section>
-
-<section id="liste">
+  
+  <section id="liste">
   <h2>Liste de mariage</h2>
-  <div class="subtitle" style="color: #666;">Notre liste</div>
-  <p style="text-align:center; max-width: 700px; margin: 0 auto 1em;">
-    Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong><br>Mélanie & Clément
+  <p style="text-align:center; max-width: 700px; margin: 0 auto 2em;">
+    Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong>
   </p>
+
   <div style="max-width: 400px; margin: 2em auto; text-align: center;">
-    <h3 style="margin-bottom: 0.3em;">Faites une contribution libre</h3>
-    <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
-      <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
-        <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/></svg>
-        <input type="number" min="1" placeholder="0" style="padding: 0.4em 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
-        <span style="margin-left: 0.5em; font-weight: bold;">€</span>
-      </div>
-      <a href="#" onclick="envoyerMontant()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
-    </div>
-    <div style="margin-top: 2em; color: #888;">
-      — Ou choisissez des cadeaux dans la liste —
-      <div style="text-align: center; margin: 2em 0;">
-        <label for="navigation-cadeaux" style="font-family: 'Poppins', sans-serif; font-size: 1em;">Accédez directement à :</label><br>
-        <select id="navigation-cadeaux" onchange="location = this.value;" style="padding: 0.6em; border-radius: 5px; font-family: 'Poppins', sans-serif; margin-top: 0.5em; background-color: #2d6a4f; color: white; width: 250px;">
-          <option value="">-- Choisissez une catégorie --</option>
-          <option value="#voyagedenoces">Voyage de Noces</option>
-          <option value="#equipement-cuisine">Équipement de Cuisine</option>
-          <option value="#artdelatable">Art de la Table</option>
-        </select>
-      </div>
+    <h3 style="margin-bottom: 0.5em;">Participation libre</h3>
+    <p style="color: #666;">Choisissez vous-même le montant que vous souhaitez offrir.</p>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 0.5em; margin-top: 1em;">
+      <input id="montant-libre" type="number" placeholder="€" style="padding: 0.5em; width: 100px; border: 1px solid #ccc; border-radius: 5px; text-align: right;">
+      <button onclick="participationLibre()" style="background: #2d6a4f; color: white; padding: 0.6em 1em; border: none; border-radius: 8px; cursor: pointer;">Participer</button>
     </div>
   </div>
-</section>
 
-<hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
-<!-- VOYAGE DE NOCES -->
-<section id="voyagedenoces">
-  <h2 class="section-titre-liste">Voyage de Noces</h2>
-  <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
-    <div style="padding: 1.2em; text-align: center;">
-      <h3 style="margin: 0 0 0.5em; color: #1c3b2f;">Faites décoller notre lune de miel</h3>
-      <p style="margin: 0.2em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces" 
-         target="_blank" 
-         style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
-        Participer
-      </a>
-    </div>
-  </div>
-</section>
-
-<hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
-
-<!-- ÉQUIPEMENT DE CUISINE -->
-<section id="equipement-cuisine">
-  <h2 class="section-titre-liste">Équipement de Cuisine</h2>
-  <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-    <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; object-fit: cover; height: auto;">
-    <div style="padding: 1.2em; text-align: center;">
-      <h3 style="margin: 0 0 0.5em;">Thermomix TM7</h3>
-      <p style="margin: 0.2em 0; color: #666;">Robot cuiseur multifonction dernière génération.</p>
-      <p style="margin: 0.5em 0; font-weight: bold;">0€ / 1 599€</p>
-      <p style="margin: 0.5em 0; color: #a3471e;">Restant : 1 599€</p>
-      <a href="#" onclick="envoyerThermomix()" style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">Participer</a>
-    </div>
-  </div>
-</section>
-
-<hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
-<!-- ART DE LA TABLE -->
-<section id="artdelatable">
-  <h2 class="section-titre-liste">Art de la Table</h2>
-  <div class="gift-grid">
-
-    <!-- 1 - NewMoon Verre à mousseux -->
-    <div class="gift-card">
-      <img src="1.JPG" alt="NewMoon Verre à mousseux et champagne">
-      <div class="gift-card-content">
-        <h3>2× NewMoon Verre à mousseux</h3>
-        <p><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" target="_blank" class="brand-link">Villeroy & Boch</a></p>
-        <p class="price">0€ / 69,80€</p>
-        <div class="restant-participer">
-          <div class="restant">
-            <span>Restant</span>
-            <strong>69,80€</strong>
-            <input type="number" id="montant-1" placeholder="€">
-          </div>
-          <button onclick="participer('NewMoon Verre à mousseux', document.getElementById('montant-1').value)">Participer</button>
-        </div>
+  <section id="voyagedenoces">
+    <h2 style="text-align:center;">Voyage de Noces</h2>
+    <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+      <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
+      <div style="padding: 1.2em; text-align: center;">
+        <h3 style="margin: 0 0 0.5em;">Faites décoller notre lune de miel</h3>
+        <p style="margin: 0.2em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces" 
+           target="_blank" 
+           style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
+          Participer
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- 2 - NewMoon Verre à vin rouge -->
-    <div class="gift-card">
-      <img src="1.JPG" alt="NewMoon Verre à vin rouge">
-      <div class="gift-card-content">
-        <h3>2× NewMoon Verre à vin rouge</h3>
-        <p><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" target="_blank" class="brand-link">Villeroy & Boch</a></p>
-        <p class="price">0€ / 69,80€</p>
-        <div class="restant-participer">
-          <div class="restant">
-            <span>Restant</span>
-            <strong>69,80€</strong>
-            <input type="number" id="montant-2" placeholder="€">
-          </div>
-          <button onclick="participer('NewMoon Verre à vin rouge', document.getElementById('montant-2').value)">Participer</button>
-        </div>
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
+
+  <section id="equipement-cuisine">
+    <h2 style="text-align:center;">Équipement de cuisine</h2>
+    <div style="max-width: 700px; margin: 2em auto; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+      <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; object-fit: cover; height: auto;">
+      <div style="padding: 1.2em; text-align: center;">
+        <h3 style="margin: 0 0 0.5em;">Thermomix TM7</h3>
+        <p style="margin: 0.2em 0; color: #666;">Robot cuiseur multifonction dernière génération.</p>
+        <p style="margin: 0.5em 0; font-weight: bold;">0€ / 1599€</p>
+        <p style="margin: 0.5em 0; color: #a3471e;">Restant : 1599€</p>
+        <a href="#" onclick="participerThermomix()" 
+           style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: #fff; border-radius: 5px; text-decoration: none;">
+          Participer
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- [je continue pour tous les produits ensuite : verres, assiettes, couverts, etc...] -->
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
-  </div>
+  <section id="artdelatable">
+    <h2 style="text-align:center;">Art de la Table</h2>
+    <div class="gift-grid">
+      <!-- Ici je vais insérer les cartes de tes produits (prochaine partie) -->
+    </div>
+  </section>
+
 </section>
 
-<!-- Section Multimédia -->
+<div class="gift-card">
+  <img src="1.JPG" alt="NewMoon Verre à mousseux">
+  <div class="gift-card-text">
+    <div class="price-line">0€ / 70€</div>
+    <div class="brand-line">
+      <a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" target="_blank">Villeroy & Boch</a>
+    </div>
+    <div class="ref-line">NewMoon Verre à mousseux</div>
+  </div>
+  <div class="restant-participer">
+    <div class="restant-zone">
+      <span>Restant</span>
+      <strong>70€</strong>
+      <input type="number" id="montant-1" placeholder="€">
+    </div>
+    <button onclick="participer('NewMoon Verre à mousseux', document.getElementById('montant-1').value)">Participer</button>
+  </div>
+</div>
+
+<div class="gift-card">
+  <img src="1.JPG" alt="NewMoon Verre à vin rouge">
+  <div class="gift-card-text">
+    <div class="price-line">0€ / 70€</div>
+    <div class="brand-line">
+      <a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" target="_blank">Villeroy & Boch</a>
+    </div>
+    <div class="ref-line">NewMoon Verre à vin rouge</div>
+  </div>
+  <div class="restant-participer">
+    <div class="restant-zone">
+      <span>Restant</span>
+      <strong>70€</strong>
+      <input type="number" id="montant-2" placeholder="€">
+    </div>
+    <button onclick="participer('NewMoon Verre à vin rouge', document.getElementById('montant-2').value)">Participer</button>
+  </div>
+</div>
+
+<div class="gift-card">
+  <img src="1.JPG" alt="NewMoon Verre à vin blanc">
+  <div class="gift-card-text">
+    <div class="price-line">0€ / 70€</div>
+    <div class="brand-line">
+      <a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/" target="_blank">Villeroy & Boch</a>
+    </div>
+    <div class="ref-line">NewMoon Verre à vin blanc</div>
+  </div>
+  <div class="restant-participer">
+    <div class="restant-zone">
+      <span>Restant</span>
+      <strong>70€</strong>
+      <input type="number" id="montant-3" placeholder="€">
+    </div>
+    <button onclick="participer('NewMoon Verre à vin blanc', document.getElementById('montant-3').value)">Participer</button>
+  </div>
+</div>
+
+<div class="gift-card">
+  <img src="2.JPG" alt="Piemont Ménagère 4 pièces">
+  <div class="gift-card-text">
+    <div class="price-line">0€ / 122€</div>
+    <div class="brand-line">
+      <a href="https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/" target="_blank">Villeroy & Boch</a>
+    </div>
+    <div class="ref-line">Piemont Ménagère 4 pièces</div>
+  </div>
+  <div class="restant-participer">
+    <div class="restant-zone">
+      <span>Restant</span>
+      <strong>122€</strong>
+      <input type="number" id="montant-4" placeholder="€">
+    </div>
+    <button onclick="participer('Piemont Ménagère 4 pièces', document.getElementById('montant-4').value)">Participer</button>
+  </div>
+</div>
+
 <section id="multimedia">
   <h2>Multimédia</h2>
-  <div class="subtitle" style="color: #666;">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div>
+  <div class="subtitle" style="text-align:center; color: #666;">Partagez vos souvenirs !</div>
 
-  <div class="photo-section">
-    <img alt="Logo iCloud" src="icloud_logo.png"/>
-    <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-  </div>
-
-  <div class="photo-section">
-    <img alt="Logo Photographe" src="photographe_logo.png"/>
-    <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
-  </div>
-
-  <div class="photo-section">
-    <img alt="Logo Vidéaste" src="videaste_logo.PNG"/>
-    <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
+  <div style="text-align: center; margin: 2em auto;">
+    <img src="icloud_logo.png" alt="iCloud Partage" style="height: 50px; margin-bottom: 1em;">
+    <p>Envoyez vos photos pendant l'événement via <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank" style="color: #a3471e;">ce lien iCloud</a>.</p>
   </div>
 </section>
 
-<!-- Section Contact -->
 <section id="contact">
-  <h2 style="text-align:center;">Contact</h2>
-  <div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-      <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
-      <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
+  <h2>Contact</h2>
+
+  <div style="display: flex; justify-content: center; gap: 4em; margin-top: 2em; flex-wrap: wrap;">
+    <div style="text-align: center;">
+      <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appeler Mélanie" width="50"></a><br/>
+      <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a><br/>
       <span>Mélanie</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
+
+    <div style="text-align: center;">
+      <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50"></a><br/>
+      <span>Email</span>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-      <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
-      <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
+
+    <div style="text-align: center;">
+      <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appeler Clément" width="50"></a><br/>
+      <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a><br/>
       <span>Clément</span>
     </div>
   </div>
 </section>
 
-<!-- Scripts -->
 <script>
+// Fonction du compte à rebours
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
   const gap = countDate - now;
-  const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
   const d = Math.floor(gap / day);
   const h = Math.floor((gap % day) / hour);
   const m = Math.floor((gap % hour) / minute);
   const s = Math.floor((gap % minute) / second);
+
   document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
 }
+
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  const sections = document.querySelectorAll("section");
-  const reveal = () => {
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      if (top < window.innerHeight * 0.85) sec.classList.add("visible");
-    });
-  };
-  window.addEventListener("scroll", reveal);
-  reveal();
 };
 </script>
 
 <script>
+// Fonction pour encoder proprement pour Google Forms
 function encoderPourGoogle(value) {
   return encodeURIComponent(value).replace(/%20/g, '+');
 }
-function envoyerMontant() {
-  const montant = document.querySelector('#liste input[type="number"]').value;
-  if (!montant) return alert("Merci d’entrer un montant !");
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=" + encoderPourGoogle("Participation libre");
+
+// Fonction pour Participation Libre
+function participationLibre() {
+  const montant = document.getElementById('montant-libre').value;
+  if (!montant) {
+    alert("Merci d’indiquer un montant !");
+    return;
+  }
+  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform" +
+              "?entry.1061348133=" + encoderPourGoogle(montant) +
+              "&entry.1786079912=Participation+libre";
   window.open(url, '_blank');
 }
-function envoyerThermomix() {
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1786079912=" + encoderPourGoogle("Thermomix");
+
+// Fonction pour Participation Thermomix
+function participerThermomix() {
+  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform" +
+              "?entry.1786079912=Thermomix";
   window.open(url, '_blank');
 }
+
+// Fonction pour Participation Produit Spécifique
 function participer(produit, montant) {
   if (!montant) {
     alert("Merci d’indiquer un montant !");
     return;
   }
-  const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform";
-  const finalUrl = `${baseUrl}?entry.1061348133=${encoderPourGoogle(montant)}&entry.1786079912=${encoderPourGoogle(produit)}`;
-  window.open(finalUrl, '_blank');
+  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform" +
+              "?entry.1061348133=" + encoderPourGoogle(montant) +
+              "&entry.1786079912=" + encoderPourGoogle(produit);
+  window.open(url, '_blank');
 }
-</script>
-
+</script>  
 </body>
 </html>
