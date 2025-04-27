@@ -116,6 +116,25 @@ h2 {
 @media (min-width: 768px) {
   .parallax-bg { background-attachment: fixed; }
 }
+
+<style>
+.section-liste-cadeaux {
+  max-width: 400px;
+  margin: 2em 0 2em 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.section-liste-cadeaux.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-liste-cadeaux h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
 </style>
 
 </head>
@@ -202,7 +221,7 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
-<section id="voyagedenoces">
+<section id="voyagedenoces" class="section-liste-cadeaux">
 <h2 class="section-titre-liste">Voyage de Noces</h2>
 
 <div style="width: 100%; max-width: 400px; margin: 2em 0; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff;">
@@ -221,7 +240,7 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
-<section id="equipement">
+<section id="equipement" class="section-liste-cadeaux">
 <h2 class="section-titre-liste">Équipement de Cuisine</h2>
 
 <div style="width: 100%; max-width: 400px; margin: 2em 0; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff;">
