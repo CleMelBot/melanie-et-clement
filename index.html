@@ -136,7 +136,25 @@ h2 {
   margin-bottom: 1em;
 }
 </style>
-
+<style>
+.section-liste-art {
+  max-width: 400px;
+  margin: 2em 0 2em 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.section-liste-art.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-liste-art h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
+</style>
 </head>
 <body>
 
@@ -259,8 +277,8 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
-<section id="artdelatable">
-<h2 class="section-titre-liste" style="text-align: center;">Art de la Table</h2>
+<section id="artdelatable" class="section-liste-art">
+<h2 class="section-titre-liste">Art de la Table</h2>
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
 
