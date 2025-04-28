@@ -506,12 +506,66 @@ window.onload = () => {
   revealSections();
   afficherProduits();
   afficherTotal();
+  afficherParticipationsProduits(); // <-- cette ligne
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
 };
+</script>
+<script>
+async function afficherParticipationsProduits() {
+  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
+  const response = await fetch(url);
+  const text = await response.text();
+  const json = JSON.parse(text.substr(47).slice(0, -2)); // Nettoyage du JSON Google
+  let rows = json.table.rows;
+
+  const montantsParProduit = {};
+  rows.forEach(row => {
+    const produit = row.c[1]?.v; // Colonne 2 = nom du produit
+    const montant = parseFloat(row.c[2]?.v); // Colonne 3 = montant offert
+    if (produit && !isNaN(montant)) {
+      if (!montantsParProduit[produit]) montantsParProduit[produit] = 0;
+      montantsParProduit[produit] += montant;
+    }
+  });
+
+  const produits = [
+    { id: "Thermomix", prix: 1599 },
+    { id: "Verre à champagne", prix: 70 },
+    { id: "Verre à vin rouge", prix: 70 },
+    { id: "Verre à vin blanc", prix: 70 },
+    { id: "Couverts Piemont", prix: 122 },
+    { id: "Mug", prix: 64 },
+    { id: "Sous-tasse à café", prix: 84 },
+    { id: "Sous-tasse à expresso", prix: 39 },
+    { id: "Tasse à expresso", prix: 47 },
+    { id: "Tasse à café", prix: 50 },
+    { id: "Saladier 2,5l", prix: 34 },
+    { id: "Bol à céréales", prix: 122 },
+    { id: "Assiette creuse", prix: 167 },
+    { id: "Assiette plate", prix: 139 }
+  ];
+
+  produits.forEach(produit => {
+    const montantCollecté = montantsParProduit[produit.id] || 0;
+    const total = produit.prix;
+    const restant = Math.max(total - montantCollecté, 0);
+
+    const montantAffiche = document.querySelector(`#montantProduit${produit.id}`);
+    const textCollecte = montantAffiche?.closest('div').querySelector('p');
+    const restantAffiche = montantAffiche?.parentElement.previousElementSibling?.querySelector('span + input');
+
+    if (textCollecte) {
+      textCollecte.innerHTML = `<strong>${montantCollecté.toLocaleString('fr-FR')}€</strong> / ${total.toLocaleString('fr-FR')}€`;
+    }
+    if (restantAffiche) {
+      restantAffiche.value = restant;
+    }
+  });
+}
 </script>
 </body>
 </html>
