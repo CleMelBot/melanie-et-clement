@@ -352,27 +352,27 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 <script>
 // === Tableau des produits Art de la table + Thermomix ===
 const produits = [
-  { id: "Thermomix", nom: "Thermomix", prix: 1599 },
-  { id: 1, nom: "Verre à champagne", prix: 70 },
-  { id: 2, nom: "Verre à vin rouge", prix: 70 },
-  { id: 3, nom: "Verre à vin blanc", prix: 70 },
-  { id: 4, nom: "Couverts Piemont", prix: 122 },
-  { id: 5, nom: "Mug", prix: 64 },
-  { id: 6, nom: "Sous-tasse à café", prix: 84 },
-  { id: 7, nom: "Sous-tasse à expresso", prix: 39 },
-  { id: 8, nom: "Tasse à expresso", prix: 47 },
-  { id: 9, nom: "Tasse à café", prix: 50 },
-  { id: 10, nom: "Saladier 2,5l", prix: 34 },
-  { id: 11, nom: "Bol à céréales", prix: 122 },
-  { id: 12, nom: "Assiette creuse", prix: 167 },
-  { id: 13, nom: "Assiette plate", prix: 139 }
+  { id: "Thermomix", prix: 1599 },
+  { id: "Verre à champagne", prix: 70 },
+  { id: "Verre à vin rouge", prix: 70 },
+  { id: "Verre à vin blanc", prix: 70 },
+  { id: "Couverts Piemont", prix: 122 },
+  { id: "Mug", prix: 64 },
+  { id: "Sous-tasse à café", prix: 84 },
+  { id: "Sous-tasse à expresso", prix: 39 },
+  { id: "Tasse à expresso", prix: 47 },
+  { id: "Tasse à café", prix: 50 },
+  { id: "Saladier 2,5l", prix: 34 },
+  { id: "Bol à céréales", prix: 122 },
+  { id: "Assiette creuse", prix: 167 },
+  { id: "Assiette plate", prix: 139 }
 ];
 
 // === Injection dynamique des produits Art de la Table
 function afficherProduits() {
   const container = document.getElementById('produits-art-table');
   produits.forEach(produit => {
-    if (produit.id === "Thermomix") return; // Thermomix est déjà affiché ailleurs
+    if (produit.id === "Thermomix") return; // Thermomix affiché ailleurs
     container.innerHTML += `
     <div id="produit-${produit.id}" style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
       <img src="${produit.id}.JPG" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
@@ -396,7 +396,41 @@ function afficherProduits() {
   });
 }
 
-// === Scripts de fonctionnement
+// === Récupération des participations par produit
+async function afficherParticipationsProduits() {
+  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
+  const response = await fetch(url);
+  const text = await response.text();
+  const json = JSON.parse(text.substr(47).slice(0, -2));
+  const rows = json.table.rows;
+
+  const participations = {};
+  rows.forEach(row => {
+    const produit = row.c[1]?.v;
+    const montant = parseFloat(row.c[2]?.v);
+    if (produit && !isNaN(montant)) {
+      participations[produit] = (participations[produit] || 0) + montant;
+    }
+  });
+
+  produits.forEach(produit => {
+    const collecte = participations[produit.id] || 0;
+    const total = produit.prix;
+    const restant = Math.max(total - collecte, 0);
+
+    const etatElement = document.getElementById(`etat-${produit.id}`);
+    const montantInput = document.getElementById(`montantProduit${produit.id}`);
+
+    if (etatElement) {
+      etatElement.innerHTML = `<strong>${collecte.toLocaleString('fr-FR')}€</strong> / ${total.toLocaleString('fr-FR')}€`;
+    }
+    if (montantInput) {
+      montantInput.placeholder = restant;
+    }
+  });
+}
+
+// === Scripts de fonctionnement généraux
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
@@ -461,90 +495,19 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-
-  document.getElementById("montant-total").innerText = totalGeneral.toLocaleString('fr-FR') + " € collectés !";
-
-  produits.forEach(produit => {
-    const collecte = participations[produit.nom] || 0;
-    const restant = Math.max(produit.prix - collecte, 0);
-    const etatElement = document.getElementById("etat-" + produit.id);
-    const inputElement = document.getElementById("montantProduit" + produit.id);
-
-    if (etatElement) {
-      etatElement.innerText = `${collecte.toLocaleString('fr-FR')}€ / ${produit.prix.toLocaleString('fr-FR')}€`;
-    }
-    if (inputElement) {
-      inputElement.placeholder = restant.toString();
-    }
-  });
-}
-
-// === Chargement
+// === Chargement automatique
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   revealSections();
   afficherProduits();
-  afficherParticipationsProduits(); // juste celle-ci
+  afficherParticipationsProduits();
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
 };
-</script>
-<script>
-async function afficherParticipationsProduits() {
-  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
-  const response = await fetch(url);
-  const text = await response.text();
-  const json = JSON.parse(text.substr(47).slice(0, -2)); // Nettoyage du JSON Google
-  let rows = json.table.rows;
-
-  const montantsParProduit = {};
-  rows.forEach(row => {
-    const produit = row.c[1]?.v; // Colonne 2 = nom du produit
-    const montant = parseFloat(row.c[2]?.v); // Colonne 3 = montant offert
-    if (produit && !isNaN(montant)) {
-      if (!montantsParProduit[produit]) montantsParProduit[produit] = 0;
-      montantsParProduit[produit] += montant;
-    }
-  });
-
-  const produits = [
-    { id: "Thermomix", prix: 1599 },
-    { id: "Verre à champagne", prix: 70 },
-    { id: "Verre à vin rouge", prix: 70 },
-    { id: "Verre à vin blanc", prix: 70 },
-    { id: "Couverts Piemont", prix: 122 },
-    { id: "Mug", prix: 64 },
-    { id: "Sous-tasse à café", prix: 84 },
-    { id: "Sous-tasse à expresso", prix: 39 },
-    { id: "Tasse à expresso", prix: 47 },
-    { id: "Tasse à café", prix: 50 },
-    { id: "Saladier 2,5l", prix: 34 },
-    { id: "Bol à céréales", prix: 122 },
-    { id: "Assiette creuse", prix: 167 },
-    { id: "Assiette plate", prix: 139 }
-  ];
-
-  produits.forEach(produit => {
-    const montantCollecté = montantsParProduit[produit.id] || 0;
-    const total = produit.prix;
-    const restant = Math.max(total - montantCollecté, 0);
-
-    const montantAffiche = document.querySelector(`#montantProduit${produit.id}`);
-    const textCollecte = montantAffiche?.closest('div').querySelector('p');
-    const restantAffiche = montantAffiche?.parentElement.previousElementSibling?.querySelector('span + input');
-
-    if (textCollecte) {
-      textCollecte.innerHTML = `<strong>${montantCollecté.toLocaleString('fr-FR')}€</strong> / ${total.toLocaleString('fr-FR')}€`;
-    }
-    if (restantAffiche) {
-      restantAffiche.value = restant;
-    }
-  });
-}
 </script>
 </body>
 </html>
