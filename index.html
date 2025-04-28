@@ -353,34 +353,36 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 </section>
 
 <script>
-// === Tableau des produits Art de la table ===
+// === Tableau des produits Art de la table + Thermomix ===
 const produits = [
-  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" },
-  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" },
-  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/" },
-  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/" },
-  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/" },
-  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/" },
-  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/" },
-  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/" },
-  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/" },
-  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/" },
-  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/" },
-  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/" },
-  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/" }
+  { id: "Thermomix", nom: "Thermomix", prix: 1599 },
+  { id: 1, nom: "Verre à champagne", prix: 70 },
+  { id: 2, nom: "Verre à vin rouge", prix: 70 },
+  { id: 3, nom: "Verre à vin blanc", prix: 70 },
+  { id: 4, nom: "Couverts Piemont", prix: 122 },
+  { id: 5, nom: "Mug", prix: 64 },
+  { id: 6, nom: "Sous-tasse à café", prix: 84 },
+  { id: 7, nom: "Sous-tasse à expresso", prix: 39 },
+  { id: 8, nom: "Tasse à expresso", prix: 47 },
+  { id: 9, nom: "Tasse à café", prix: 50 },
+  { id: 10, nom: "Saladier 2,5l", prix: 34 },
+  { id: 11, nom: "Bol à céréales", prix: 122 },
+  { id: 12, nom: "Assiette creuse", prix: 167 },
+  { id: 13, nom: "Assiette plate", prix: 139 }
 ];
 
-// === Injection dynamique des produits
+// === Injection dynamique des produits Art de la Table
 function afficherProduits() {
   const container = document.getElementById('produits-art-table');
   produits.forEach(produit => {
+    if (produit.id === "Thermomix") return; // Thermomix est déjà affiché ailleurs
     container.innerHTML += `
-    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+    <div id="produit-${produit.id}" style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
+      <img src="${produit.id}.JPG" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
       <div style="padding: 1em;">
-        <p style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p id="etat-${produit.id}" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
         <p style="margin: 0;">
-          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+          <a href="#" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
         </p>
         <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.nom}</p>
         <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
@@ -397,7 +399,7 @@ function afficherProduits() {
   });
 }
 
-// === Autres scripts existants
+// === Scripts de fonctionnement
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
@@ -420,9 +422,7 @@ function revealSections() {
 
 function allerVersCadeau() {
   const choix = document.getElementById("liste-cadeaux").value;
-  if (choix) {
-    location.href = choix;
-  }
+  if (choix) location.href = choix;
 }
 
 function encoderPourGoogle(value) {
@@ -430,16 +430,16 @@ function encoderPourGoogle(value) {
 }
 
 function envoyerParticipationLibre() {
-  const montant = document.getElementById('montantLibre').value;
   const montantInput = document.getElementById('montantLibre');
-if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
-  montantInput.focus();
-  montantInput.setCustomValidity("Remplissez le champ");
-  montantInput.reportValidity();
-  return;
-} else {
-  montantInput.setCustomValidity("");
-}
+  if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
+    montantInput.focus();
+    montantInput.setCustomValidity("Remplissez le champ");
+    montantInput.reportValidity();
+    return;
+  } else {
+    montantInput.setCustomValidity("");
+  }
+  const montant = montantInput.value;
   const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
             + "?entry.1061348133=" + encoderPourGoogle(montant)
             + "&entry.1786079912=Participation+libre";
@@ -464,34 +464,57 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// === Au chargement
+// === Mise à jour des montants collectés
+async function afficherTotal() {
+  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
+  const response = await fetch(url);
+  const text = await response.text();
+  const json = JSON.parse(text.substr(47).slice(0, -2));
+  let rows = json.table.rows;
+
+  let totalGeneral = 0;
+  let participations = {};
+
+  rows.forEach(row => {
+    const montant = parseFloat(row.c[2]?.v);
+    const produit = row.c[1]?.v;
+    if (!isNaN(montant) && produit) {
+      totalGeneral += montant;
+      if (!participations[produit]) participations[produit] = 0;
+      participations[produit] += montant;
+    }
+  });
+
+  document.getElementById("montant-total").innerText = totalGeneral.toLocaleString('fr-FR') + " € collectés !";
+
+  produits.forEach(produit => {
+    const collecte = participations[produit.nom] || 0;
+    const restant = Math.max(produit.prix - collecte, 0);
+    const etatElement = document.getElementById("etat-" + produit.id);
+    const inputElement = document.getElementById("montantProduit" + produit.id);
+
+    if (etatElement) {
+      etatElement.innerText = `${collecte.toLocaleString('fr-FR')}€ / ${produit.prix.toLocaleString('fr-FR')}€`;
+    }
+    if (inputElement) {
+      inputElement.placeholder = restant.toString();
+    }
+  });
+}
+
+// === Chargement
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   revealSections();
   afficherProduits();
-  afficherTotal(); // <= ajoute cette ligne
+  afficherTotal();
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
 };
-</script>
-<script>
-async function afficherTotal() {
-  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
-  const response = await fetch(url);
-  const text = await response.text();
-  const json = JSON.parse(text.substr(47).slice(0, -2)); // Nettoyage du JSON Google
-  let rows = json.table.rows;
-  let total = 0;
-  rows.forEach(row => {
-    let montant = parseFloat(row.c[2]?.v); // Colonne 3 = montant offert
-    if (!isNaN(montant)) total += montant;
-  });
-  document.getElementById("montant-total").innerText = total.toLocaleString('fr-FR') + " € collectés !";
-}
 </script>
 </body>
 </html>
