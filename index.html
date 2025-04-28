@@ -370,7 +370,7 @@ const produits = [
 function afficherProduits() {
   const container = document.getElementById('produits-art-table');
   produits.forEach(produit => {
-    if (produit.id === "Thermomix") return; // Le Thermomix est traité à part
+    if (produit.id === "Thermomix") return; // Thermomix géré à part
     container.innerHTML += `
     <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
