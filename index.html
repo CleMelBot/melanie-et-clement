@@ -527,23 +527,30 @@ function openWaze(lat, lon) {
   const appLink = `waze://?ll=${lat},${lon}&navigate=yes`;
   const webLink = `https://waze.com/ul?ll=${lat},${lon}&navigate=yes`;
 
-  const timeout = setTimeout(() => {
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    // Si on est sur mobile, on tente d'ouvrir l'appli
+    window.location = appLink;
+    setTimeout(() => {
+      window.open(webLink, "_blank");
+    }, 1500);
+  } else {
+    // Si on est sur PC, on ouvre directement la version web
     window.open(webLink, "_blank");
-  }, 1500);
-
-  window.location = appLink;
+  }
 }
 
-// Fonction pour ouvrir Google Maps
 function openGoogleMaps(address) {
   const appLink = `comgooglemaps://?q=${encodeURIComponent(address)}`;
   const webLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
-  const timeout = setTimeout(() => {
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    window.location = appLink;
+    setTimeout(() => {
+      window.open(webLink, "_blank");
+    }, 1500);
+  } else {
     window.open(webLink, "_blank");
-  }, 1500);
-
-  window.location = appLink;
+  }
 }
 </script>  
 </body>
