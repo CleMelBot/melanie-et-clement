@@ -505,8 +505,7 @@ window.onload = () => {
   setInterval(updateCountdown, 1000);
   revealSections();
   afficherProduits();
-  afficherTotal();
-  afficherParticipationsProduits(); // <-- cette ligne
+  afficherParticipationsProduits(); // juste celle-ci
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
