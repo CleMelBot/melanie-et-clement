@@ -472,12 +472,12 @@ async function chargerParticipations() {
     const participations = {};
 
     rows.forEach(row => {
-      const nomProduit = row.c[1]?.v; // Colonne du produit
-      const montant = parseInt(row.c[0]?.v || 0);
-      if (nomProduit) {
-        participations[nomProduit] = (participations[nomProduit] || 0) + montant;
-      }
-    });
+  const nomProduit = row.c[1]?.v; // Cadeau choisi
+  const montant = parseInt(row.c[2]?.v || 0); // Montant donné
+  if (nomProduit) {
+    participations[nomProduit] = (participations[nomProduit] || 0) + montant;
+  }
+});
 
     produits.forEach(produit => {
       if (produit.id === "Thermomix") {
