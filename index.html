@@ -471,6 +471,68 @@ window.onload = () => {
   }
 };
 </script>
+<script>
+// Fonction pour charger les participations depuis Google Sheets
+async function chargerParticipations() {
+  try {
+    const response = await fetch('https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json');
+    const text = await response.text();
+    const json = JSON.parse(text.substring(47).slice(0, -2)); // Nettoyage spécifique à gviz
+    const rows = json.table.rows;
 
+    const participations = {};
+
+    // On parcourt chaque ligne du sheet
+    rows.forEach(row => {
+      const nomProduit = row.c[1]?.v; // Colonne du produit
+      const montant = parseInt(row.c[0]?.v || 0); // Colonne du montant donné
+      if (nomProduit) {
+        if (!participations[nomProduit]) {
+          participations[nomProduit] = 0;
+        }
+        participations[nomProduit] += montant;
+      }
+    });
+
+    // Maintenant on met à jour les montants sur la page
+    produits.forEach(produit => {
+      if (produit.id === "Thermomix") {
+        const montantRecu = participations["Thermomix"] || 0;
+        const restant = Math.max(0, produit.prix - montantRecu);
+        document.getElementById('etat-Thermomix').innerText = `${montantRecu}€ / ${produit.prix}€`;
+        const input = document.getElementById('montantProduitThermomix');
+        if (input) input.placeholder = restant;
+      } else {
+        const montantRecu = participations[produit.nom] || 0;
+        const restant = Math.max(0, produit.prix - montantRecu);
+        const input = document.getElementById('montantProduit' + produit.id);
+        if (input) input.placeholder = restant;
+        const container = input?.parentElement?.parentElement?.parentElement;
+        if (container) {
+          const affichage = container.querySelector('p');
+          if (affichage) affichage.innerText = `${montantRecu}€ / ${produit.prix}€`;
+        }
+      }
+    });
+
+  } catch (error) {
+    console.error('Erreur de chargement du JSON:', error);
+  }
+}
+
+// Lancer la récupération des participations au chargement
+window.onload = () => {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  afficherProduits();
+  revealSections();
+  window.addEventListener("scroll", revealSections);
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname);
+    window.scrollTo(0, 0);
+  }
+  chargerParticipations(); // Ajout ici pour charger la base Google
+};
+</script>
 </body>
 </html>
