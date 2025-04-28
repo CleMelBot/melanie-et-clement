@@ -350,27 +350,27 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 <script>
 // === Tableau des produits (Thermomix + Art de la table) ===
 const produits = [
-  { id: "Thermomix", nom: "Thermomix", prix: 1599, image: "TM7.jpeg", lien: "https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7", description: "Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !" },
-  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/", description: "Pour trinquer avec élégance lors de chaque belle occasion." },
-  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/", description: "Pour savourer de délicieux vins rouges en toute convivialité." },
-  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/", description: "Pour accompagner nos plus beaux repas en blanc et finesse." },
-  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/", description: "Des couverts raffinés pour embellir chaque dîner." },
-  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/", description: "Pour savourer nos cafés du matin ensemble." },
-  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/", description: "Pour accompagner notre pause-café élégamment." },
-  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/", description: "Pour sublimer nos expressos en duo." },
-  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/", description: "Pour savourer chaque expresso comme un instant précieux." },
-  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/", description: "Pour nos cafés partagés au quotidien." },
-  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/", description: "Pour nos salades fraîches et conviviales." },
-  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/", description: "Pour nos petits-déjeuners gourmands." },
-  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/", description: "Parfaite pour nos soupes et plats mijotés." },
-  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/", description: "Pour sublimer nos plus beaux plats." }
+  { id: "Thermomix", nom: "Thermomix", prix: 1599, image: "TM7.jpeg", lien: "https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7", description: "Thermomix TM7" },
+  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/", description: "Verre à champagne" },
+  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/", description: "Verre à vin rouge" },
+  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/", description: "Verre à vin blanc" },
+  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/", description: "Couverts Piemont" },
+  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/", description: "Mug" },
+  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/", description: "Sous-tasse à café" },
+  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/", description: "Sous-tasse à expresso" },
+  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/", description: "Tasse à expresso" },
+  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/", description: "Tasse à café" },
+  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/", description: "Saladier 2,5L" },
+  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/", description: "Bol à céréales" },
+  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/", description: "Assiette creuse" },
+  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/", description: "Assiette plate" }
 ];
 
-// === Injection dynamique des produits
+// === Injection dynamique des produits dans Art de la Table
 function afficherProduits() {
   const container = document.getElementById('produits-art-table');
   produits.forEach(produit => {
-    if (produit.id === "Thermomix") return; // Thermomix est affiché dans sa section dédiée
+    if (produit.id === "Thermomix") return; // Thermomix est affiché dans une autre section
     container.innerHTML += `
     <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
@@ -393,6 +393,7 @@ function afficherProduits() {
     </div>`;
   });
 }
+</script>
 
 // === Fonctionnalités diverses
 function updateCountdown() {
