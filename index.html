@@ -386,7 +386,6 @@ function afficherProduits() {
   <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
   <div style="position: relative; display: inline-block;">
     <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-    <span style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 0.9em; font-weight: bold;">€</span>
   </div>
 </div>
           <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
