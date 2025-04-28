@@ -429,10 +429,15 @@ function encoderPourGoogle(value) {
 
 function envoyerParticipationLibre() {
   const montant = document.getElementById('montantLibre').value;
-  if (!montant || parseInt(montant) <= 0) {
-    alert("Remplissez le champ");
-    return;
-  }
+  const montantInput = document.getElementById('montantLibre');
+if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
+  montantInput.focus();
+  montantInput.setCustomValidity("Remplissez le champ");
+  montantInput.reportValidity();
+  return;
+} else {
+  montantInput.setCustomValidity("");
+}
   const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
             + "?entry.1061348133=" + encoderPourGoogle(montant)
             + "&entry.1786079912=Participation+libre";
