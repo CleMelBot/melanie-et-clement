@@ -461,26 +461,6 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// === Mise à jour des montants collectés
-async function afficherTotal() {
-  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
-  const response = await fetch(url);
-  const text = await response.text();
-  const json = JSON.parse(text.substr(47).slice(0, -2));
-  let rows = json.table.rows;
-
-  let totalGeneral = 0;
-  let participations = {};
-
-  rows.forEach(row => {
-    const montant = parseFloat(row.c[2]?.v);
-    const produit = row.c[1]?.v;
-    if (!isNaN(montant) && produit) {
-      totalGeneral += montant;
-      if (!participations[produit]) participations[produit] = 0;
-      participations[produit] += montant;
-    }
-  });
 
   document.getElementById("montant-total").innerText = totalGeneral.toLocaleString('fr-FR') + " € collectés !";
 
