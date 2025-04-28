@@ -394,8 +394,10 @@ function afficherProduits() {
   });
 }
 </script>
+
 <script>
-// === Fonctionnalités diverses
+// === Fonctionnalités diverses ===
+
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
@@ -460,7 +462,6 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// Fonction pour charger les participations depuis Google Sheets
 async function chargerParticipations() {
   try {
     const response = await fetch('https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json');
@@ -470,19 +471,14 @@ async function chargerParticipations() {
 
     const participations = {};
 
-    // On parcourt chaque ligne du sheet
     rows.forEach(row => {
       const nomProduit = row.c[1]?.v; // Colonne du produit
-      const montant = parseInt(row.c[0]?.v || 0); // Colonne du montant donné
+      const montant = parseInt(row.c[0]?.v || 0);
       if (nomProduit) {
-        if (!participations[nomProduit]) {
-          participations[nomProduit] = 0;
-        }
-        participations[nomProduit] += montant;
+        participations[nomProduit] = (participations[nomProduit] || 0) + montant;
       }
     });
 
-    // Maintenant on met à jour les montants sur la page
     produits.forEach(produit => {
       if (produit.id === "Thermomix") {
         const montantRecu = participations["Thermomix"] || 0;
@@ -508,7 +504,6 @@ async function chargerParticipations() {
   }
 }
 
-// === Chargement au démarrage ===
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
@@ -519,7 +514,7 @@ window.onload = () => {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
-  chargerParticipations(); // Chargement des participations Google Sheets
+  chargerParticipations();
 };
 </script>
 </body>
