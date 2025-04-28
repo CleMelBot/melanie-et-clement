@@ -167,30 +167,6 @@ section::before {
   color: var(--terracotta);
   text-decoration: underline;
 }
-
-#liste-cadeaux {
-  margin-top: 1em;
-  padding: 0.5em 1em;
-  border-radius: 8px;
-  border: 2px solid var(--green); /* Bordure verte */
-  font-size: 1em;
-  width: 100%;
-  appearance: none; /* enlève l'icône native */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: var(--green) url('icon_avion_white.png') no-repeat right 1em center;
-  background-size: 20px 20px;
-  color: white; /* Texte blanc */
-  font-weight: bold;
-}
-
-/* Pour cacher la flèche native sur Safari iOS */
-select::-webkit-inner-spin-button, 
-select::-webkit-outer-spin-button,
-select::-webkit-search-cancel-button {
-  display: none;
-  -webkit-appearance: none;
-}
 </style>
 </head>
 <body>
@@ -221,10 +197,10 @@ select::-webkit-search-cancel-button {
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !</p>
 <img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="geo:0,0?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
+  <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
     <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
   </a>
-  <a href="waze://?ll=49.44442,0.963771&navigate=yes" target="_blank">
+  <a href="https://waze.com/ul?ll=49.44442,0.963771&amp;navigate=yes" target="_blank">
     <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
   </a>
 </div>
@@ -236,10 +212,10 @@ select::-webkit-search-cancel-button {
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.</p>
 <img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="geo:0,0?q=Abbaye+du+Valasse" target="_blank">
+  <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">
     <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
   </a>
-  <a href="waze://?ll=49.537117,0.508053&navigate=yes" target="_blank">
+  <a href="https://waze.com/ul?ll=49.537117,0.508053&amp;navigate=yes" target="_blank">
     <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
   </a>
 </div>
@@ -268,7 +244,7 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
   
   <div style="margin-top: 1.5em; font-size: 0.9em; color: #666;">— Ou choisissez des cadeaux dans la liste —</div>
   
-  <select id="liste-cadeaux" onchange="allerVersCadeau()">
+  <select id="liste-cadeaux" onchange="allerVersCadeau()" style="margin-top: 1em; padding: 0.5em; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 100%;">
     <option value="">Choisissez un cadeau</option>
     <option value="#voyagedenoces">Voyage de noces</option>
     <option value="#equipement">Équipement de cuisine</option>
