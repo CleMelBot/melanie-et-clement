@@ -393,6 +393,7 @@ function afficherProduits() {
     </div>`;
   });
 }
+<script>
 // === Fonctionnalités diverses
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
@@ -458,20 +459,6 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// === On charge tout au démarrage
-window.onload = () => {
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-  afficherProduits();
-  revealSections();
-  window.addEventListener("scroll", revealSections);
-  if (window.location.hash) {
-    history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0);
-  }
-};
-</script>
-<script>
 // Fonction pour charger les participations depuis Google Sheets
 async function chargerParticipations() {
   try {
@@ -520,7 +507,7 @@ async function chargerParticipations() {
   }
 }
 
-// Lancer la récupération des participations au chargement
+// === Chargement au démarrage ===
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
@@ -531,7 +518,7 @@ window.onload = () => {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
-  chargerParticipations(); // Ajout ici pour charger la base Google
+  chargerParticipations(); // Chargement des participations Google Sheets
 };
 </script>
 </body>
