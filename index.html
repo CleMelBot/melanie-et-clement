@@ -197,10 +197,10 @@ section::before {
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !</p>
 <img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="https://www.google.com/maps?q=Abbaye+de+Saint-Martin+de+Boscherville" target="_blank">
+  <a href="#" onclick="openGoogleMaps('Abbaye de Saint-Martin de Boscherville')">
     <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
   </a>
-  <a href="https://waze.com/ul?ll=49.44442,0.963771&amp;navigate=yes" target="_blank">
+  <a href="#" onclick="openWaze(49.44442, 0.963771)">
     <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
   </a>
 </div>
@@ -212,10 +212,10 @@ section::before {
 <p style="text-align:center; max-width: 700px; margin: 2em auto;">Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.</p>
 <img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;"/>
 <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="https://www.google.com/maps?q=Abbaye+du+Valasse" target="_blank">
+  <a href="#" onclick="openGoogleMaps('Abbaye du Valasse')">
     <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
   </a>
-  <a href="https://waze.com/ul?ll=49.537117,0.508053&amp;navigate=yes" target="_blank">
+  <a href="#" onclick="openWaze(49.537117, 0.508053)">
     <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
   </a>
 </div>
@@ -521,5 +521,30 @@ window.onload = () => {
   chargerParticipations();
 };
 </script>
+<script>
+// Fonction pour ouvrir Waze
+function openWaze(lat, lon) {
+  const appLink = `waze://?ll=${lat},${lon}&navigate=yes`;
+  const webLink = `https://waze.com/ul?ll=${lat},${lon}&navigate=yes`;
+
+  const timeout = setTimeout(() => {
+    window.open(webLink, "_blank");
+  }, 500);
+
+  window.location = appLink;
+}
+
+// Fonction pour ouvrir Google Maps
+function openGoogleMaps(address) {
+  const appLink = `comgooglemaps://?q=${encodeURIComponent(address)}`;
+  const webLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+
+  const timeout = setTimeout(() => {
+    window.open(webLink, "_blank");
+  }, 500);
+
+  window.location = appLink;
+}
+</script>  
 </body>
 </html>
