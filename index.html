@@ -116,9 +116,59 @@ h2 {
 @media (min-width: 768px) {
   .parallax-bg { background-attachment: fixed; }
 }
+.section-liste-cadeaux, .section-liste-art {
+  max-width: 400px;
+  margin: 2em 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.section-liste-cadeaux.visible, .section-liste-art.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-liste-cadeaux h2, .section-liste-art h2 {
+  text-align: left;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+}
+.section-liste-cadeaux > div, .section-liste-art > div {
+  text-align: left;
+}
+.section-liste-cadeaux h3, .section-liste-art h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: var(--green);
+}
+.section-liste-cadeaux p, .section-liste-art p {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 0.8em;
+}
+section::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+}
+.photo-section {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+.photo-section img {
+  width: 60px;
+  height: 60px;
+}
+.photo-section p a {
+  color: var(--terracotta);
+  text-decoration: underline;
+}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -140,10 +190,6 @@ h2 {
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
-
-<!-- Tes sections cérémonies, réception, liste de mariage, etc. sont à placer ici (je te prépare ça tout de suite) -->
-
-</body>
 
 <section id="ceremonie">
 <h2>Cérémonie</h2>
@@ -190,12 +236,12 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
       <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24">
         <path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/>
       </svg>
-      <input type="number" id="montantLibre" min="1" placeholder="0" required style="padding: 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right; background: transparent; color: #666;"/>
+      <input type="number" id="montantLibre" min="1" placeholder="0" style="padding: 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
       <span style="margin-left: 0.5em; font-weight: bold;">€</span>
     </div>
     <a href="#" onclick="envoyerParticipationLibre()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
   </div>
-
+  
   <div style="margin-top: 1.5em; font-size: 0.9em; color: #666;">— Ou choisissez des cadeaux dans la liste —</div>
 
   <select id="liste-cadeaux" onchange="allerVersCadeau()" style="margin-top: 1em; padding: 0.5em; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 100%;">
@@ -240,7 +286,7 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
     <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" required style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px; outline: none; color: #666;">
+        <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px; outline: none;">
       </div>
       <button onclick="envoyerProduit(event, 'Thermomix', 'montantProduitThermomix')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
         Participer
@@ -255,21 +301,24 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 <section id="artdelatable" class="section-liste-art">
 <h2 class="section-titre-liste">Art de la Table</h2>
 <div id="produits-art-table" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
-<!-- Produits injectés par JavaScript -->
+<!-- Produits injectés en JS ici -->
 </div>
 </section>
 
 <section id="multimedia">
 <h2>Multimédia</h2>
 <div class="subtitle">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div>
+
 <div class="photo-section">
   <img alt="Logo iCloud" src="icloud_logo.png"/>
   <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
 </div>
+
 <div class="photo-section">
   <img alt="Logo Photographe" src="photographe_logo.png"/>
   <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
 </div>
+
 <div class="photo-section">
   <img alt="Logo Vidéaste" src="videaste_logo.PNG"/>
   <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
@@ -278,15 +327,18 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 
 <section id="contact">
 <h2 style="text-align:center;">Contact</h2>
+
 <div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
   <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
     <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
     <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
     <span>Mélanie</span>
   </div>
+
   <div style="display: flex; flex-direction: column; align-items: center;">
     <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
   </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
     <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
     <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
@@ -295,9 +347,56 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 </div>
 </section>
 
+<script>
+// === Tableau des produits (Thermomix + Art de la table) ===
+const produits = [
+  { id: "Thermomix", nom: "Thermomix", prix: 1599, image: "TM7.jpeg", lien: "https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7", description: "Thermomix TM7" },
+  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/", description: "Verre à champagne" },
+  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/", description: "Verre à vin rouge" },
+  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/", description: "Verre à vin blanc" },
+  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/", description: "Couverts Piemont" },
+  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/", description: "Mug" },
+  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/", description: "Sous-tasse à café" },
+  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/", description: "Sous-tasse à expresso" },
+  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/", description: "Tasse à expresso" },
+  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/", description: "Tasse à café" },
+  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/", description: "Saladier 2,5L" },
+  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/", description: "Bol à céréales" },
+  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/", description: "Assiette creuse" },
+  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/", description: "Assiette plate" }
+];
+
+// === Injection dynamique des produits dans Art de la Table
+function afficherProduits() {
+  const container = document.getElementById('produits-art-table');
+  produits.forEach(produit => {
+    if (produit.id === "Thermomix") return; // Thermomix est affiché dans une autre section
+    container.innerHTML += `
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <p style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p style="margin: 0;">
+          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+        </p>
+        <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;" />
+          </div>
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+</script>
 
 <script>
-// --- Fonctions diverses ---
+// === Fonctionnalités diverses ===
 
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
@@ -363,50 +462,46 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// --- Script pour afficher Art de la Table ---
+async function chargerParticipations() {
+  try {
+    const response = await fetch('https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json');
+    const text = await response.text();
+    const json = JSON.parse(text.substring(47).slice(0, -2)); // Nettoyage spécifique à gviz
+    const rows = json.table.rows;
 
-const produits = [
-  { id: "Thermomix", nom: "Thermomix", prix: 1599, image: "TM7.jpeg", lien: "https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7", description: "Thermomix TM7" },
-  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/", description: "Verre à champagne" },
-  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/", description: "Verre à vin rouge" },
-  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/", description: "Verre à vin blanc" },
-  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/", description: "Couverts Piemont" },
-  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/", description: "Mug" },
-  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/", description: "Sous-tasse à café" },
-  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/", description: "Sous-tasse à expresso" },
-  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/", description: "Tasse à expresso" },
-  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/", description: "Tasse à café" },
-  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/", description: "Saladier 2,5L" },
-  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/", description: "Bol à céréales" },
-  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/", description: "Assiette creuse" },
-  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/", description: "Assiette plate" }
-];
+    const participations = {};
 
-function afficherProduits() {
-  const container = document.getElementById('produits-art-table');
-  produits.forEach(produit => {
-    if (produit.id === "Thermomix") return;
-    container.innerHTML += `
-      <div style="flex: 0 1 calc(48% - 10px); background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-        <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
-        <div style="padding: 1em;">
-          <p style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
-          <p style="margin: 0;">
-            <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
-          </p>
-          <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
-          <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-              <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" required style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px; outline: none; color: #666;"/>
-            </div>
-            <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
-              Participer
-            </button>
-          </div>
-        </div>
-      </div>`;
-  });
+    rows.forEach(row => {
+  const nomProduit = row.c[1]?.v; // Cadeau choisi
+  const montant = parseInt(row.c[2]?.v || 0); // Montant donné
+  if (nomProduit) {
+    participations[nomProduit] = (participations[nomProduit] || 0) + montant;
+  }
+});
+
+    produits.forEach(produit => {
+      if (produit.id === "Thermomix") {
+        const montantRecu = participations["Thermomix"] || 0;
+        const restant = Math.max(0, produit.prix - montantRecu);
+        document.getElementById('etat-Thermomix').innerText = `${montantRecu}€ / ${produit.prix}€`;
+        const input = document.getElementById('montantProduitThermomix');
+        if (input) input.placeholder = restant;
+      } else {
+        const montantRecu = participations[produit.nom] || 0;
+        const restant = Math.max(0, produit.prix - montantRecu);
+        const input = document.getElementById('montantProduit' + produit.id);
+        if (input) input.placeholder = restant;
+        const container = input?.parentElement?.parentElement?.parentElement;
+        if (container) {
+          const affichage = container.querySelector('p');
+          if (affichage) affichage.innerText = `${montantRecu}€ / ${produit.prix}€`;
+        }
+      }
+    });
+
+  } catch (error) {
+    console.error('Erreur de chargement du JSON:', error);
+  }
 }
 
 window.onload = () => {
@@ -419,9 +514,8 @@ window.onload = () => {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
+  chargerParticipations();
 };
-
 </script>
-
 </body>
 </html>
