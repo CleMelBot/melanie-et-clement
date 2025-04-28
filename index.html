@@ -188,14 +188,19 @@ section::before {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: var(--cream) !important;
+  html, body, section, nav, header, footer, div, input, select {
+    background-color: var(--cream) !important;
     color: var(--green) !important;
   }
+  
   nav {
-    background: white !important;
+    background-color: white !important;
   }
-}  
+
+  .parallax-bg {
+    background-blend-mode: normal !important;
+  }
+} 
 </style>
 </head>
 <body>
