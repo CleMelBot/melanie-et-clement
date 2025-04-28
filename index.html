@@ -283,16 +283,19 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
     </p>
     <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
 
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px; outline: none;">
-      </div>
-      <button onclick="envoyerProduit(event, 'Thermomix', 'montantProduitThermomix')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
-        Participer
-      </button>
+   <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+    <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+    <div style="position: relative; display: inline-block;">
+      <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px; outline: none; padding-right: 15px;">
+      <span style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 0.9em; font-weight: bold;">€</span>
     </div>
   </div>
+  <button onclick="envoyerProduit(event, 'Thermomix', 'montantProduitThermomix')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
+    Participer
+  </button>
+</div>
+</div>
 </div>
 </section>
 
@@ -381,10 +384,13 @@ function afficherProduits() {
         </p>
         <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
         <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-            <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;" />
-          </div>
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+  <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+  <div style="position: relative; display: inline-block;">
+    <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px; padding-right: 15px;">
+    <span style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 0.9em; font-weight: bold;">€</span>
+  </div>
+</div>
           <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
             Participer
           </button>
@@ -485,12 +491,12 @@ async function chargerParticipations() {
         const restant = Math.max(0, produit.prix - montantRecu);
         document.getElementById('etat-Thermomix').innerText = `${montantRecu}€ / ${produit.prix}€`;
         const input = document.getElementById('montantProduitThermomix');
-        if (input) input.placeholder = restant;
+        if (input) input.placeholder = restant + "€";
       } else {
         const montantRecu = participations[produit.nom] || 0;
         const restant = Math.max(0, produit.prix - montantRecu);
         const input = document.getElementById('montantProduit' + produit.id);
-        if (input) input.placeholder = restant;
+        if (input) input.placeholder = restant + "€";
         const container = input?.parentElement?.parentElement?.parentElement;
         if (container) {
           const affichage = container.querySelector('p');
