@@ -116,8 +116,6 @@ h2 {
 @media (min-width: 768px) {
   .parallax-bg { background-attachment: fixed; }
 }
-
-/* Style des sections liste cadeaux + art de la table */
 .section-liste-cadeaux, .section-liste-art {
   max-width: 400px;
   margin: 2em 0;
@@ -148,17 +146,13 @@ h2 {
   color: #666;
   margin-bottom: 0.8em;
 }
-</style>  
-<style>
-  section::before {
-    content: "";
-    display: block;
-    height: 80px; /* ajuste ici selon la hauteur de ton menu */
-    margin-top: -80px;
-    visibility: hidden;
-  }
-</style>
-<style>
+section::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+}
 .photo-section {
   display: flex;
   align-items: center;
@@ -174,7 +168,6 @@ h2 {
   text-decoration: underline;
 }
 </style>
-
 </head>
 <body>
 
@@ -240,7 +233,9 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
   <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
   <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
     <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24"><path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24">
+        <path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/>
+      </svg>
       <input type="number" id="montantLibre" min="1" placeholder="0" style="padding: 0.4em 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
       <span style="margin-left: 0.5em; font-weight: bold;">€</span>
     </div>
@@ -300,261 +295,9 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 <section id="artdelatable" class="section-liste-art">
 <h2 class="section-titre-liste">Art de la Table</h2>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
-
-<!-- Produit 1 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à champagne" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;">
-      <a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">
-        Villeroy & Boch
-      </a>
-    </p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à champagne</p>
-
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit1" type="number" min="1" placeholder="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;" />
-      </div>
-      <button onclick="envoyerProduit(event, 'Verre à champagne', 'montantProduit1')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
-        Participer
-      </button>
-    </div>
-
-  </div>
+<!-- NOUVEAU : ici, l'emplacement où on va injecter dynamiquement tous les produits -->
+<div id="produits-art-table" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
 </div>
-<!-- Produit 2 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à vin rouge" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à vin rouge</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit2" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Verre à vin rouge', 'montantProduit2')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 3 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="1.JPG" alt="Verre à vin blanc" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 70€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Verre à vin blanc</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit3" type="number" min="1" value="70" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Verre à vin blanc', 'montantProduit3')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 4 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="2.jpg" alt="Couverts Piemont" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 122€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Couverts Piemont</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit4" type="number" min="1" value="122" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Couverts Piemont', 'montantProduit4')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 5 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="3.JPG" alt="Mug" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 64€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Mug</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit5" type="number" min="1" value="64" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Mug', 'montantProduit5')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 6 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="4.WEBP" alt="Sous-tasse à café" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 84€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Sous-tasse à café</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit6" type="number" min="1" value="84" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Sous-tasse à café', 'montantProduit6')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 7 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="5.WEBP" alt="Sous-tasse à expresso" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 39€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Sous-tasse à expresso</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit7" type="number" min="1" value="39" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Sous-tasse à expresso', 'montantProduit7')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 8 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="6.JPG" alt="Tasse à expresso" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 47€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Tasse à expresso</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit8" type="number" min="1" value="47" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Tasse à expresso', 'montantProduit8')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 9 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="7.JPG" alt="Tasse à café" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 50€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Tasse à café</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit9" type="number" min="1" value="50" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Tasse à café', 'montantProduit9')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 10 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="8.PNG" alt="Saladier 2,5l" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 34€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-saladier-1042933160/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Saladier 2,5l</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit10" type="number" min="1" value="34" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Saladier 2,5l', 'montantProduit10')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 11 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="9.PNG" alt="Bol à céréales" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 122€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Bol à céréales</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit11" type="number" min="1" value="122" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Bol à céréales', 'montantProduit11')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 12 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="10.WEBP" alt="Assiette creuse" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 167€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Assiette creuse</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit12" type="number" min="1" value="167" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Assiette creuse', 'montantProduit12')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Produit 13 -->
-<div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
-  <img src="11.WEBP" alt="Assiette plate" style="width: 100%; height: 220px; object-fit: cover;">
-  <div style="padding: 1em;">
-    <p style="margin: 0; font-weight: bold;">0€ / 139€</p>
-    <p style="margin: 0;"><a href="https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a></p>
-    <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">Assiette plate</p>
-    <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-      <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-        <input id="montantProduit13" type="number" min="1" value="139" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-      </div>
-      <a href="#" onclick="envoyerProduit('Assiette plate', 'montantProduit13')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; display: flex; align-items: center; justify-content: center; text-decoration: none; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
-        Participer
-      </a>
-    </div>
-  </div>
-</div>
-
-</div> <!-- Fin du flex-container Art de la Table -->
 </section>
 
 <section id="multimedia">
@@ -600,7 +343,51 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 </section>
 
 <script>
-// === Compte à rebours ===
+// === Tableau des produits Art de la table ===
+const produits = [
+  { id: 1, nom: "Verre à champagne", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/" },
+  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/" },
+  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "1.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/" },
+  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.jpg", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/" },
+  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/" },
+  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/" },
+  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/" },
+  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/" },
+  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/" },
+  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/" },
+  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/" },
+  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/" },
+  { id: 13, nom: "Assiette plate", prix: 139, image: "11.WEBP", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/" }
+];
+
+// === Injection dynamique des produits
+function afficherProduits() {
+  const container = document.getElementById('produits-art-table');
+  produits.forEach(produit => {
+    container.innerHTML += `
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin: auto; text-align: center;">
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <p style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p style="margin: 0;">
+          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+        </p>
+        <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.nom}</p>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;" />
+          </div>
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+}
+
+// === Autres scripts existants
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
@@ -613,7 +400,6 @@ function updateCountdown() {
   document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
 }
 
-// === Animation au scroll ===
 function revealSections() {
   const sections = document.querySelectorAll("section");
   sections.forEach(sec => {
@@ -622,7 +408,6 @@ function revealSections() {
   });
 }
 
-// === Redirection sélection liste cadeaux ===
 function allerVersCadeau() {
   const choix = document.getElementById("liste-cadeaux").value;
   if (choix) {
@@ -630,12 +415,10 @@ function allerVersCadeau() {
   }
 }
 
-// === Encodage URL Google Form ===
 function encoderPourGoogle(value) {
   return encodeURIComponent(value).replace(/%20/g, '+');
 }
 
-// === Envoi Participation Libre ===
 function envoyerParticipationLibre() {
   const montant = document.getElementById('montantLibre').value;
   if (!montant || parseInt(montant) <= 0) {
@@ -648,7 +431,6 @@ function envoyerParticipationLibre() {
   window.open(url, '_blank');
 }
 
-// === Envoi Participation par produit (NOUVELLE VERSION) ===
 function envoyerProduit(event, nomProduit, idInput) {
   event.preventDefault();
   const montantInput = document.getElementById(idInput);
@@ -660,7 +442,6 @@ function envoyerProduit(event, nomProduit, idInput) {
   } else {
     montantInput.setCustomValidity("");
   }
-
   const montant = montantInput.value;
   const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
             + "?entry.1061348133=" + encoderPourGoogle(montant)
@@ -668,13 +449,13 @@ function envoyerProduit(event, nomProduit, idInput) {
   window.open(url, '_blank');
 }
 
-// === Ready ===
+// === Au chargement
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   revealSections();
+  afficherProduits(); // génère les produits
   window.addEventListener("scroll", revealSections);
-
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
