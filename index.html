@@ -462,35 +462,34 @@ async function chargerParticipations() {
   try {
     const response = await fetch('https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json');
     const text = await response.text();
-    const json = JSON.parse(text.substring(47).slice(0, -2)); // Nettoyage spécifique à gviz
+    const json = JSON.parse(text.substring(47).slice(0, -2));
     const rows = json.table.rows;
 
     const participations = {};
 
     rows.forEach(row => {
-  const nomProduit = row.c[1]?.v; // Cadeau choisi
-  const montant = parseInt(row.c[2]?.v || 0); // Montant donné
-  if (nomProduit) {
-    participations[nomProduit] = (participations[nomProduit] || 0) + montant;
-  }
-});
+      const nomProduit = row.c[1]?.v;
+      const montant = parseInt(row.c[2]?.v || 0);
+      if (nomProduit) {
+        participations[nomProduit] = (participations[nomProduit] || 0) + montant;
+      }
+    });
 
     produits.forEach(produit => {
+      const montantRecu = participations[produit.nom] || 0;
+      const restant = Math.max(0, produit.prix - montantRecu);
+      
       if (produit.id === "Thermomix") {
-        const montantRecu = participations["Thermomix"] || 0;
-        const restant = Math.max(0, produit.prix - montantRecu);
-        document.getElementById('etat-Thermomix').innerText = `${montantRecu}€ / ${produit.prix}€`;
+        document.getElementById('etat-Thermomix').innerText = `€${montantRecu} / €${produit.prix}`;
         const input = document.getElementById('montantProduitThermomix');
-        if (input) input.placeholder = restant;
+        if (input) input.placeholder = `${restant}`;
       } else {
-        const montantRecu = participations[produit.nom] || 0;
-        const restant = Math.max(0, produit.prix - montantRecu);
         const input = document.getElementById('montantProduit' + produit.id);
-        if (input) input.placeholder = restant;
+        if (input) input.placeholder = `${restant}`;
         const container = input?.parentElement?.parentElement?.parentElement;
         if (container) {
           const affichage = container.querySelector('p');
-          if (affichage) affichage.innerText = `${montantRecu}€ / ${produit.prix}€`;
+          if (affichage) affichage.innerText = `€${montantRecu} / €${produit.prix}`;
         }
       }
     });
