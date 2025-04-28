@@ -250,6 +250,8 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
     <option value="#equipement">Équipement de cuisine</option>
     <option value="#artdelatable">Art de la table</option>
   </select>
+<div id="montant-total" style="text-align: center; margin: 2em 0; font-weight: bold; font-size: 1.2em; color: var(--green);">
+  Chargement des participations...
 </div>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
@@ -467,7 +469,8 @@ window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
   revealSections();
-  afficherProduits(); // génère les produits
+  afficherProduits();
+  afficherTotal(); // <= ajoute cette ligne
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
@@ -475,6 +478,20 @@ window.onload = () => {
   }
 };
 </script>
-
+<script>
+async function afficherTotal() {
+  const url = "https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json";
+  const response = await fetch(url);
+  const text = await response.text();
+  const json = JSON.parse(text.substr(47).slice(0, -2)); // Nettoyage du JSON Google
+  let rows = json.table.rows;
+  let total = 0;
+  rows.forEach(row => {
+    let montant = parseFloat(row.c[2]?.v); // Colonne 3 = montant offert
+    if (!isNaN(montant)) total += montant;
+  });
+  document.getElementById("montant-total").innerText = total.toLocaleString('fr-FR') + " € collectés !";
+}
+</script>
 </body>
 </html>
