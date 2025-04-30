@@ -640,7 +640,7 @@ function afficherProduits() {
     <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
       <div style="padding: 1em;">
-        <p class="etat-produit" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
         <p style="margin: 0;">
           <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
         </p>
@@ -763,11 +763,8 @@ async function chargerParticipations() {
       } else {
         const input = document.getElementById('montantProduit' + produit.id);
         if (input) input.placeholder = `${format(restant)}€`;
-        const container = input?.parentElement?.parentElement?.parentElement;
-        if (container) {
-          const affichage = container.querySelector('.etat-produit');
-if (affichage) affichage.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
-        }
+        const etatEl = document.getElementById('etat-' + produit.id);
+if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
       }
     });
 
