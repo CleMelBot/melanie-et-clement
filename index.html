@@ -212,13 +212,23 @@ section::before {
     background-blend-mode: normal !important;
   }
 } 
-#montantProduitThermomix:focus {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:focus {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
+  background: transparent;
+}
+
+input#montantProduitThermomix:focus {
   -webkit-appearance: none;
   caret-color: auto;
-} 
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
