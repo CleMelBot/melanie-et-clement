@@ -549,18 +549,20 @@ function afficherProduits() {
   produits.forEach(produit => {
     if (["Thermomix", "JuraE8"].includes(produit.id)) return;
     container.innerHTML += `
-    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
-      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
-      <div>
-        <p style="margin: 1em 0 0; font-weight: bold;">0€ / ${produit.prix}€</p>
-        <p style="margin: 0;">
-          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
-        </p>
-        <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover; background: white;">
+      <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <div>
+          <p id="etat-${produit.id}" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+          <p style="margin: 0;">
+            <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+          </p>
+          <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
+        </div>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-            <div style="position: relative; display: inline-block;">
+            <div>
               <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
             </div>
           </div>
