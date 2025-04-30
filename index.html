@@ -345,6 +345,19 @@ input#montantProduitThermomix:focus {
     height: 300px;
   }
 }
+@media (min-width: 1000px) {
+  .image-ceremonie {
+    content: url('Ceremonie_ordi.png');
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .image-reception {
+    content: url('Réception_ordi.png');
+    height: 300px;
+    object-fit: cover;
+  }
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -378,33 +391,43 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 </nav>
 
 <section id="ceremonie">
-<h2>Cérémonie</h2>
-<div class="subtitle">13h45 – Abbaye de Saint-Martin de Boscherville</div>
-<p style="text-align:center; max-width: 700px; margin: 2em auto;">Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !</p>
-<img alt="Lieu cérémonie" src="lieu_ceremonie.jpg" style="width:100%;border-radius:10px;"/>
-<div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="#" onclick="openGoogleMaps('Abbaye de Saint-Martin de Boscherville')">
-    <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
-  </a>
-  <a href="#" onclick="openWaze(49.44442, 0.963771)">
-    <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
-  </a>
-</div>
+  <h2>Cérémonie</h2>
+  <div class="subtitle">13h45 – Abbaye de Saint-Martin de Boscherville</div>
+  <p style="text-align:center; max-width: 700px; margin: 2em auto;">
+    Notre cérémonie se déroulera dans l’Abbaye de Saint-Martin de Boscherville. Nous vous attendons à 13h45 pour le début de l’embarquement !
+  </p>
+  <div class="image-wrapper">
+    <img src="lieu_ceremonie.jpg" alt="Lieu cérémonie" class="image-mobile">
+    <img src="Ceremonie_ordi.png" alt="Lieu cérémonie desktop" class="image-desktop">
+  </div>
+  <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
+    <a href="#" onclick="openGoogleMaps('Abbaye de Saint-Martin de Boscherville')">
+      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+    </a>
+    <a href="#" onclick="openWaze(49.44442, 0.963771)">
+      <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+    </a>
+  </div>
 </section>
 
 <section id="reception">
-<h2>Réception</h2>
-<div class="subtitle">17h00 – Abbaye du Valasse</div>
-<p style="text-align:center; max-width: 700px; margin: 2em auto;">Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.</p>
-<img alt="Lieu réception" src="lieu_reception.jpg" style="width:100%;border-radius:10px;"/>
-<div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
-  <a href="#" onclick="openGoogleMaps('Abbaye du Valasse')">
-    <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
-  </a>
-  <a href="#" onclick="openWaze(49.541834, 0.496810)">
-    <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
-  </a>
-</div>
+  <h2>Réception</h2>
+  <div class="subtitle">17h00 – Abbaye du Valasse</div>
+  <p style="text-align:center; max-width: 700px; margin: 2em auto;">
+    Après la cérémonie, cap sur l’Abbaye du Valasse à 17h00 pour le rafraîchissement pendant le vol.
+  </p>
+  <div class="image-wrapper">
+    <img src="lieu_reception.jpg" alt="Lieu réception" class="image-mobile">
+    <img src="Reception_ordi.png" alt="Lieu réception desktop" class="image-desktop">
+  </div>
+  <div style="display: flex; justify-content: center; gap: 1em; margin: 1.5em 0;">
+    <a href="#" onclick="openGoogleMaps('Abbaye du Valasse')">
+      <img alt="Google Maps" src="maps_logo.png" style="height: 34px;"/>
+    </a>
+    <a href="#" onclick="openWaze(49.541834, 0.496810)">
+      <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
+    </a>
+  </div>
 </section>
 
 <section id="liste">
