@@ -212,10 +212,15 @@ section::before {
     background-blend-mode: normal !important;
   }
 } 
+/* Supprimer les flèches ↑↓ des inputs number (Chrome, Safari, Firefox) */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 input[type="number"]:focus {
