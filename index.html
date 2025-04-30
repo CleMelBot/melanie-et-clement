@@ -775,19 +775,52 @@ async function chargerParticipations() {
     console.error('Erreur de chargement du JSON:', error);
   }
 }
+
+function afficherProduits() {
+  const container = document.getElementById('produits-art-table');
+  produits.forEach(produit => {
+    if (["Thermomix", "JuraE8"].includes(produit.id)) return;
+    container.innerHTML += `
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <p style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p style="margin: 0;">
+          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+        </p>
+        <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <div style="position: relative; display: inline-block;">
+              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+            </div>
+          </div>
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // Appelle chargerParticipations une fois que tous les produits sont affichés
+  chargerParticipations();
+}
+
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  afficherProduits();
+  afficherProduits(); // Affiche et met à jour les produits
   revealSections();
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
-  chargerParticipations();
 };
 </script>
+
 <script>
 // Fonction pour ouvrir Waze
 function openWaze(lat, lon) {
@@ -795,13 +828,11 @@ function openWaze(lat, lon) {
   const webLink = `https://waze.com/ul?ll=${lat},${lon}&navigate=yes`;
 
   if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-    // Si on est sur mobile, on tente d'ouvrir l'appli
     window.location = appLink;
     setTimeout(() => {
       window.open(webLink, "_blank");
     }, 1500);
   } else {
-    // Si on est sur PC, on ouvre directement la version web
     window.open(webLink, "_blank");
   }
 }
@@ -819,6 +850,6 @@ function openGoogleMaps(address) {
     window.open(webLink, "_blank");
   }
 }
-</script>  
+</script>
 </body>
 </html>
