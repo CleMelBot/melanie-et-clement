@@ -335,23 +335,18 @@ input#montantProduitThermomix:focus {
     align-items: center;
   }
 
-  #produits-art-table .prix-restant button {
-    flex: 1;
-    background: #2d6a4f;
-    color: white;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.7em;
-    border: none;
-    cursor: pointer;
-  }
+ #produits-art-table .prix-restant button {
+  flex: 1;
+  background: #2d6a4f;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.7em;
+  border: none;
+  cursor: pointer;
 }
-</style>
-<script>
-// Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
-if (window.location.hostname === "www.melanie-clement-2025.fr") {
-  window.location.href = window.location.href.replace("www.", "");
-}
+
+/* Responsive mobile */
 @media (max-width: 999px) {
   #produits-art-table {
     flex-direction: column;
@@ -387,7 +382,13 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
     text-align: center;
   }
 }
-</script>  
+</style>
+<script>
+// Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
+if (window.location.hostname === "www.melanie-clement-2025.fr") {
+  window.location.href = window.location.href.replace("www.", "");
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
