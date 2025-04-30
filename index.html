@@ -778,14 +778,16 @@ async function chargerParticipations() {
 window.onload = () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  afficherProduits();
+  afficherProduits(); // D'abord afficher les produits
+  setTimeout(() => {
+    chargerParticipations(); // Ensuite charger les participations (après que le DOM ait les bons éléments)
+  }, 50);
   revealSections();
   window.addEventListener("scroll", revealSections);
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
   }
-  chargerParticipations();
 };
 </script>
 <script>
