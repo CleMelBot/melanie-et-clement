@@ -229,6 +229,31 @@ input#montantProduitThermomix:focus {
   -webkit-appearance: none;
   caret-color: auto;
 }
+@media (min-width: 1000px) {
+  /* Centrer la section "Voyage de noces" */
+  #voyagedenoces .section-titre-liste {
+    text-align: center !important;
+  }
+
+  #voyagedenoces > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Positionner la machine à café à droite du Thermomix */
+  #equipement > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+
+  /* Art de la table : 4 produits par ligne */
+  #produits-art-table > div {
+    flex: 0 1 calc(23% - 10px) !important;
+    max-width: none !important;
+  }
+}  
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
