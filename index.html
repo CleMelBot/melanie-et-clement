@@ -349,24 +349,39 @@ input#montantProduitThermomix:focus {
 /* Responsive mobile */
 @media (max-width: 999px) {
   #produits-art-table {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 
   #produits-art-table > div {
     width: 90%;
     max-width: 400px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
   }
 
   #produits-art-table img {
     width: 100%;
-    height: auto;
     max-height: 200px;
     object-fit: contain;
+    background: white;
   }
 
   #produits-art-table .carte-content {
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
   }
 
   #produits-art-table .prix-restant {
@@ -374,6 +389,8 @@ input#montantProduitThermomix:focus {
     height: auto;
     gap: 0.5em;
     margin-top: 1em;
+    display: flex;
+    width: 100%;
   }
 
   #produits-art-table .prix-restant > div,
