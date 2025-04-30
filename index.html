@@ -295,6 +295,30 @@ input#montantProduitThermomix:focus {
     object-position: center center; 
   }
 } 
+@media (min-width: 1000px) {
+  /* Ajustement des cartes "Art de la table" */
+  #produits-art-table {
+    justify-content: center !important;
+    gap: 30px !important;
+  }
+
+  #produits-art-table > div {
+    max-width: 280px !important;
+    flex: 0 1 auto !important;
+  }
+
+  #produits-art-table img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: white;
+  }
+
+  #produits-art-table button {
+    font-size: 0.7em !important;
+    padding: 0.5em !important;
+  }
+}
 /* Images non tronquées dans la section Art de la Table sur ordinateur */
 @media (min-width: 1000px) {
   #produits-art-table img {
