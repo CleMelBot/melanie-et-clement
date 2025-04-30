@@ -352,6 +352,41 @@ input#montantProduitThermomix:focus {
 if (window.location.hostname === "www.melanie-clement-2025.fr") {
   window.location.href = window.location.href.replace("www.", "");
 }
+@media (max-width: 999px) {
+  #produits-art-table {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #produits-art-table > div {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  #produits-art-table img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  #produits-art-table .carte-content {
+    padding: 1em;
+  }
+
+  #produits-art-table .prix-restant {
+    flex-direction: column;
+    height: auto;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+
+  #produits-art-table .prix-restant > div,
+  #produits-art-table .prix-restant button {
+    width: 100%;
+    text-align: center;
+  }
+}
 </script>  
 </head>
 <body>
