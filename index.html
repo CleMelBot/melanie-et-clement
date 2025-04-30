@@ -765,8 +765,8 @@ async function chargerParticipations() {
         if (input) input.placeholder = `${format(restant)}€`;
         const container = input?.parentElement?.parentElement?.parentElement;
         if (container) {
-          const affichage = container.querySelector('p:nth-of-type(1)');
-          if (affichage) affichage.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+          const affichage = container.querySelector('.etat-produit');
+if (affichage) affichage.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
         }
       }
     });
