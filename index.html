@@ -240,26 +240,35 @@ input#montantProduitThermomix:focus {
     margin-right: auto !important;
   }
 
-  /* Thermomix et cafetière côte à côte */
+  /* Équipement de cuisine : Thermomix et Jura côte à côte bien larges */
   #equipement > div {
     display: flex !important;
     flex-wrap: nowrap !important;
     justify-content: center !important;
-    gap: 30px !important;
+    gap: 40px !important;
+    max-width: 1000px;
+    margin: auto;
   }
 
-  /* 4 produits bien répartis en Art de la table */
+  #equipement > div > div {
+    flex: 0 1 48%;
+  }
+
+  /* Art de la table : 4 produits bien répartis */
   #produits-art-table {
-    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
   }
 
   #produits-art-table > div {
-    flex: 0 1 calc(25% - 20px) !important;
-    max-width: calc(25% - 20px) !important;
+    flex: 0 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
   }
-}  
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
