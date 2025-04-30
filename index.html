@@ -403,56 +403,60 @@ Vous souhaitez nous offrir un petit bout de rêve ? Choisissez un cadeau, indiqu
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
 <section id="equipement" class="section-liste-cadeaux">
-<h2 class="section-titre-liste">Équipement de Cuisine</h2>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 2em;">
-  
-  <!-- Thermomix -->
-  <div style="flex: 0 1 400px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-    <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; object-fit: cover; max-height: 260px;">
-    <div style="padding: 1em;">
-      <p id="etat-Thermomix" style="margin: 0; font-weight: bold;">0€ / 1 599€</p>
-      <p style="margin: 0;">
-        <a href="https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Thermomix TM7</a>
-      </p>
-      <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
-      <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-          <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-          <div>
-            <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;">
-          </div>
+  <h2 class="section-titre-liste">Équipement de Cuisine</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 2em;">
+
+    <!-- Thermomix -->
+    <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
+      <img src="TM7.jpeg" alt="Thermomix TM7" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+      <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <div>
+          <p id="etat-Thermomix" style="margin: 0; font-weight: bold;">0€ / 1 599€</p>
+          <p style="margin: 0;">
+            <a href="https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Thermomix TM7</a>
+          </p>
+          <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
         </div>
-        <button onclick="envoyerProduit(event, 'Thermomix', 'montantProduitThermomix')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
-          Participer
-        </button>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <div>
+              <input id="montantProduitThermomix" type="number" min="1" placeholder="1599" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;">
+            </div>
+          </div>
+          <button onclick="envoyerProduit(event, 'Thermomix', 'montantProduitThermomix')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Jura E8 -->
-  <div style="flex: 0 1 400px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-    <img src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; object-fit: contain; max-height: 260px; background: white;">
-    <div style="padding: 1em;">
-      <p id="etat-JuraE8" style="margin: 0; font-weight: bold;">0€ / 1 199€</p>
-      <p style="margin: 0;">
-        <a href="https://fr.jura.com/fr/produits-usage-prive/machine-automatique-a-cafe/E8-Piano-Black-EC-15584" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Jura E8</a>
-      </p>
-      <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Le marié n’aime pas le café, mais avec cette machine, il changera peut-être d’avis ! Et nos invités profiteront enfin d’un vrai café, fini les dosettes Tassimo.</p>
-      <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-          <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-          <div>
-            <input id="montantProduitJuraE8" type="number" min="1" placeholder="1199" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;">
-          </div>
+    <!-- Jura E8 -->
+    <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
+      <img src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+      <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <div>
+          <p id="etat-JuraE8" style="margin: 0; font-weight: bold;">0€ / 1 199€</p>
+          <p style="margin: 0;">
+            <a href="https://fr.jura.com/fr/produits-usage-prive/machine-automatique-a-cafe/E8-Piano-Black-EC-15584" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Jura E8</a>
+          </p>
+          <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Le marié n’aime pas le café, mais avec cette machine, il changera peut-être d’avis ! Et nos invités profiteront enfin d’un vrai café, fini les dosettes Tassimo.</p>
         </div>
-        <button onclick="envoyerProduit(event, 'Machine à Café', 'montantProduitJuraE8')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
-          Participer
-        </button>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <div>
+              <input id="montantProduitJuraE8" type="number" min="1" placeholder="1199" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;">
+            </div>
+          </div>
+          <button onclick="envoyerProduit(event, 'Machine à Café', 'montantProduitJuraE8')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: bold; font-size: 1em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
 </section>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
