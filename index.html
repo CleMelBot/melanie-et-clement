@@ -230,7 +230,7 @@ input#montantProduitThermomix:focus {
   caret-color: auto;
 }
 @media (min-width: 1000px) {
-  /* Centrer la section "Voyage de noces" */
+  /* Centrage de "Voyage de noces" */
   #voyagedenoces .section-titre-liste {
     text-align: center !important;
   }
@@ -240,21 +240,30 @@ input#montantProduitThermomix:focus {
     margin-right: auto !important;
   }
 
-  /* Équipement de cuisine : Thermomix et Jura côte à côte bien larges */
+  /* Largeur générale des sections liste */
+  .section-liste-cadeaux, .section-liste-art {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0;
+  }
+
+  /* Équipement de cuisine côte à côte, étendu */
   #equipement > div {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-    gap: 40px !important;
-    max-width: 1000px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
   }
 
   #equipement > div > div {
-    flex: 0 1 48%;
+    flex: 1;
+    max-width: 500px;
   }
 
-  /* Art de la table : 4 produits bien répartis */
+  /* Art de la table : 4 cartes bien étalées */
   #produits-art-table {
     display: flex;
     flex-wrap: wrap;
@@ -267,6 +276,7 @@ input#montantProduitThermomix:focus {
   #produits-art-table > div {
     flex: 0 1 calc(25% - 20px);
     max-width: calc(25% - 20px);
+    margin: 0; /* important pour ne pas centrer les cartes */
   }
 }
 </style>
