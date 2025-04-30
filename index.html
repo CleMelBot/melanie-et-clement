@@ -263,7 +263,23 @@ input#montantProduitThermomix:focus {
     max-width: 500px;
   }
 
-  /* Art de la table : 4 cartes bien étalées */
+  #equipement img {
+    height: 260px;
+    background: white;
+  }
+
+  #equipement .carte-produit {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #equipement img[src="TM7v2.jpeg"] {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Art de la table : cartes de même largeur que les images (~260px) */
   #produits-art-table {
     display: flex;
     flex-wrap: wrap;
@@ -274,33 +290,60 @@ input#montantProduitThermomix:focus {
   }
 
   #produits-art-table > div {
-    flex: 0 1 calc(25% - 20px);
-    max-width: calc(25% - 20px);
-    margin: 0; /* important pour ne pas centrer les cartes */
+    flex: 0 1 260px;
+    max-width: 260px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
   }
-  #equipement img {
-  height: 260px; 
-  background: white;
-}
 
-#equipement .carte-produit {
-  flex: 0 1 400px;
-  display: flex;
-  flex-direction: column;
-}
-}
- @media (min-width: 1000px) {
-  #equipement img[src="TM7v2.jpeg"] {
-    object-fit: cover;
-    object-position: center center; 
-  }
-} 
-/* Images non tronquées dans la section Art de la Table sur ordinateur */
-@media (min-width: 1000px) {
   #produits-art-table img {
-    object-fit: contain !important;
+    width: 100%;
     height: 220px;
+    object-fit: contain !important;
     background: white;
+  }
+
+  #produits-art-table .carte-content {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  #produits-art-table .prix-restant {
+    background: #f9f8f4;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    height: 55px;
+    margin-top: 1em;
+  }
+
+  #produits-art-table .prix-restant > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #produits-art-table .prix-restant button {
+    flex: 1;
+    background: #2d6a4f;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.7em;
+    border: none;
+    cursor: pointer;
   }
 }
 </style>
@@ -549,9 +592,9 @@ function afficherProduits() {
   produits.forEach(produit => {
     if (["Thermomix", "JuraE8"].includes(produit.id)) return;
     container.innerHTML += `
-    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
-      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover; background: white;">
-      <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+    <div>
+      <img src="${produit.image}" alt="${produit.nom}">
+      <div class="carte-content">
         <div>
           <p id="etat-${produit.id}" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
           <p style="margin: 0;">
@@ -559,16 +602,12 @@ function afficherProduits() {
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="prix-restant">
+          <div>
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-            <div>
-              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-            </div>
+            <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
           </div>
-          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
-            Participer
-          </button>
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')">Participer</button>
         </div>
       </div>
     </div>`;
