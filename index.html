@@ -634,30 +634,31 @@ const produits = [
 // === Injection dynamique des produits dans Art de la Table
 function afficherProduits() {
   const container = document.getElementById('produits-art-table');
-
-    produits.forEach(produit => {
-      const montantRecu = participations[produit.nom] || 0;
-      const restant = Math.max(0, produit.prix - montantRecu);
-
-      const etatEl = document.getElementById('etat-' + produit.id);
-      const input = document.getElementById('montantProduit' + produit.id);
-      const carte = etatEl?.closest('div[style*="border"]'); // div carte-produit
-
-      if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
-      if (input) input.placeholder = `${format(restant)}€`;
-
-      if (montantRecu >= produit.prix && carte) {
-        const img = carte.querySelector('img');
-        const bouton = carte.querySelector('button');
-        const champ = carte.querySelector('input');
-        const titres = carte.querySelectorAll('p, span, a');
-
-        if (img) img.style.display = 'none';
-        if (bouton) bouton.style.display = 'none';
-        if (champ) champ.style.display = 'none';
-        titres.forEach(el => el.style.color = '#aaa');
-      }
-    });
+  produits.forEach(produit => {
+    if (["Thermomix", "JuraE8"].includes(produit.id)) return;
+    container.innerHTML += `
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+      <div style="padding: 1em;">
+        <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
+        <p style="margin: 0;">
+          <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
+        </p>
+        <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+            <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+            <div style="position: relative; display: inline-block;">
+              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
+            </div>
+          </div>
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+            Participer
+          </button>
+        </div>
+      </div>
+    </div>`;
+  });
 }
 </script>
 
@@ -750,28 +751,23 @@ async function chargerParticipations() {
   }
 });
 
-
     produits.forEach(produit => {
       const montantRecu = participations[produit.nom] || 0;
       const restant = Math.max(0, produit.prix - montantRecu);
 
-      const etatEl = document.getElementById('etat-' + produit.id);
-      const input = document.getElementById('montantProduit' + produit.id);
-      const carte = etatEl?.closest('div[style*="border"]'); // div carte-produit
-
-      if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
-      if (input) input.placeholder = `${format(restant)}€`;
-
-      if (montantRecu >= produit.prix && carte) {
-        const img = carte.querySelector('img');
-        const bouton = carte.querySelector('button');
-        const champ = carte.querySelector('input');
-        const titres = carte.querySelectorAll('p, span, a');
-
-        if (img) img.style.display = 'none';
-        if (bouton) bouton.style.display = 'none';
-        if (champ) champ.style.display = 'none';
-        titres.forEach(el => el.style.color = '#aaa');
+      if (produit.id === "Thermomix") {
+        document.getElementById('etat-Thermomix').innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+        const input = document.getElementById('montantProduitThermomix');
+        if (input) input.placeholder = `${format(restant)}€`;
+      } else if (produit.id === "JuraE8") {
+        document.getElementById('etat-JuraE8').innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+        const input = document.getElementById('montantProduitJuraE8');
+        if (input) input.placeholder = `${format(restant)}€`;
+      } else {
+        const input = document.getElementById('montantProduit' + produit.id);
+        if (input) input.placeholder = `${format(restant)}€`;
+        const etatEl = document.getElementById('etat-' + produit.id);
+if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
       }
     });
 
