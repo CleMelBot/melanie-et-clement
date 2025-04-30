@@ -741,12 +741,15 @@ async function chargerParticipations() {
     const participations = {};
 
     rows.forEach(row => {
-      const nomProduit = row.c[1]?.v;
-      const montant = parseInt(row.c[2]?.v || 0);
-      if (nomProduit) {
-        participations[nomProduit] = (participations[nomProduit] || 0) + montant;
-      }
-    });
+  const nomProduit = row.c[1]?.v;
+  const montant = parseInt(row.c[2]?.v || 0);
+  const retraiter = row.c[6]?.v; // colonne G
+
+  // On n’ajoute le montant que si "Retraiter" est vide
+  if (nomProduit && !retraiter) {
+    participations[nomProduit] = (participations[nomProduit] || 0) + montant;
+  }
+});
 
     produits.forEach(produit => {
       const montantRecu = participations[produit.nom] || 0;
