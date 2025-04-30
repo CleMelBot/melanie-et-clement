@@ -762,11 +762,9 @@ async function chargerParticipations() {
         if (input) input.placeholder = `${format(restant)}€`;
       } else {
         const input = document.getElementById('montantProduit' + produit.id);
-        if (input) input.placeholder = `${format(restant)}€`;
-        const container = input?.parentElement?.parentElement?.parentElement;
-        if (container) {
-          const affichage = container.querySelector('p');
-          if (affichage) affichage.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+if (input) input.placeholder = `${format(restant)}€`;
+const etat = document.getElementById('etat-' + produit.id);
+if (etat) etat.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
         }
       }
     });
