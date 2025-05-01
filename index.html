@@ -554,7 +554,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -582,7 +582,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Le marié n’aime pas le café, mais avec cette machine, il changera peut-être d’avis ! Et nos invités profiteront enfin d’un vrai café, fini les dosettes Tassimo.</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -812,12 +812,13 @@ async function chargerParticipations() {
   }
 
   if (inputEl) {
-    if (estOffert) {
-      inputEl.closest("div").parentElement.classList.add("cache-participation");
-    } else {
-      inputEl.placeholder = `${format(restant)}€`;
-    }
+  const blocParticipation = inputEl.closest(".zone-participation");
+  if (estOffert && blocParticipation) {
+    blocParticipation.classList.add("cache-participation");
+  } else {
+    inputEl.placeholder = `${format(restant)}€`;
   }
+}
 
   if (imgEl && estOffert) {
     imgEl.classList.add("image-grisee");
