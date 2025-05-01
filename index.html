@@ -392,41 +392,6 @@ input#montantProduitThermomix:focus {
 if (window.location.hostname === "www.melanie-clement-2025.fr") {
   window.location.href = window.location.href.replace("www.", "");
 }
-/* Badge "Offert" */
-.badge-offert {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #2d6a4f;
-  color: white;
-  padding: 0.3em 0.6em;
-  font-size: 0.8em;
-  font-weight: bold;
-  border-radius: 8px;
-  z-index: 2;
-}
-
-/* Image grisée quand offert */
-.image-grisee {
-  filter: grayscale(100%) brightness(90%);
-}
-
-/* Texte grisé quand offert */
-.texte-grise {
-  color: #999 !important;
-}
-
-/* Masquer les boutons */
-.cache-participation {
-  display: none !important;
-}
-.image-container {
-  position: relative;
-}
-
-.image-grisee {
-  filter: grayscale(100%) brightness(90%) !important;
-}
 </script>  
 </head>
 <body>
@@ -549,10 +514,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 
     <!-- Thermomix -->
     <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-      <div class="image-container" style="position: relative;">
-  <img id="img-Thermomix" src="TM7v2.jpeg" alt="Thermomix TM7" style="width: 100%; height: 260px; object-fit: contain; background: white;">
-  <div id="badge-Thermomix" class="badge-offert" style="display: none;">Offert</div>
-</div>
+      <img src="TM7v2.jpeg" alt="Thermomix TM7" style="width: 100%; height: 260px; object-fit: contain; background: white;">
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <div>
           <p id="etat-Thermomix" style="margin: 0; font-weight: bold;">0€ / 1 599€</p>
@@ -561,7 +523,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
         </div>
-        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -577,10 +539,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 
     <!-- Jura E8 -->
     <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-      <div class="image-container" style="position: relative;">
-  <img id="img-JuraE8" src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; height: 260px; object-fit: contain; background: white;">
-  <div id="badge-JuraE8" class="badge-offert" style="display: none;">Offert</div>
-</div>
+      <img src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; height: 260px; object-fit: contain; background: white;">
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <div>
           <p id="etat-JuraE8" style="margin: 0; font-weight: bold;">0€ / 1 199€</p>
@@ -589,7 +548,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Le marié n’aime pas le café, mais avec cette machine, il changera peut-être d’avis ! Et nos invités profiteront enfin d’un vrai café, fini les dosettes Tassimo.</p>
         </div>
-        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -684,10 +643,7 @@ function afficherProduits() {
     if (["Thermomix", "JuraE8"].includes(produit.id)) return;
     container.innerHTML += `
     <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
-      <div class="image-container" style="position: relative;">
-  <img id="img-${produit.id}" src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
-  <div id="badge-${produit.id}" class="badge-offert" style="display: none;">Offert</div>
-</div>
+      <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
       <div style="padding: 1em;">
         <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-weight: bold;">0€ / ${produit.prix}€</p>
         <p style="margin: 0;">
@@ -801,40 +757,24 @@ async function chargerParticipations() {
 });
 
     produits.forEach(produit => {
-  const montantRecu = participations[produit.nom] || 0;
-  const restant = Math.max(0, produit.prix - montantRecu);
-  const estOffert = montantRecu >= produit.prix;
+      const montantRecu = participations[produit.nom] || 0;
+      const restant = Math.max(0, produit.prix - montantRecu);
 
-  const format = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-
-  // Mise à jour texte et placeholder
-  const etatEl = document.getElementById('etat-' + produit.id);
-  const inputEl = document.getElementById('montantProduit' + produit.id);
-  const imgEl = document.getElementById('img-' + produit.id);
-  const badgeEl = document.getElementById('badge-' + produit.id);
-
-  if (etatEl) {
-    etatEl.innerText = estOffert ? `${format(produit.prix)}€` : `${format(montantRecu)}€ / ${format(produit.prix)}€`;
-    if (estOffert) etatEl.classList.add("texte-grise");
-  }
-
-  if (inputEl) {
-  const blocParticipation = inputEl.closest(".zone-participation");
-  if (estOffert && blocParticipation) {
-    blocParticipation.classList.add("cache-participation");
-  } else {
-    inputEl.placeholder = `${format(restant)}€`;
-  }
-}
-
-  if (imgEl && estOffert) {
-    imgEl.classList.add("image-grisee");
-  }
-
-  if (badgeEl && estOffert) {
-    badgeEl.style.display = "block";
-  }
-});
+      if (produit.id === "Thermomix") {
+        document.getElementById('etat-Thermomix').innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+        const input = document.getElementById('montantProduitThermomix');
+        if (input) input.placeholder = `${format(restant)}€`;
+      } else if (produit.id === "JuraE8") {
+        document.getElementById('etat-JuraE8').innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+        const input = document.getElementById('montantProduitJuraE8');
+        if (input) input.placeholder = `${format(restant)}€`;
+      } else {
+        const input = document.getElementById('montantProduit' + produit.id);
+        if (input) input.placeholder = `${format(restant)}€`;
+        const etatEl = document.getElementById('etat-' + produit.id);
+if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
+      }
+    });
 
   } catch (error) {
     console.error('Erreur de chargement du JSON:', error);
