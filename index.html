@@ -381,6 +381,11 @@ input#montantProduitThermomix:focus {
 #reception .image-wrapper img {
   border-radius: 12px;
 }
+/* Parallax smooth sur mobile et desktop */
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -821,6 +826,16 @@ function openGoogleMaps(address) {
     window.open(webLink, "_blank");
   }
 }
+<script>
+// Effet parallax compatible mobile et desktop
+window.addEventListener('scroll', () => {
+  const bg = document.querySelector('.parallax-bg');
+  if (bg) {
+    const offset = window.scrollY;
+    bg.style.transform = `translateY(${offset * 0.3}px)`; // effet à 30%
+  }
+});
+</script>
 </script>  
 </body>
 </html>
