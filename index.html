@@ -802,13 +802,11 @@ function openWaze(lat, lon) {
   const webLink = `https://waze.com/ul?ll=${lat},${lon}&navigate=yes`;
 
   if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-    // Si on est sur mobile, on tente d'ouvrir l'appli
     window.location = appLink;
     setTimeout(() => {
       window.open(webLink, "_blank");
     }, 1500);
   } else {
-    // Si on est sur PC, on ouvre directement la version web
     window.open(webLink, "_blank");
   }
 }
@@ -826,14 +824,15 @@ function openGoogleMaps(address) {
     window.open(webLink, "_blank");
   }
 }
+
 // Effet parallax compatible mobile et desktop
 window.addEventListener('scroll', () => {
   const bg = document.querySelector('.parallax-bg');
   if (bg) {
     const offset = window.scrollY;
-    bg.style.transform = `translateY(${offset * 0.3}px)`; // effet à 30%
+    bg.style.transform = `translateY(${offset * 0.3}px)`;
   }
 });
-</script>  
+</script>
 </body>
 </html>
