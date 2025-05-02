@@ -397,6 +397,18 @@ input#montantProduitThermomix:focus {
 #produits-art-table > div > div:last-child {
   margin-top: auto;
 }
+@media (min-width: 1000px) {
+  #produits-art-table .etat-produit {
+    min-height: 24px; /* ou 2 lignes, selon ton besoin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #produits-art-table p {
+    min-height: 38px; /* pour égaliser le lien "Villeroy & Boch" et la description */
+  }
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
