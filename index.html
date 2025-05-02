@@ -2,18 +2,16 @@
 <html lang="fr" style="color-scheme: light;">
 <head>
 <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P936Q663');</script>
-  <!-- End Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P936Q663');</script>
+<!-- End Google Tag Manager -->
 <link rel="canonical" href="https://melanie-clement-2025.fr">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <meta name="apple-touch-icon" content="https://melanie-clement-2025.fr/Gondole.PNG">
-  
 <!-- Open Graph pour Facebook / WhatsApp / SMS -->
 <meta property="og:title" content="Mélanie & Clément – Mariage 2025">
 <meta property="og:description" content="Découvrez tous les détails de notre mariage le 28 juin 2025 !">
@@ -24,17 +22,14 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-
 <!-- Twitter Card pour Twitter / iMessage -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mélanie & Clément – Mariage 2025">
 <meta name="twitter:description" content="Découvrez tous les détails de notre mariage le 28 juin 2025 !">
 <meta name="twitter:image" content="https://melanie-clement-2025.fr/Gondole.PNG">
 <meta name="twitter:url" content="https://melanie-clement-2025.fr">
-
 <title>Mélanie & Clément – Mariage 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-
 <style>
 :root {
   --green: #1c3b2f;
@@ -134,6 +129,7 @@ h2 {
   margin-bottom: 2em;
   color: #666;
 }
+
 .countdown {
   text-align: center;
   font-size: 1.2em;
@@ -196,7 +192,6 @@ section::before {
   color: var(--terracotta);
   text-decoration: underline;
 }
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--cream) !important;
@@ -207,34 +202,65 @@ section::before {
     background-color: white !important;
   }
 }
-
-  .parallax-bg {
-    background-blend-mode: normal !important;
-  }
+.parallax-bg {
+  background-blend-mode: normal !important;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
 /* Supprimer les flèches ↑↓ des inputs number (Chrome, Safari, Firefox) */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
 }
-
 input[type="number"]:focus {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
   background: transparent;
 }
-
 input#montantProduitThermomix:focus {
   -webkit-appearance: none;
   caret-color: auto;
 }
+.image-desktop { display: none; }
+.image-mobile { display: block; }
 @media (min-width: 1000px) {
-  /* Centrage de "Voyage de noces" */
+  .image-desktop { display: block; }
+  .image-mobile { display: none; }
+}
+.image-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.image-wrapper .image-mobile {
+  display: block;
+}
+.image-wrapper .image-desktop {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .image-wrapper .image-mobile {
+    display: none;
+  }
+  .image-wrapper .image-desktop {
+    display: block;
+  }
+}
+#ceremonie .image-wrapper img,
+#reception .image-wrapper img {
+  border-radius: 12px;
+}
+
+@media (min-width: 1000px) {
   #voyagedenoces .section-titre-liste {
     text-align: center !important;
   }
@@ -244,14 +270,12 @@ input#montantProduitThermomix:focus {
     margin-right: auto !important;
   }
 
-  /* Largeur générale des sections liste */
   .section-liste-cadeaux, .section-liste-art {
     max-width: 1200px;
     margin: 2em auto;
     padding: 0;
   }
 
-  /* Équipement de cuisine côte à côte, étendu */
   #equipement > div {
     display: flex;
     flex-wrap: nowrap;
@@ -267,54 +291,25 @@ input#montantProduitThermomix:focus {
     max-width: 500px;
   }
 
-  /* Art de la table : 4 cartes bien étalées */
   #produits-art-table {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center !important;
+    gap: 25px !important;
     max-width: 1200px;
     margin: auto;
   }
 
   #produits-art-table > div {
-    flex: 0 1 calc(25% - 20px);
-    max-width: calc(25% - 20px);
-    margin: 0; /* important pour ne pas centrer les cartes */
-  }
-  #equipement img {
-  height: 260px; 
-  background: white;
-}
-
-#equipement .carte-produit {
-  flex: 0 1 400px;
-  display: flex;
-  flex-direction: column;
-}
-}
- @media (min-width: 1000px) {
-  #equipement img[src="TM7v2.jpeg"] {
-    object-fit: cover;
-    object-position: center center; 
-  }
-} 
-@media (min-width: 1000px) {
-  /* Ajustement final ultra précis des cartes Art de la table */
-  #produits-art-table {
-    justify-content: center !important;
-    gap: 25px !important;
-  }
-
-  #produits-art-table > div {
-    max-width: 220px !important;
     flex: 0 1 auto !important;
+    max-width: 220px !important;
+    margin: 0;
   }
 
   #produits-art-table img {
+    object-fit: contain !important;
     width: 100%;
     height: 220px;
-    object-fit: contain;
     background: white;
   }
 
@@ -322,96 +317,48 @@ input#montantProduitThermomix:focus {
     font-size: 0.7em !important;
     padding: 0.5em !important;
   }
-}
-/* Images non tronquées dans la section Art de la Table sur ordinateur */
-@media (min-width: 1000px) {
-  #produits-art-table img {
-    object-fit: contain !important;
-    height: 220px;
+
+  #equipement img {
+    height: 260px; 
     background: white;
   }
-}
-@media (min-width: 1000px) {
+
+  #equipement img[src="TM7v2.jpeg"] {
+    object-fit: cover;
+    object-position: center center; 
+  }
+
+  #equipement .carte-produit {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
   #ceremonie img,
   #reception img {
     max-height: 300px;
     object-fit: cover;
   }
-}
-@media (min-width: 1000px) {
+
   #reception img[src="lieu_reception.jpg"] {
     object-fit: cover;
-    object-position: center top; /* remonte le cadrage vers le haut */
+    object-position: center top;
     height: 300px;
   }
-}
-.image-desktop { display: none; }
-.image-mobile { display: block; }
 
-@media (min-width: 1000px) {
-  .image-desktop { display: block; }
-  .image-mobile { display: none; }
-}
-.image-wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.image-wrapper .image-mobile {
-  display: block;
-}
-.image-wrapper .image-desktop {
-  display: none;
-}
-
-@media (min-width: 1000px) {
-  .image-wrapper .image-mobile {
-    display: none;
-  }
-  .image-wrapper .image-desktop {
-    display: block;
-  }
-}
-#ceremonie .image-wrapper img,
-#reception .image-wrapper img {
-  border-radius: 12px;
-}
-/* Parallax smooth sur mobile et desktop */
-.parallax-bg {
-  will-change: transform;
-  transition: transform 0.1s linear;
-}
-#produits-art-table > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-height: 420px; /* ajuste à ta convenance */
-}
-
-#produits-art-table > div > div:last-child {
-  margin-top: auto;
-}
-@media (min-width: 1000px) {
   #produits-art-table .etat-produit {
-    min-height: 24px; /* ou 2 lignes, selon ton besoin */
+    min-height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   #produits-art-table p {
-    min-height: 38px; /* pour égaliser le lien "Villeroy & Boch" et la description */
+    min-height: 38px;
   }
-}
-@media (min-width: 1000px) {
+
   #produits-art-table .infos-produit {
-    min-height: 150px; /* Ajuste si nécessaire */
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -426,27 +373,7 @@ input#montantProduitThermomix:focus {
     margin: 0;
   }
 }
-#produits-art-table .etat-produit {
-  font-size: 1em;
-  font-weight: bold;
-  margin: 0;
-}
-#produits-art-table .zone-participation {
-  display: flex;
-  height: 55px;
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f9f8f4;
-}
 
-#produits-art-table .zone-participation > div,
-#produits-art-table .zone-participation > button {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 @media (max-width: 999px) {
   .carte-produit-art {
     display: flex;
@@ -466,7 +393,20 @@ input#montantProduitThermomix:focus {
     margin-top: auto;
   }
 }
-/* Forcer 2 lignes pour la description sous "Villeroy & Boch" */
+
+#produits-art-table > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 420px;
+  position: relative;
+}
+
+#produits-art-table > div > div:last-child {
+  margin-top: auto;
+}
+
 #produits-art-table .infos-produit p:nth-of-type(3) {
   height: 2.6em;
   line-height: 1.3em;
@@ -475,6 +415,7 @@ input#montantProduitThermomix:focus {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
 .image-grisee {
   filter: grayscale(90%) brightness(90%);
 }
@@ -485,17 +426,44 @@ input#montantProduitThermomix:focus {
   right: 10px;
   background: #1c3b2f;
   color: white;
-  padding: 4px 8px;
+  padding: 4px 12px;
   font-size: 0.75em;
   border-radius: 6px;
   font-weight: bold;
   z-index: 5;
+  width: 70px;
+  text-align: center;
 }
 
-#produits-art-table > div {
+.image-container {
   position: relative;
 }
+
+.image-container .badge-offert {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#produits-art-table .zone-participation {
+  display: flex;
+  height: 55px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f8f4;
+}
+
+#produits-art-table .zone-participation > div,
+#produits-art-table .zone-participation > button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>
+
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
 if (window.location.hostname === "www.melanie-clement-2025.fr") {
@@ -505,26 +473,29 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P936Q663"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P936Q663"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
 <header>
-<div class="parallax-bg"></div>
-<div class="header-content">
-<h1>Mélanie & Clément</h1>
-<p>Le 28 juin 2025</p>
-</div>
+  <div class="parallax-bg"></div>
+  <div class="header-content">
+    <h1>Mélanie & Clément</h1>
+    <p>Le 28 juin 2025</p>
+  </div>
 </header>
 
 <div class="countdown">Décollage dans <span id="countdown-timer">...</span></div>
 
 <nav>
-<ul>
-<li><a href="#ceremonie">Cérémonie</a></li>
-<li><a href="#reception">Réception</a></li>
-<li><a href="#liste">Liste</a></li>
-<li><a href="#multimedia">Multimédia</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+  <ul>
+    <li><a href="#ceremonie">Cérémonie</a></li>
+    <li><a href="#reception">Réception</a></li>
+    <li><a href="#liste">Liste</a></li>
+    <li><a href="#multimedia">Multimédia</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section id="ceremonie">
@@ -568,51 +539,55 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 </section>
 
 <section id="liste">
-<h2>Liste de mariage</h2>
-<div class="subtitle">Notre liste</div>
-<p style="text-align:center; max-width: 700px; margin: 0 auto 2em;">
-Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong><br>Mélanie & Clément
-</p>
+  <h2>Liste de mariage</h2>
+  <div class="subtitle">Notre liste</div>
+  <p style="text-align:center; max-width: 700px; margin: 0 auto 2em;">
+    Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cadeau, indiquez le montant de votre participation et laissez-nous un petit mot.<br><strong>Merci de tout cœur !</strong><br>Mélanie & Clément
+  </p>
 
-<div style="max-width: 400px; margin: 2em auto; text-align: center;">
-  <h3 style="margin-bottom: 0.3em;">Faites une contribution libre</h3>
-  <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
-    <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
-      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24">
-        <path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/>
-      </svg>
-      <input type="number" id="montantLibre" min="1" placeholder="0" style="padding: 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
+  <div style="max-width: 400px; margin: 2em auto; text-align: center;">
+    <h3 style="margin-bottom: 0.3em;">Faites une contribution libre</h3>
+    <p style="color: #555; font-size: 0.95em;">Choisissez vous-même le montant que vous souhaitez offrir</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
+      <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 10px; padding: 0.5em 0.8em;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px; margin-right: 0.5em; fill: #2d6a4f;" viewBox="0 0 24 24">
+          <path d="M20 12v8a2 2 0 0 1-2 2h-4v-10h6zm-8 0v10h-4a2 2 0 0 1-2-2v-8h6zm8-2h-6V6.5a1.5 1.5 0 0 1 3 0V8h1a2 2 0 0 1 2 2zm-8 0H4a2 2 0 0 1 2-2h1V6.5a1.5 1.5 0 0 1 3 0V10z"/>
+        </svg>
+        <input type="number" id="montantLibre" min="1" placeholder="0" style="padding: 0.4em; font-size: 1em; border: none; outline: none; width: 80px; text-align: right;" />
+      </div>
+      <a href="#" onclick="envoyerParticipationLibre()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
     </div>
-    <a href="#" onclick="envoyerParticipationLibre()" style="background: #2d6a4f; color: white; padding: 0.55em 1.2em; border-radius: 10px; text-decoration: none; font-weight: bold;">Offrir</a>
-  </div>
-  
-  <div style="margin-top: 1.5em; font-size: 0.9em; color: #666;">— Ou choisissez des cadeaux dans la liste —</div>
 
-  <select id="liste-cadeaux" onchange="allerVersCadeau()" style="margin-top: 1em; padding: 0.5em; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 100%;">
-    <option value="">🛫 Accès à un thème</option>
-    <option value="#voyagedenoces">🏝️ Voyage de noces</option>
-    <option value="#equipement">🍳 Équipement de cuisine</option>
-    <option value="#artdelatable">🍽️ Art de la table</option>
-  </select>
-</div>
+    <div style="margin-top: 1.5em; font-size: 0.9em; color: #666;">— Ou choisissez des cadeaux dans la liste —</div>
+
+    <select id="liste-cadeaux" onchange="allerVersCadeau()" style="margin-top: 1em; padding: 0.5em; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; width: 100%;">
+      <option value="">🛫 Accès à un thème</option>
+      <option value="#voyagedenoces">🏝️ Voyage de noces</option>
+      <option value="#equipement">🍳 Équipement de cuisine</option>
+      <option value="#artdelatable">🍽️ Art de la table</option>
+    </select>
+  </div>
+</section>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
 <section id="voyagedenoces" class="section-liste-cadeaux">
-<h2 class="section-titre-liste">Voyage de Noces</h2>
-<div style="width: 100%; max-width: 400px; margin: 2em 0; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff;">
-  <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
-  <div style="padding: 1.2em; text-align: center;">
-    <h3 style="margin: 0 0 0.5em; font-size: 1.2em; color: #1c3b2f;">Faites décoller notre lune de miel</h3>
-    <p style="margin: 0.5em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces"
-       target="_blank"
-       style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: white; border-radius: 5px; font-weight: bold; text-decoration: none;">
-      Participer
-    </a>
+  <h2 class="section-titre-liste">Voyage de Noces</h2>
+  <div style="width: 100%; max-width: 400px; margin: 2em 0; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff;">
+    <div class="image-container" style="position: relative;">
+      <img src="BALI.JPG" alt="Voyage de noces Bali" style="width: 100%; object-fit: cover; height: auto;">
+      <div class="badge-offert" style="display: none;">Offert</div>
+    </div>
+    <div style="padding: 1.2em; text-align: center;">
+      <h3 style="margin: 0 0 0.5em; font-size: 1.2em; color: #1c3b2f;">Faites décoller notre lune de miel</h3>
+      <p style="margin: 0.5em 0; color: #666;">En septembre, cap sur Bali ! Faites partie de notre voyage de rêve entre rizières, temples et plages paradisiaques.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform?usp=pp_url&entry.1786079912=Voyage+de+Noces"
+         target="_blank"
+         style="display: inline-block; margin-top: 1em; padding: 0.6em 1.2em; background-color: #2d6a4f; color: white; border-radius: 5px; font-weight: bold; text-decoration: none;">
+        Participer
+      </a>
+    </div>
   </div>
-</div>
 </section>
 
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
@@ -623,7 +598,10 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 
     <!-- Thermomix -->
     <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-      <img src="TM7v2.jpeg" alt="Thermomix TM7" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+      <div class="image-container" style="position: relative;">
+        <img src="TM7v2.jpeg" alt="Thermomix TM7" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+        <div class="badge-offert" style="display: none;">Offert</div>
+      </div>
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <div>
           <p id="etat-Thermomix" style="margin: 0; font-weight: bold;">0€ / 1 599€</p>
@@ -632,7 +610,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Notre futur allié pour concocter de bons petits plats à deux… et pour nos invités !</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -648,7 +626,10 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 
     <!-- Jura E8 -->
     <div style="flex: 0 1 400px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background: #fff; text-align: center;">
-      <img src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+      <div class="image-container" style="position: relative;">
+        <img src="jura_e8.JPG" alt="Machine à Café Jura E8" style="width: 100%; height: 260px; object-fit: contain; background: white;">
+        <div class="badge-offert" style="display: none;">Offert</div>
+      </div>
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <div>
           <p id="etat-JuraE8" style="margin: 0; font-weight: bold;">0€ / 1 199€</p>
@@ -657,7 +638,7 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.9em; color: #666;">Le marié n’aime pas le café, mais avec cette machine, il changera peut-être d’avis ! Et nos invités profiteront enfin d’un vrai café, fini les dosettes Tassimo.</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
           <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
             <div>
@@ -677,256 +658,54 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 <hr style="border: none; border-top: 1px solid #ccc; margin: 3em auto; width: 80%;">
 
 <section id="artdelatable" class="section-liste-art">
-<h2 class="section-titre-liste">Art de la Table</h2>
-<div id="produits-art-table" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
-<!-- Produits injectés en JS ici -->
-</div>
+  <h2 class="section-titre-liste">Art de la Table</h2>
+  <div id="produits-art-table" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 2em;">
+    <!-- Produits injectés en JS ici -->
+  </div>
 </section>
 
 <section id="multimedia">
-<h2>Multimédia</h2>
-<div class="subtitle">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div>
+  <h2>Multimédia</h2>
+  <div class="subtitle">Partagez vos souvenirs, découvrez bientôt les clichés de notre photographe et l’after movie du mariage.</div>
 
-<div class="photo-section">
-  <img alt="Logo iCloud" src="icloud_logo.png"/>
-  <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
-</div>
+  <div class="photo-section">
+    <img alt="Logo iCloud" src="icloud_logo.png"/>
+    <p>Partagez vos photos pendant l’événement à l’aide du lien <a href="https://www.icloud.com/invites/073ZBjN9-sLKb8_dW3dU_GgRQ" target="_blank">ici</a>.</p>
+  </div>
 
-<div class="photo-section">
-  <img alt="Logo Photographe" src="photographe_logo.png"/>
-  <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
-</div>
+  <div class="photo-section">
+    <img alt="Logo Photographe" src="photographe_logo.png"/>
+    <p>Vous retrouverez prochainement ici les photos du photographe du mariage.</p>
+  </div>
 
-<div class="photo-section">
-  <img alt="Logo Vidéaste" src="videaste_logo.PNG"/>
-  <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
-</div>
+  <div class="photo-section">
+    <img alt="Logo Vidéaste" src="videaste_logo.PNG"/>
+    <p>Vous retrouverez prochainement ici l’after movie du mariage.</p>
+  </div>
 </section>
 
 <section id="contact">
-<h2 style="text-align:center;">Contact</h2>
+  <h2 style="text-align:center;">Contact</h2>
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-    <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
-    <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
-    <span>Mélanie</span>
-  </div>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 4em; margin-top: 3em; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
+      <a href="tel:+33607029462"><img src="icon_phone.png" alt="Appel Mélanie" width="50"></a>
+      <a href="sms:+33607029462"><img src="icon_sms.png" alt="SMS Mélanie" width="50"></a>
+      <span>Mélanie</span>
+    </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
-  </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <a href="mailto:clemel.bottois@hotmail.com"><img src="icon_mail.png" alt="Mail" width="50" style="margin-bottom: 1em;"></a>
+    </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
-    <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
-    <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
-    <span>Clément</span>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1em;">
+      <a href="tel:+33645873429"><img src="icon_phone.png" alt="Appel Clément" width="50"></a>
+      <a href="sms:+33645873429"><img src="icon_sms.png" alt="SMS Clément" width="50"></a>
+      <span>Clément</span>
+    </div>
   </div>
-</div>
 </section>
 
-<script>
-// === Tableau des produits (Thermomix + Art de la table) ===
-const produits = [
-  { id: "Thermomix", nom: "Thermomix", prix: 1599, image: "TM7v2.jpeg", lien: "https://www.vorwerk.com/fr/fr/s/shop/thermomix-tm7", description: "Thermomix TM7" },
-  { id: "JuraE8", nom: "Machine à Café", prix: 1199, image: "https://fr.jura.com/-/media/global/images/home-products/e-line-2023/E8-EC-SC/e8-piano-black-ec-15584/e8_ec_pianoblack_packshot.jpg", lien: "https://fr.jura.com/fr/produits-usage-prive/machine-automatique-a-cafe/E8-Piano-Black-EC-15584", description: "Machine à café haut de gamme, parfaite pour un cappuccino ou un expresso de qualité barista." },
-  { id: 1, nom: "Verre à champagne", prix: 70, image: "verre_champagne.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-mousseux-et-champagne-1136538130/", description: "8 x Verre à champagne" },
-  { id: 2, nom: "Verre à vin rouge", prix: 70, image: "verre_vin_rouge.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-rouge-1136538110/", description: "8 x Verre à vin rouge" },
-  { id: 3, nom: "Verre à vin blanc", prix: 70, image: "verre_vin_blanc.JPG", lien: "https://www.villeroy-boch.fr/p/newmoon-verre-a-vin-blanc-1136538120/", description: "8 x Verre à vin blanc" },
-  { id: 4, nom: "Couverts Piemont", prix: 122, image: "2.JPG", lien: "https://www.villeroy-boch.fr/p/piemont-menagere-couverts-4-pcs-1262649003/", description: "8 x Couverts Piemont" },
-  { id: 10, nom: "Saladier 2,5l", prix: 34, image: "8.PNG", lien: "https://www.villeroy-boch.fr/p/afina-saladier-1042933160/", description: "1 x Saladier 2,5L" },
-  { id: 5, nom: "Mug", prix: 64, image: "3.JPG", lien: "https://www.villeroy-boch.fr/p/afina-mug-avec-anse-1042939651/", description: "4 x Mug" },
-  { id: 9, nom: "Tasse à café", prix: 50, image: "7.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-cafe-1042931300/", description: "4 x Tasse à café" },
-  { id: 6, nom: "Sous-tasse à café", prix: 84, image: "4.jpeg", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-cafe-1042931310/", description: "8 x Sous-tasse à café" },
-  { id: 8, nom: "Tasse à expresso", prix: 47, image: "6.JPG", lien: "https://www.villeroy-boch.fr/p/afina-tasse-a-expresso-1042931420/", description: "4 x Tasse à expresso" },
-  { id: 7, nom: "Sous-tasse à expresso", prix: 39, image: "5.jpeg", lien: "https://www.villeroy-boch.fr/p/afina-sous-tasse-a-expresso-1042931430/", description: "4 x Sous-tasse à expresso" },
-  { id: 11, nom: "Bol à céréales", prix: 122, image: "9.PNG", lien: "https://www.villeroy-boch.fr/p/afina-bol-a-cereales-1042931900/", description: "8 x Bol à céréales" },
-  { id: 12, nom: "Assiette creuse", prix: 167, image: "10.jpeg", lien: "https://www.villeroy-boch.fr/p/afina-assiette-creuse-1042932703/", description: "8 x Assiette creuse" },
-  { id: 13, nom: "Assiette plate", prix: 139, image: "11.jpeg", lien: "https://www.villeroy-boch.fr/p/afina-assiette-plate-1042932620/", description: "8 x Assiette plate" },
-  { id: 14, nom: "Assiette à dessert", prix: 128, image: "12.jpg", lien: "https://www.villeroy-boch.fr/p/afina-assiette-a-dessert-1042932640/", description: "8 x Assiette à dessert" },
-  { id: 15, nom: "Assiette gourmet", prix: 27, image: "13.jpg", lien: "https://www.villeroy-boch.fr/p/afina-assiette-gourmet-1042932680/", description: "1 x Assiette gourmet" }
-];
-
-// === Injection dynamique des produits dans Art de la Table
-function afficherProduits() {
-  const format = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  const container = document.getElementById('produits-art-table');
-  produits.forEach(produit => {
-    if (["Thermomix", "JuraE8"].includes(produit.id)) return;
-    container.innerHTML += `
-      <div style="flex: 0 1 calc(48% - 10px); max-width: 450px;" class="${window.innerWidth < 1000 ? 'carte-produit-art' : ''}">
-        <div style="background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div class="image-container" style="position: relative;">
-            <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
-          </div>
-          <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
-            <div class="infos-produit">
-              <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-size: 1em; font-weight: bold;">0€ / ${format(produit.prix)}€</p>
-              <p style="margin: 0;">
-                <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
-              </p>
-              <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
-            </div>
-            <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-              <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-                <div>
-                  <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${format(produit.prix)}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;" />
-                </div>
-              </div>
-              <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
-                Participer
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>`;
-  });
-}
-</script>
-
-<script>
-// === Fonctionnalités diverses ===
-
-function updateCountdown() {
-  const countDate = new Date("June 28, 2025 14:00:00").getTime();
-  const now = new Date().getTime();
-  const gap = countDate - now;
-  const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-  const d = Math.floor(gap / day);
-  const h = Math.floor((gap % day) / hour);
-  const m = Math.floor((gap % hour) / minute);
-  const s = Math.floor((gap % minute) / second);
-  document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
-}
-
-function revealSections() {
-  const sections = document.querySelectorAll("section");
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight * 0.85) sec.classList.add("visible");
-  });
-}
-
-function allerVersCadeau() {
-  const choix = document.getElementById("liste-cadeaux").value;
-  if (choix) location.href = choix;
-}
-
-function encoderPourGoogle(value) {
-  return encodeURIComponent(value).replace(/%20/g, '+');
-}
-
-function envoyerParticipationLibre() {
-  const montantInput = document.getElementById('montantLibre');
-  if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
-    montantInput.focus();
-    montantInput.setCustomValidity("Remplissez le champ");
-    montantInput.reportValidity();
-    return;
-  } else {
-    montantInput.setCustomValidity("");
-  }
-  const montant = montantInput.value;
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=Participation+libre";
-  window.open(url, '_blank');
-}
-
-function envoyerProduit(event, nomProduit, idInput) {
-  event.preventDefault();
-  const montantInput = document.getElementById(idInput);
-  if (!montantInput || montantInput.value.trim() === "" || parseInt(montantInput.value) <= 0) {
-    montantInput.focus();
-    montantInput.setCustomValidity("Remplissez le champ");
-    montantInput.reportValidity();
-    return;
-  } else {
-    montantInput.setCustomValidity("");
-  }
-  const montant = montantInput.value;
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSf3kahfR3Zw4YQPU5ZeiN1LC0VFD7rlZp3JzqhpeRbqBDQS7A/viewform"
-            + "?entry.1061348133=" + encoderPourGoogle(montant)
-            + "&entry.1786079912=" + encoderPourGoogle(nomProduit);
-  window.open(url, '_blank');
-}
-
-async function chargerParticipations() {
-  const format = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-
-  try {
-    const response = await fetch('https://docs.google.com/spreadsheets/d/11Vr2arhPApQe78LkvDICM6nHzyGbTjhihqfaRFhzHJI/gviz/tq?tqx=out:json');
-    const text = await response.text();
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    const rows = json.table.rows;
-
-    const participations = {};
-
-    rows.forEach(row => {
-      const nomProduit = row.c[1]?.v;
-      const montant = parseInt(row.c[2]?.v || 0);
-      const retraiter = row.c[6]?.v;
-      if (nomProduit && !retraiter) {
-        participations[nomProduit] = (participations[nomProduit] || 0) + montant;
-      }
-    });
-
-    produits.forEach(produit => {
-      const montantRecu = participations[produit.nom] || 0;
-      const restant = Math.max(0, produit.prix - montantRecu);
-
-      // Met à jour le texte et le placeholder
-      const idEtat = 'etat-' + produit.id;
-      const idInput = 'montantProduit' + produit.id;
-      const etatEl = document.getElementById(idEtat);
-      const input = document.getElementById(idInput);
-
-      if (etatEl) etatEl.innerText = `${format(montantRecu)}€ / ${format(produit.prix)}€`;
-      if (input) input.placeholder = `${format(restant)}€`;
-
-      // Si le produit est entièrement financé
-      if (restant <= 0) {
-  // Grise l’image
-  const img = [...document.querySelectorAll(`img[src$="${produit.image}"]`)].find(el => el.closest('#produits-art-table'));
-  if (img) {
-    img.classList.add("image-grisee");
-
-    const wrapper = img.parentNode;
-    if (wrapper && !wrapper.querySelector('.badge-offert')) {
-      wrapper.style.position = "relative";
-      const badge = document.createElement("div");
-      badge.className = "badge-offert";
-      badge.innerText = "Offert";
-      wrapper.appendChild(badge);
-    }
-  }
-
-  // Masque la zone de participation
-  const zone = document.getElementById(idInput)?.closest('.zone-participation');
-  if (zone) zone.style.display = "none";
-}
-    });
-
-  } catch (error) {
-    console.error('Erreur de chargement du JSON:', error);
-  }
-}
-window.onload = () => {
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-  afficherProduits(); // D'abord afficher les produits
-  setTimeout(() => {
-    chargerParticipations(); // Ensuite charger les participations (après que le DOM ait les bons éléments)
-  }, 50);
-  revealSections();
-  window.addEventListener("scroll", revealSections);
-  if (window.location.hash) {
-    history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0);
-  }
-};
-</script>
 <script>
 // Fonction pour ouvrir Waze
 function openWaze(lat, lon) {
@@ -956,8 +735,10 @@ function openGoogleMaps(address) {
     window.open(webLink, "_blank");
   }
 }
+</script>
 
-// Effet parallax compatible mobile et desktop
+<!-- Effet parallax compatible mobile et desktop -->
+<script>
 window.addEventListener('scroll', () => {
   const bg = document.querySelector('.parallax-bg');
   if (bg) {
@@ -966,5 +747,7 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
+
 </body>
 </html>
+
