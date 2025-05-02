@@ -426,6 +426,27 @@ input#montantProduitThermomix:focus {
     margin: 0;
   }
 }
+#produits-art-table .etat-produit {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+}
+#produits-art-table .zone-participation {
+  display: flex;
+  height: 55px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f8f4;
+}
+
+#produits-art-table .zone-participation > div,
+#produits-art-table .zone-participation > button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -680,28 +701,27 @@ const produits = [
 
 // === Injection dynamique des produits dans Art de la Table
 function afficherProduits() {
+  const format = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const container = document.getElementById('produits-art-table');
   produits.forEach(produit => {
     if (["Thermomix", "JuraE8"].includes(produit.id)) return;
     container.innerHTML += `
-    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center;">
+    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
-      <div style="padding: 1em;">
-        <div class="infos-produit">
-          <p id="etat-${produit.id}" class="etat-produit">0€ / ${produit.prix}€</p>
-          <p>
+      <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
+        <div>
+          <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-size: 1em; font-weight: bold;">0€ / ${format(produit.prix)}€</p>
+          <p style="margin: 0;">
             <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
           </p>
-          <p style="font-size: 0.8em; color: #666;">${produit.description}</p>
+          <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
         </div>
-        <div style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="zone-participation">
+          <div style="flex-direction: column;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-            <div>
-              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${produit.prix}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 60px;">
-            </div>
+            <span style="font-weight: bold;">${format(produit.prix)}€</span>
           </div>
-          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="background: #2d6a4f; color: white; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer; height: 100%; width: 100%;">
             Participer
           </button>
         </div>
