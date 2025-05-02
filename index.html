@@ -453,6 +453,18 @@ input#montantProduitThermomix:focus {
 if (window.location.hostname === "www.melanie-clement-2025.fr") {
   window.location.href = window.location.href.replace("www.", "");
 }
+@media (max-width: 999px) {
+  #produits-art-table .carte-produit-art {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px; /* ajuste si besoin */
+  }
+
+  #produits-art-table .zone-participation {
+    margin-top: auto;
+  }
+}
 </script>  
 </head>
 <body>
@@ -706,7 +718,7 @@ function afficherProduits() {
   produits.forEach(produit => {
     if (["Thermomix", "JuraE8"].includes(produit.id)) return;
     container.innerHTML += `
-    <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="${window.innerWidth < 1000 ? 'carte-produit-art' : ''}" style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
         <div class="infos-produit">
