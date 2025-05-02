@@ -495,6 +495,12 @@ input#montantProduitThermomix:focus {
 #produits-art-table > div {
   position: relative;
 }
+.zone-participation-wrapper {
+  height: 55px;
+}
+.zone-participation {
+  height: 100%;
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -758,6 +764,7 @@ function afficherProduits() {
         <div style="background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
           <div class="image-container" style="position: relative;">
             <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="badge-offert" style="display:none;">Offert</div>
           </div>
           <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
             <div class="infos-produit">
@@ -767,22 +774,25 @@ function afficherProduits() {
               </p>
               <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
             </div>
-            <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
-              <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-                <div>
-                  <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${format(produit.prix)}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;" />
+            <div class="zone-participation-wrapper" style="height: 55px;">
+              <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 100%; margin-top: 1em;">
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                  <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
+                  <div>
+                    <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${format(produit.prix)}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;" />
+                  </div>
                 </div>
+                <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
+                  Participer
+                </button>
               </div>
-              <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
-                Participer
-              </button>
             </div>
           </div>
         </div>
       </div>`;
   });
 }
+
 </script>
 
 <script>
