@@ -600,6 +600,53 @@ input#montantProduitThermomix:focus {
   font-size: 2.2em;
   text-align: center;
 }
+.sous-titre-temoin {
+  text-align: center;
+  font-size: 1.6em;
+  margin: 2em 0 1em;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.nom-temoin {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--green);
+}
+
+.bloc-temoins {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 2em 1em;
+  margin: 3em auto;
+  max-width: 1000px;
+}
+
+.groupe-temoins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carte-temoin {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: center;
+  flex: 0 1 calc(50% - 10px);
+  max-width: 250px;
+}
+
+@media (min-width: 1000px) {
+  .carte-temoin {
+    flex: 0 1 calc(25% - 20px);
+  }
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -677,67 +724,48 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 <section id="temoins" class="section-liste-cadeaux">
   <h2 class="section-titre-liste">Témoins</h2>
 
-  <h3 style="text-align: center; font-size: 1.6em; margin-top: 2em; margin-bottom: 1em;">Témoins de Clément</h3>
-<div id="temoins-clement" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto;">
-
-  <div class="carte-temoin">
-    <img src="Alex.jpg" alt="Alexandre" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Alexandre</p>
+  <div class="bloc-temoins">
+    <h3 class="sous-titre-temoin">Témoins de Clément</h3>
+    <div id="temoins-clement" class="groupe-temoins">
+      <div class="carte-temoin">
+        <img src="Alex.jpg" alt="Alexandre" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Alexandre</p></div>
+      </div>
+      <div class="carte-temoin">
+        <img src="Jojo.jpg" alt="Jordan" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Jordan</p></div>
+      </div>
+      <div class="carte-temoin">
+        <img src="Mika.jpg" alt="Mickaël" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Mickaël</p></div>
+      </div>
+      <div class="carte-temoin">
+        <img src="Paulo.jpg" alt="Paul" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Paul</p></div>
+      </div>
     </div>
   </div>
 
-  <div class="carte-temoin">
-    <img src="Jojo.jpg" alt="Jordan" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Jordan</p>
+  <div class="bloc-temoins">
+    <h3 class="sous-titre-temoin">Témoins de Mélanie</h3>
+    <div id="temoins-melanie" class="groupe-temoins">
+      <div class="carte-temoin" style="background: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 350px;">
+        <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #999;">Emma (à venir)</p>
+      </div>
+      <div class="carte-temoin">
+        <img src="Firas.jpg" alt="Firas" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Firas</p></div>
+      </div>
+      <div class="carte-temoin">
+        <img src="Lolo.jpg" alt="Lauranne" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Lauranne</p></div>
+      </div>
+      <div class="carte-temoin">
+        <img src="Matt.jpg" alt="Matthieu" style="width: 100%; object-fit: cover;">
+        <div style="padding: 1em;"><p class="nom-temoin">Matthieu</p></div>
+      </div>
     </div>
   </div>
-
-  <div class="carte-temoin">
-    <img src="Mika.jpg" alt="Mickaël" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Mickaël</p>
-    </div>
-  </div>
-
-  <div class="carte-temoin">
-    <img src="Paulo.jpg" alt="Paul" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Paul</p>
-    </div>
-  </div>
-</div>
-
-<h3 style="text-align: center; font-size: 1.6em; margin-top: 3em; margin-bottom: 1em;">Témoins de Mélanie</h3>
-<div id="temoins-melanie" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1200px; margin: auto;">
-
-  <div class="carte-temoin" style="background: #f4f4f4; display: flex; align-items: center; justify-content: center; height: 350px;">
-    <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #999;">Emma (à venir)</p>
-  </div>
-
-  <div class="carte-temoin">
-    <img src="Firas.jpg" alt="Firas" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Firas</p>
-    </div>
-  </div>
-
-  <div class="carte-temoin">
-    <img src="Lolo.jpg" alt="Lauranne" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Lauranne</p>
-    </div>
-  </div>
-
-  <div class="carte-temoin">
-    <img src="Matt.jpg" alt="Matthieu" style="width: 100%; object-fit: cover;">
-    <div style="padding: 1em;">
-      <p style="margin: 0; font-weight: 600; font-size: 1.2em; color: #1c3b2f;">Matthieu</p>
-    </div>
-  </div>
-
-</div>
 </section>
 
 <section id="liste">
