@@ -99,17 +99,25 @@ nav {
 }
 nav ul {
   display: flex;
-  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
   list-style: none;
-  gap: 0.6em;
-  padding: 0.6em 0.2em;
-  flex-wrap: wrap;
+  gap: 0.8em;
+  padding: 0.6em 0.4em;
+  flex-wrap: nowrap;
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;     /* Firefox */
+}
+
+nav ul::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 nav li a {
   color: var(--green);
   text-decoration: none;
   font-weight: bold;
   font-size: 0.85em;
+  white-space: nowrap;
 }
 section {
   padding: 4em 1em;
