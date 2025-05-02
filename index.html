@@ -466,32 +466,20 @@ input#montantProduitThermomix:focus {
     margin-top: auto;
   }
 }
+/* Forcer 2 lignes pour la description sous "Villeroy & Boch" */
+#produits-art-table .infos-produit p:nth-of-type(3) {
+  height: 2.6em;
+  line-height: 1.3em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
 if (window.location.hostname === "www.melanie-clement-2025.fr") {
   window.location.href = window.location.href.replace("www.", "");
-}
-@media (max-width: 999px) {
-  #produits-art-table .carte-produit-art {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 480px; /* ajuste si besoin */
-  }
-
-  #produits-art-table .zone-participation {
-    margin-top: auto;
-  }
-#produits-art-table .infos-produit p:last-child {
-  min-height: 40px; /* Ajuste si nécessaire */
-}
-}
-/* Forcer deux lignes pour la description sous "Villeroy & Boch" */
-#produits-art-table .infos-produit p:nth-of-type(3) {
-  height: 2.6em; /* 2 lignes de 1.3em */
-  line-height: 1.3em;
-  overflow: hidden;
 }
 </script>  
 </head>
