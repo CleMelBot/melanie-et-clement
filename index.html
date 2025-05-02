@@ -1,3 +1,5 @@
+Toujours pas … 
+
 <!DOCTYPE html>
 <html lang="fr" style="color-scheme: light;">
 <head>
@@ -565,29 +567,26 @@ input#montantProduitThermomix:focus {
     max-width: calc(25% - 20px);
   }
 }
+@media (max-width: 999px) {
+  #temoins-clement > div,
+  #temoins-melanie > div {
+    flex: 0 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
 .carte-temoin {
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   overflow: hidden;
   text-align: center;
-  flex: 0 1 calc(50% - 20px);
+  flex: 0 1 calc(50% - 10px);
   max-width: 250px;
-  margin: 10px;
 }
 
 @media (min-width: 1000px) {
   .carte-temoin {
     flex: 0 1 calc(25% - 20px);
-    max-width: 220px;
-  }
-}
-@media (min-width: 1000px) {
-  #temoins-clement,
-  #temoins-melanie {
-    justify-content: center;
-    max-width: 1000px;
-    margin: auto;
   }
 }
 </style>
