@@ -447,6 +447,21 @@ input#montantProduitThermomix:focus {
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 1000px) {
+  #produits-art-table > div {
+    height: 500px !important; /* hauteur standard pour toutes les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #produits-art-table .infos-produit {
+    height: 160px; /* espace alloué au texte / marque / description */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
