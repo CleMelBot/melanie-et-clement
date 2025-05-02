@@ -716,12 +716,14 @@ function afficherProduits() {
           </p>
           <p style="margin: 0.4em 0 1em 0; font-size: 0.8em; color: #666;">${produit.description}</p>
         </div>
-        <div class="zone-participation">
-          <div style="flex-direction: column;">
+        <div class="zone-participation" style="background: #f9f8f4; border-radius: 12px; display: flex; overflow: hidden; height: 55px; margin-top: 1em;">
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <span style="font-size: 0.75em; font-weight: 600;">Restant</span>
-            <span style="font-weight: bold;">${format(produit.prix)}€</span>
+            <div>
+              <input id="montantProduit${produit.id}" type="number" min="1" placeholder="${format(produit.prix)}" style="border: none; background: transparent; font-size: 0.9em; font-weight: bold; text-align: center; width: 70px;" />
+            </div>
           </div>
-          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="background: #2d6a4f; color: white; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer; height: 100%; width: 100%;">
+          <button onclick="envoyerProduit(event, '${produit.nom}', 'montantProduit${produit.id}')" style="flex: 1; background: #2d6a4f; color: white; text-align: center; font-weight: 600; font-size: 0.7em; border: none; cursor: pointer;">
             Participer
           </button>
         </div>
