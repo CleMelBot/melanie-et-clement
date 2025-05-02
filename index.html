@@ -613,6 +613,7 @@ input#montantProduitThermomix:focus {
   font-weight: 600;
   font-size: 1.2em;
   color: var(--green);
+  text-align: center;
 }
 
 .bloc-temoins {
@@ -641,7 +642,11 @@ input#montantProduitThermomix:focus {
   flex: 0 1 calc(50% - 10px);
   max-width: 250px;
 }
-
+.carte-temoin > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (min-width: 1000px) {
   .carte-temoin {
     flex: 0 1 calc(25% - 20px);
