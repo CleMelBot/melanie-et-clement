@@ -411,7 +411,7 @@ input#montantProduitThermomix:focus {
 }
 @media (min-width: 1000px) {
   #produits-art-table .infos-produit {
-    min-height: 130px; /* Ajuste si nécessaire */
+    min-height: 150px; /* Ajuste si nécessaire */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -709,7 +709,7 @@ function afficherProduits() {
     <div style="flex: 0 1 calc(48% - 10px); max-width: 450px; background: #fff; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
       <img src="${produit.image}" alt="${produit.nom}" style="width: 100%; height: 220px; object-fit: cover;">
       <div style="padding: 1em; display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
-        <div>
+        <div class="infos-produit">
           <p id="etat-${produit.id}" class="etat-produit" style="margin: 0; font-size: 1em; font-weight: bold;">0€ / ${format(produit.prix)}€</p>
           <p style="margin: 0;">
             <a href="${produit.lien}" target="_blank" style="color: #1c3b2f; text-decoration: underline; font-weight: 600;">Villeroy & Boch</a>
