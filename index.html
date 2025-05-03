@@ -154,10 +154,9 @@ h2 {
   .parallax-bg { background-attachment: fixed; }
 }
 .section-liste-cadeaux, .section-liste-art {
-  width: 100%;
-  max-width: 1000px;
-  margin: 2em auto;
-  padding: 0 1em;
+  max-width: 400px;
+  margin: 2em 0;
+  padding: 0;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
@@ -553,106 +552,6 @@ input#montantProduitThermomix:focus {
 #produits-art-table .carte-produit-art {
   padding-bottom: 10px; /* ou plus si tu veux plus d'air */
 }
-#temoins-clement > div,
-#temoins-melanie > div {
-  flex: 0 1 calc(48% - 10px);
-  max-width: calc(48% - 10px);
-}
-
-@media (min-width: 1000px) {
-  #temoins-clement > div,
-  #temoins-melanie > div {
-    flex: 0 1 calc(25% - 20px);
-    max-width: calc(25% - 20px);
-  }
-}
-@media (max-width: 999px) {
-  #temoins-clement > div,
-  #temoins-melanie > div {
-    flex: 0 1 calc(50% - 10px);
-    max-width: calc(50% - 10px);
-  }
-}
-.carte-temoin {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  overflow: hidden;
-  text-align: center;
-  flex: 0 1 calc(50% - 10px);
-  max-width: 250px;
-}
-
-@media (min-width: 1000px) {
-  .carte-temoin {
-    flex: 0 1 calc(25% - 20px);
-  }
-}
-#temoins.section-liste-cadeaux h2.section-titre-liste {
-  text-align: center;
-}
-
-#temoins h3 {
-  text-align: left !important;
-  margin-left: 0;
-  margin-right: 0;
-}
-#temoins.section-liste-cadeaux h2.section-titre-liste {
-  font-size: 2.2em;
-  text-align: center;
-}
-.sous-titre-temoin {
-  text-align: center;
-  font-size: 1.6em;
-  margin: 0em 0 0em;
-  font-weight: 600;
-  color: var(--green);
-}
-
-.nom-temoin {
-  margin: 0;
-  font-weight: 600;
-  font-size: 1.2em;
-  color: var(--green);
-  text-align: center;
-}
-
-.bloc-temoins {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  padding: 1em 1em;
-  margin: 1em auto;
-  max-width: 1000px;
-}
-
-.groupe-temoins {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.carte-temoin {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  overflow: hidden;
-  text-align: center;
-  flex: 0 1 calc(50% - 10px);
-  max-width: 250px;
-}
-.carte-temoin > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (min-width: 1000px) {
-  .carte-temoin {
-    flex: 0 1 calc(25% - 20px);
-  }
-}
 </style>
 <script>
 // Redirection automatique de www.melanie-clement-2025.fr vers melanie-clement-2025.fr
@@ -679,7 +578,6 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 <ul>
 <li><a href="#ceremonie">Cérémonie</a></li>
 <li><a href="#reception">Réception</a></li>
-<li><a href="#temoins">Témoins</a></li>
 <li><a href="#liste">Liste</a></li>
 <li><a href="#hebergements">Hébergement</a></li> 
 <li><a href="#multimedia">Multimédia</a></li>
@@ -724,54 +622,6 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
     <a href="#" onclick="openWaze(49.541834, 0.496810)">
       <img alt="Waze" src="waze_logo.png" style="height: 34px;"/>
     </a>
-  </div>
-</section>
-
-<section id="temoins" class="section-liste-cadeaux">
-  <h2 class="section-titre-liste">Témoins</h2>
-
-  <div class="bloc-temoins">
-    <h3 class="sous-titre-temoin">Témoins de Clément</h3>
-    <div id="temoins-clement" class="groupe-temoins">
-      <div class="carte-temoin">
-        <img src="Alex.jpg" alt="Alexandre" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Alexandre</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Jojo.jpg" alt="Jordan" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Jordan</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Mika.jpg" alt="Mickaël" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Mickaël</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Paulo.jpg" alt="Paul" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Paul</p></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="bloc-temoins">
-    <h3 class="sous-titre-temoin">Témoins de Mélanie</h3>
-    <div id="temoins-melanie" class="groupe-temoins">
-      <div class="carte-temoin">
-        <img src="Emma.jpg" alt="Emma" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Emma</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Firas.jpg" alt="Firas" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Firas</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Lolo.jpg" alt="Lauranne" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Lauranne</p></div>
-      </div>
-      <div class="carte-temoin">
-        <img src="Matt.jpg" alt="Matthieu" style="width: 100%; object-fit: cover;">
-        <div style="padding: 1em;"><p class="nom-temoin">Matthieu</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
