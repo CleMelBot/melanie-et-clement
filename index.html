@@ -1300,7 +1300,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const prenom = document.getElementById("prenom").value.trim();
     const nom = document.getElementById("nom").value.trim();
 
-    const match = trouverPassager(nom, prenom);
+    const match = passagers.find(p =>
+  nettoyerTexte(p.nom) === nettoyerTexte(nom) &&
+  nettoyerTexte(p.prenom) === nettoyerTexte(prenom)
+);
 
     if (!match) {
       alert("Nom/prénom non reconnu 😢");
