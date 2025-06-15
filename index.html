@@ -1306,6 +1306,11 @@ window.addEventListener('scroll', () => {
   max-width: 500px;
   z-index: 10000;
 }
+  /* Empêche le zoom automatique sur mobile dans le formulaire Check-in */
+  #form-checkin input,
+  #form-checkin button {
+    font-size: 16px !important;
+  }
 </style>
 
 <script src="passengers.js"></script>
