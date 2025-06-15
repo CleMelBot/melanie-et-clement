@@ -1330,8 +1330,15 @@ ctx.font = "72px 'Poppins'";
 ctx.fillText(nom.toUpperCase(), 229.6, 413.7);
 ctx.fillText(prenom, 229.6, 517.9);
 
+// Centrage horizontal dynamique du numéro de siège
+const zoneX = 950.5;        
+const zoneWidth = 171.6;    
+
 ctx.font = "90px 'Poppins'";
-ctx.fillText(match.siege, 950, 475);
+const textWidth = ctx.measureText(match.siege).width;
+const siegeX = zoneX + (zoneWidth - textWidth) / 2;
+
+ctx.fillText(match.siege, siegeX, 475); 
 
       document.getElementById("preview-container").style.display = "block";
       document.getElementById("btn-telecharger").href = canvas.toDataURL("image/png");
