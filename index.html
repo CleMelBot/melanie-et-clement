@@ -1330,17 +1330,25 @@ window.addEventListener('scroll', () => {
     document.getElementById("popup-checkin").style.display = "none";
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const now = new Date();
-    const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h Paris = 11h UTC
+document.addEventListener("DOMContentLoaded", function () {
+  const now = new Date();
+  const nowUtc = new Date(Date.UTC(
+    now.getUTCFullYear(),
+    now.getUTCMonth(),
+    now.getUTCDate(),
+    now.getUTCHours(),
+    now.getUTCMinutes()
+  ));
 
-    if (now >= parisTime) {
-      document.getElementById("checkin-link").style.display = "inline-block";
-      setTimeout(() => {
-        ouvrirCheckin();
-      }, 1000);
-    }
-  });
+  const showAtUtc = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin 13h Paris = 11h UTC
+
+  if (nowUtc >= showAtUtc) {
+    document.getElementById("checkin-link").style.display = "inline-block";
+    setTimeout(() => {
+      ouvrirCheckin();
+    }, 1000);
+  }
+});
 </script>
 
   document.getElementById("form-checkin").addEventListener("submit", function (e) {
