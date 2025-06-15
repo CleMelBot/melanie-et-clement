@@ -1281,8 +1281,12 @@ window.addEventListener('scroll', () => {
 
 <script src="passagers.js"></script>
 <script>
-function normaliserTexte(str) {
-  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+function nettoyerTexte(str) {
+  return str
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // retire accents
+    .replace(/-/g, "")  // retire les tirets
+    .toLowerCase()
+    .trim();
 }
 function ouvrirCheckin() {
   document.getElementById("popup-checkin").style.display = "flex";
