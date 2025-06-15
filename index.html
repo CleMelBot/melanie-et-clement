@@ -1347,6 +1347,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const image = new Image();
     image.src = "carteembarquement.png";
     image.onload = () => {
+      
+      document.body.style.zoom = "1";
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
