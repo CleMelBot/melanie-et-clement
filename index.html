@@ -1332,7 +1332,7 @@ window.addEventListener('scroll', () => {
 
   document.addEventListener("DOMContentLoaded", function () {
     const now = new Date();
-    const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h (UTC+2 = 11h UTC)
+    const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h Paris = 11h UTC
 
     if (now >= parisTime) {
       document.getElementById("checkin-link").style.display = "inline-block";
