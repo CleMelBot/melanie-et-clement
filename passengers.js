@@ -1,10 +1,11 @@
 // Fonction pour nettoyer les textes : retire accents, tirets, espaces superflus, passe en minuscules
 function nettoyerTexte(str) {
   return str
-    .normalize("NFD").replace(/[̀-ͯ]/g, "") // enlève les accents
-    .replace(/-/g, "")                               // enlève les tirets
-    .toLowerCase()
-    .trim();
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // supprime accents
+    .replace(/-/g, "")                                // supprime tirets
+    .replace(/\s+/g, "")                              // supprime espaces
+    .toLowerCase()                                    // passe en minuscules
+    .trim();                                          // supprime débuts/fins blancs
 }
 
 // Liste complète des passagers
