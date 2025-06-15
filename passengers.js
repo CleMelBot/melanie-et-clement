@@ -106,7 +106,7 @@ const passagers = [
   { nom: "BIVILLE", prenom: "Manon", siege: "6G" },
   { nom: "LAVOUE", prenom: "Manon", siege: "6E" },
   { nom: "NANDJI", prenom: "Marie", siege: "25E" },
-  { nom: "CHAILLOT", prenom: "Marie Noelle", siege: "27F" },
+  { nom: "CHAILLOT", prenom: "Marie-Noelle", siege: "27F" },
   { nom: "CHERON", prenom: "Marine", siege: "27E" },
   { nom: "BACHELET", prenom: "Marion", siege: "25L" },
   { nom: "LE NAGARD", prenom: "Maryon", siege: "25A" },
