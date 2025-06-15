@@ -1322,25 +1322,26 @@ window.addEventListener('scroll', () => {
 
 <script src="passengers.js"></script>
 <script>
-function ouvrirCheckin() {
-  document.getElementById("popup-checkin").style.display = "flex";
-}
-
-function fermerCheckin() {
-  document.getElementById("popup-checkin").style.display = "none";
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const now = new Date();
-  const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h heure Paris = 11h UTC
-
-  if (now >= parisTime) {
-    document.getElementById("checkin-link").style.display = "inline-block";
-    setTimeout(() => {
-      ouvrirCheckin();
-    }, 1000);
+  function ouvrirCheckin() {
+    document.getElementById("popup-checkin").style.display = "block";
   }
-});
+
+  function fermerCheckin() {
+    document.getElementById("popup-checkin").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const now = new Date();
+    const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h (UTC+2 = 11h UTC)
+
+    if (now >= parisTime) {
+      document.getElementById("checkin-link").style.display = "inline-block";
+      setTimeout(() => {
+        ouvrirCheckin();
+      }, 1000);
+    }
+  });
+</script>
 
   document.getElementById("form-checkin").addEventListener("submit", function (e) {
     e.preventDefault();
