@@ -1279,46 +1279,19 @@ window.addEventListener('scroll', () => {
 }
 </style>
 
+<script src="passengers.js"></script>
 <script>
-// Fonction pour nettoyer les textes : retire accents, tirets, espaces superflus, passe en minuscules
-function nettoyerTexte(str) {
-  return str
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // enlève les accents
-    .replace(/-/g, "")                               // enlève les tirets
-    .toLowerCase()
-    .trim();
+function normaliserTexte(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }
-
-// Tableau des passagers
-const passagers = [
-  { nom: "BOTTOIS", prenom: "CLÉMENT", siege: "C16" },
-  { nom: "MARTIN", prenom: "PIERRE-OLIVIER", siege: "A3" },
-  { nom: "DUPONT", prenom: "ÉLODIE", siege: "B5" },
-  { nom: "GIRARD", prenom: "JEAN-MARC", siege: "D2" },
-  { nom: "LEGRAND", prenom: "MARIE CLAIRE", siege: "E8" }
-];
-
-// Fonction de recherche
-function trouverPassager(nomSaisi, prenomSaisi) {
-  const nomNettoye = nettoyerTexte(nomSaisi);
-  const prenomNettoye = nettoyerTexte(prenomSaisi);
-
-  return passagers.find(p =>
-    nettoyerTexte(p.nom) === nomNettoye &&
-    nettoyerTexte(p.prenom) === prenomNettoye
-  );
-}
-
 function ouvrirCheckin() {
   document.getElementById("popup-checkin").style.display = "flex";
 }
-
 function fermerCheckin() {
   document.getElementById("popup-checkin").style.display = "none";
 }
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Affichage immédiat pour test
+  // Force affichage immédiat pour test
   document.getElementById("checkin-link").style.display = "inline-block";
   ouvrirCheckin();
 
@@ -1328,7 +1301,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const prenom = document.getElementById("prenom").value.trim();
     const nom = document.getElementById("nom").value.trim();
 
-    const match = trouverPassager(nom, prenom);
+    const prenomNormalise = normaliserTexte(prenom);
+    const nomNormalise = normaliserTexte(nom);
+
+    const match = passagers.find(p =>
+      normaliserTexte(p.prenom) === prenomNormalise &&
+      normaliserTexte(p.nom) === nomNormalise
+    );
 
     if (!match) {
       alert("Nom/prénom non reconnu 😢");
@@ -1345,19 +1324,21 @@ document.addEventListener("DOMContentLoaded", function () {
       ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = "#F8E6BF";
-      ctx.textBaseline = "top";
+ctx.textBaseline = "top";
 
-      ctx.font = "72px 'Poppins'";
-      ctx.fillText(nom.toUpperCase(), 229.6, 413.7);
-      ctx.fillText(prenom, 229.6, 517.9);
+ctx.font = "72px 'Poppins'";
+ctx.fillText(nom.toUpperCase(), 229.6, 413.7);
+ctx.fillText(prenom, 229.6, 517.9);
 
-      // Centrage horizontal dynamique du numéro de siège
-      const zoneX = 945;
-      const zoneWidth = 171.6;
-      ctx.font = "90px 'Poppins'";
-      const textWidth = ctx.measureText(match.siege).width;
-      const siegeX = zoneX + (zoneWidth - textWidth) / 2;
-      ctx.fillText(match.siege, siegeX, 475);
+// Centrage horizontal dynamique du numéro de siège
+const zoneX = 950.5;        // Position de départ de la zone SEAT
+const zoneWidth = 171.6;    // Largeur de la zone SEAT
+
+ctx.font = "90px 'Poppins'";
+const textWidth = ctx.measureText(match.siege).width;
+const siegeX = zoneX + (zoneWidth - textWidth) / 2;
+
+ctx.fillText(match.siege, siegeX, 475);  // Y = 475 selon ton alignement
 
       document.getElementById("preview-container").style.display = "block";
       document.getElementById("btn-telecharger").href = canvas.toDataURL("image/png");
