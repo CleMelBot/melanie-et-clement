@@ -1,8 +1,9 @@
 // Fonction pour nettoyer les textes : retire accents, tirets, espaces superflus, passe en minuscules
 function nettoyerTexte(str) {
   return str
-    .normalize("NFD").replace(/[̀-ͯ]/g, "") // enlève les accents
-    .replace(/-/g, "")                               // enlève les tirets
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // retire les accents
+    .replace(/-/g, "")                                // retire les tirets
+    .replace(/\s+/g, "")                              // retire les espaces
     .toLowerCase()
     .trim();
 }
