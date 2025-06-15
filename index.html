@@ -1259,21 +1259,21 @@ window.addEventListener('scroll', () => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99999;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: 99999;
-  padding-top: 3vh;
+  padding-top: 30px; /* espace avec le haut */
 }
 
 #popup-content {
   background: white;
   padding: 2em;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  max-width: 600px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   width: 90%;
+  max-width: 500px;
   z-index: 100000;
   position: relative;
 }
