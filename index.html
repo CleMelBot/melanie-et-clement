@@ -1276,18 +1276,13 @@ window.addEventListener('scroll', () => {
 
 
 <style>
-#popup-checkin {
-  position: absolute;
-  top: 0;
-  left: 0;
+#popup-checkin input[type="text"] {
+  font-size: 16px; /* Évite le zoom automatique sur iOS */
+  padding: 0.6em;
+  border-radius: 8px;
   width: 100%;
-  height: 95vh; /* juste la hauteur de la photo */
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 60px;
-  z-index: 9999;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 #popup-overlay {
@@ -1345,17 +1340,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const ctx = canvas.getContext("2d");
 
     const image = new Image();
-    image.src = "carteembarquement.png";
-    image.onload = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+image.src = "carteembarquement.png";
+image.onload = () => {
+  document.body.style.zoom = "1";
 
-      ctx.fillStyle = "#F8E6BF";
-      ctx.textBaseline = "top";
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-      ctx.font = "72px 'Poppins'";
-      ctx.fillText(nom.toUpperCase(), 229.6, 413.7);
-      ctx.fillText(prenom, 229.6, 517.9);
+  ctx.fillStyle = "#F8E6BF";
+  ctx.textBaseline = "top";
+
+  ctx.font = "72px 'Poppins'";
+  ctx.fillText(nom.toUpperCase(), 229.6, 413.7);
+  ctx.fillText(prenom, 229.6, 517.9);
 
       const zoneX = 945;
       const zoneWidth = 171.6;
