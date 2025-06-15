@@ -1331,11 +1331,16 @@ function fermerCheckin() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Affichage immédiat pour test (à remplacer par condition date + tard)
-  document.getElementById("checkin-link").style.display = "inline-block";
+  const now = new Date();
+  const parisTime = new Date(Date.UTC(2025, 5, 25, 11, 0)); // 25 juin à 13h heure Paris = 11h UTC
+
+  if (now >= parisTime) {
+    document.getElementById("checkin-link").style.display = "inline-block";
     setTimeout(() => {
-    ouvrirCheckin();
-  }, 1000); // délai de 1 seconde (1000ms)
+      ouvrirCheckin();
+    }, 1000);
+  }
+});
 
   document.getElementById("form-checkin").addEventListener("submit", function (e) {
     e.preventDefault();
