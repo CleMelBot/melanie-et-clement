@@ -732,22 +732,20 @@ if (window.location.hostname === "www.melanie-clement-2025.fr") {
 <div id="preview-container" style="margin-top: 0.8em; text-align: center; display: none;">
   <canvas id="canvas-carte" width="1536" height="1024" style="max-width: 100%; height: auto; margin: 0 auto;"></canvas>
 
-  <a id="btn-telecharger"
-     download="carte_embarquement.png"
-     style="display: block;
-            margin: 1em auto 0;
-            padding: 0.6em 1.2em;
-            background-color: var(--terracotta); /* couleur orange */
-            color: white;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-            box-sizing: border-box;">
+  <button id="btn-telecharger"
+          style="background-color: var(--terracotta);
+                 color: white;
+                 padding: 0.6em 1.2em;
+                 border-radius: 8px;
+                 border: none;
+                 font-weight: bold;
+                 cursor: pointer;
+                 margin: 1em auto 0;
+                 display: block;
+                 max-width: 400px;
+                 width: 100%;">
     Télécharger la carte
-  </a>
+  </button>
 </div>
   </div>
 </div>
@@ -1388,6 +1386,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("preview-container").style.display = "block";
       document.getElementById("btn-telecharger").href = canvas.toDataURL("image/png");
+      document.getElementById("btn-telecharger").addEventListener("click", function () {
+  const canvas = document.getElementById("canvas-carte");
+  const link = document.createElement("a");
+  link.download = "carte_embarquement.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+});
     };
   });
 });
