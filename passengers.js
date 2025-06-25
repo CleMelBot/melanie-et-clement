@@ -147,7 +147,20 @@ const passagers = [
 { nom: "LEMASSON", prenom: "Vincent", siege: "4S" },
 { nom: "LOUIS", prenom: "Wala", siege: "8R" },
 { nom: "MAUGERE", prenom: "Yannick", siege: "10S" },
-{ nom: "COTTENCEAU", prenom: "Yves", siege: "6E" }
+{ nom: "COTTENCEAU", prenom: "Yves", siege: "6E" },
+{ nom: "DUTOT", prenom: "Emma", siege: "11A" },
+{ nom: "LEROUX", prenom: "Ethan", siege: "11B" },
+{ nom: "DEMEYER", prenom: "Harry", siege: "11C" },
+{ nom: "DORE", prenom: "Loïs", siege: "11D" },
+{ nom: "COTTENCEAU", prenom: "Louis", siege: "11E" },
+{ nom: "LEROUX", prenom: "Louka", siege: "11F" },
+{ nom: "DEVANNE", prenom: "Lucas", siege: "11G" },
+{ nom: "DEVANNE", prenom: "Manon", siege: "11H" },
+{ nom: "LE NAGARD", prenom: "Mathilda", siege: "11I" },
+{ nom: "DUTOT", prenom: "Oliver", siege: "11J" },
+{ nom: "KALINICHENKO", prenom: "Polina", siege: "11K" },
+{ nom: "LE NAGARD", prenom: "Sarah", siege: "11L" },
+{ nom: "LE NAGARD", prenom: "Wendy", siege: "11M" }
 ];
 
 // Fonction pour retrouver un passager à partir d’un nom et prénom saisis
