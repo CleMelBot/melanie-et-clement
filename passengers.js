@@ -161,7 +161,8 @@ const passagers = [
 { nom: "KALINICHENKO", prenom: "Polina", siege: "11K" },
 { nom: "LE NAGARD", prenom: "Sarah", siege: "11L" },
 { nom: "LE NAGARD", prenom: "Wendy", siege: "11M" },
-{ nom: "VAN HULLE", prenom: "Stéphane", siege: "11N" }
+{ nom: "VAN HULLE", prenom: "Stéphane", siege: "11N" },
+{ nom: "DORE", prenom: "Axelle", siege: "11O" }
 ];
 
 // Fonction pour retrouver un passager à partir d’un nom et prénom saisis
