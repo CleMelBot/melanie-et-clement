@@ -144,7 +144,7 @@ h2 {
 }
 .countdown {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 0.9em;
   padding: 0.7em;
   color: var(--orange);
   background: var(--cream);
@@ -1041,13 +1041,22 @@ function afficherProduits() {
 function updateCountdown() {
   const countDate = new Date("June 28, 2025 14:00:00").getTime();
   const now = new Date().getTime();
-  const gap = countDate - now;
+  const gap = now - countDate;
+
+  if (gap < 0) {
+    document.getElementById("countdown-timer").innerText = "bientôt…";
+    return;
+  }
+
   const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
   const d = Math.floor(gap / day);
   const h = Math.floor((gap % day) / hour);
   const m = Math.floor((gap % hour) / minute);
   const s = Math.floor((gap % minute) / second);
   document.getElementById("countdown-timer").innerText = `${d}j ${h}h ${m}m ${s}s`;
+  
+  const texte = document.querySelector(".countdown");
+  if (texte) texte.innerHTML = `Décollage effectué il y a <span id="countdown-timer">${d}j ${h}h ${m}m ${s}s</span>`;
 }
 
 function revealSections() {
