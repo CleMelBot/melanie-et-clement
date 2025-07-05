@@ -574,6 +574,7 @@ input#montantProduitThermomix:focus {
     max-width: calc(50% - 10px);
   }
 }
+
 .carte-temoin {
   background: white;
   border-radius: 12px;
@@ -663,6 +664,46 @@ input#montantProduitThermomix:focus {
 @media (min-width: 1000px) {
   nav ul {
     justify-content: center;
+  }
+}
+
+#objets .temoins-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+#objets .carte-temoin {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: center;
+  flex: 0 1 250px;
+  max-width: 100%;
+}
+
+#objets .photo-temoin {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+#objets .nom-temoin {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--green);
+  text-align: center;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  #objets .carte-temoin {
+    flex: 0 1 100%;
   }
 }
 </style>
