@@ -990,8 +990,11 @@ Un cadeau pour nous accompagner dans cette nouvelle aventure ? Choisissez un cad
 <div class="photo-section">
   <img alt="Logo Photo Booth" src="photobooth_logo.png"/>
   <p>
-    Merci à tous pour vos plus belles poses dans la cabine PhotoBooth ! Vous pouvez retrouver toutes les photos prises pendant le mariage 
-    <a href="https://photos.app.goo.gl/WW6eGqZHRpdddibS7" target="_blank">ici</a>.</p>
+    Merci à tous pour vos plus belles poses dans la cabine Photo Booth !<br>
+    Vous pouvez retrouver toutes les photos prises pendant le mariage 
+    <a href="#" onclick="verifierMotDePasse();" style="background-color: orange; padding: 4px 10px; border-radius: 6px; color: white; font-weight: bold; text-decoration: none;">
+      ici
+    </a>.
   </p>
 </div>
 
@@ -1311,6 +1314,16 @@ window.addEventListener('scroll', () => {
     bg.style.transform = `translateY(${offset * 0.5}px)`;
   }
 });
+</script>
+<script>
+function verifierMotDePasse() {
+  const mot = prompt("Entrez le mot de passe pour accéder aux photos 📸");
+  if (mot === "bottois2025") {
+    window.location.href = "https://photos.app.goo.gl/WW6eGqZHRpdddibS7";
+  } else if (mot) {
+    alert("❌ Mot de passe incorrect. Veuillez réessayer.");
+  }
+}
 </script>
 </body>
 </html>
